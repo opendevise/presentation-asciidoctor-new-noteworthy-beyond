@@ -1,0 +1,96 @@
+= Asciidoctor: New, Noteworthy, and Beyond
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
+:repository-name: presentation-asciidoctor-new-noteworthy-beyond
+:branch: master
+:uri-bespoke: http://markdalgleish.com/projects/bespoke.js
+:uri-bundler: http://bundler.io
+:uri-gulp: https://gulpjs.com
+:uri-node: https://nodejs.org
+:uri-nvm: https://github.com/creationix/nvm
+:uri-ruby: https://www.ruby-lang.org
+:uri-rvm: https://rvm.io
+:uri-yarn: https://yarnpkg.com
+
+[abstract]
+--
+// tag:abstract[]
+sciidoctor continues to take technical documentation by storm, especially in the Java sector.
+From software projects like Spring, JUnit, Hiberate, and Elastic, to specifications like CDI and Bean Validation, to tech publishers like InfoQ, O'Reilly, and independents, you don't have to look far to find AsciiDoc powering documentation.
+These abundant and diverse use cases have helped push Asciidoctor to new limits.
+So what's new and where's it headed?
+
+I'll start by covering the core mission of Asciidoctor and what changes we're trying to push for in documentation.
+Then, I'll survey recent improvements that have been introduced into the language and core processor.
+I'll then present some of the extensions, integrations, and tools that have been developed around core.
+I'll talk about how the processor fits with other components, such as static site generators, and what other software tools and processes are still needed.
+Finally, I'll discuss where we're headed with the AsciiDoc language and ecosystem.
+
+If you're using the AsciiDoc writing format or are interested in learning more about it, this talk will give you lots of information to take back to your writing desk.
+// end:abstract[]
+--
+
+////
+== View online
+
+https://opendevise.github.io/{repository-name}[Slides]
+&middot;
+https://github.com/opendevise/{repository-name}/blob/{branch}/src/notes/script.adoc[Script]
+////
+
+== View slides locally
+
+First, ensure you have the following installed:
+
+. {uri-node}[Node.js] >= 4.2 footnote:[You're strongly encouraged to use {uri-nvm}[nvm] to manage Node.]
+. {uri-yarn}[Yarn]
+
+ $ npm install -g yarn
+
+. {uri-gulp}[Gulp] (command line interface only)
+
+ $ npm install -g gulp-cli
+
+. {uri-ruby}[Ruby >= 2] footnote:[You're strongly encouraged to use {uri-rvm}[RVM] to manage Ruby.]
+
+ $ rvm use 2.4.2 --install
+
+. {uri-bundler}[Bundler]
+
+ $ gem install bundler
+
+Next, install dependencies (if you ran the generator with the `--skip-install` switch):
+
+ $ yarn
+   bundle --path=.bundle/gems
+
+Finally, build and serve the presentation!
+
+ $ gulp serve
+
+You can view the presentation in your browser at the URL displayed in the console.
+
+By default, the preview server runs on port 8000.
+To change this default, you can assign a different number to the PORT environment variable:
+
+ $ PORT=8888 gulp serve
+
+To build the presentation without starting the preview server, use:
+
+ $ gulp
+
+In both cases, the files are built into the [.path]_dist_ directory.
+You can view the slides outside of the local preview server by navigating to [.path]_dist/index.html_ in your browser.
+
+== Publish to GitHub Pages
+
+The Gulp build includes a task to publish the presentation to GitHub Pages.
+
+First, make sure you have initialized the project as a git repository and linked it to a GitHub project.
+The task assumes that the git remote named `origin` points to the repository on GitHub.
+
+Now you can build the presentation and publish it to GitHub Pages using:
+
+ $ gulp publish
+
+The files in the [.path]_dist_ directory end up in the `gh-pages` branch in the repository on GitHub.
+From there, they can be viewed in a browser from anywhere on the web.
