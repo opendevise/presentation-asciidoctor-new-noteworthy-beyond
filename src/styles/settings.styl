@@ -1,2 +1,24 @@
-$slide-width = 640px
-$slide-height = 360px
+$slide-width = 1280px
+$slide-height = 720px
+
+$c-black = #000
+//$c-black-bis = #212121
+$c-black-bis = #191919
+$c-white = #fff
+$c-white-bis = #fafafa
+
+// A400 from material design
+//$c-pri = #f50057
+//$c-pri = #ed1248
+$c-pri = #ea1048
+//$c-pri = #ee144d
+$c-pri-neg = $c-white
+
+pct(val, percentage)
+  val * (percentage / 100)
+
+sw(percentage)
+  pct($slide-width, percentage)
+
+sh(percentage)
+  pct($slide-height, percentage)
