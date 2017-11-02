@@ -156,12 +156,12 @@ Time will tell.
 
 Improvements to Asciidoctor.js and Asciidoctor API are shaping the API in core, starting to make it stronger.
 
-== New Features
+== Goodies
 
-* xrefstyle / proper ref catalog
+* icon:slide[code example] xrefstyle / proper ref catalog
  ** reference signifier terminology
-* advanced include tag filtering
-* translations of all built-in attributes in 28 languages available from the repository
+* icon:slide[code example] advanced include tag filtering
+* icon:slide[language flags] translations of all built-in attributes in 28 languages available from the repository
 * a plethora of compliance fixes brought about by heavy usage of Asciidoctor; we are reaching into deep and dark corners at this point; with millions of pages of documentation, all bugs are shallow; every corner of the parser gets exercised
 * much better SVG support, including support for interactive (object) and inline SVGs
 * speaking of SVGs, tons of new diagramming tools are supported by Asciidoctor Diagram; if you are creating diagrams, it's definitely work a look
@@ -170,7 +170,7 @@ Improvements to Asciidoctor.js and Asciidoctor API are shaping the API in core, 
 
 == Antora
 
-What I'm most excited to cover in this talk, and the most noteworthy, and the most important driver of what's to come, is a new project I've been working on named Antora.
+What I'm most excited to cover in this talk, and the most noteworthy, and most likely to impact the future of Asciidoctor, is a new project I've been working on named Antora.
 The last couple of years, my company has been consulting with other companies on their documentation systems.
 What we've noticed is that although there are a ton of static site generators available, few if any are well-suited for documentation sites...and more specifically AsciiDoc-based documentation sites.
 //I talk a lot about that in my other talk, Applying Engineering Practices to Documentation
@@ -257,7 +257,7 @@ It currently only parses blocks, but I'm going to take a crack at parsing inline
 (slide: github project for textlint-plugin-asciidoc)
 Once the document is parsed, then you write rules that listen for nodes and look for things to validate.
 For example, if you wanted to check for insecure URLs, you could listen for all paragraph nodes and only check for URLs in those regions, thus skipping any verbatim blocks.
-(slide: insecure url rule)
+(slide: insecure url rule example)
 And you get exact line number and character offsets in the message.
 
 With this system, you have much more control over what is validated.
