@@ -1,3 +1,5 @@
+//.TODO
+//- more diagrams
 = Asciidoctor | New, Noteworthy, & Beyond
 Dan Allen
 :organization: OpenDevise
@@ -150,7 +152,7 @@ asciidoctor {
 == New Features
 
 [.feature]
-== xrefstyle & Reference Catalog
+== xrefstyle
 
 [.code.io]
 == :xrefstyle: short
@@ -279,7 +281,7 @@ public class TheBeanCalledX {
 --
 
 [.feature]
-== Strong SVG Support
+== Strong SVG support
 
 [.code.io]
 == Interactive SVG
@@ -314,7 +316,7 @@ image::diagram.svg[opts=inline]
 --
 
 [.feature]
-== Bespoke Converter
+== Bespoke converter
 
 [.code]
 == Basic presentation
