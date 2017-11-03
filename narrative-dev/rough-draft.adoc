@@ -63,12 +63,12 @@ In January 2013, Asciidoctor was running on GitHub.com and available to 5 millio
 
 === Isn't Ruby kind of slow?
 
-It's not the fastest horse in the race.
-But the language has made significant improvements over the last few years.
-And most of the reasons a program performs poorly is because of how its developers wrote it--not the language they used.
+She's not the fastest pony in the race.
+But she's smart and wily.
+The language has made significant improvements over the last few years.
+Anyway, a program usually performs poorly because of how its developers wrote it--not the language they used.
 
-That's why nothing gets merged into Core that we haven't used every last trick in the book--and out of it--in order to make Ruby a speed demon.
-
+That's why nothing gets merged into Core that we haven't used every last trick in the book--and out of it.
 For example, one trick we use is to only run a regular expression or other expensive matcher if it's even possible that a match will occur.
 
 I'm obsessed with Core's performance.
@@ -180,61 +180,76 @@ Future:
 // Asciidoctor Reveal.js converter
 * Reveal.js converter, which closely resembles the Bespoke converter; the two influence each other
 
+* Jekyll plugin, the Middleman extension
+
+* Docker container
+
 === Integration Summary
 
 Improvements to Asciidoctor.js and AsciidoctorJ APIs are strengthening and hardening the API in Core.
 
-////
-
-There are so many integrations, it's hard to keep up.
-Some of the more notable ones are the Maven plugin, the Gradle plugin, the Jekyll plugin, the Middleman extension, the Reveal.js converter, the Atom plugin, the IntelliJ plugin, the Chrome/Firefox extension, and a Docker container.
-I'll mention many other projects throughout this presentation.
-////
-
-//So you can use Asciidoctor from Ruby, JavaScript, Java or any language that runs on the JVM.
-//And many people do use all of those.
-
-== Growth
+== Growth & Adoption
 // see http://bestgems.org/gems/asciidoctor
 
-Asciidoctor has grown beyond anything I could have imagined.
+So you can use Asciidoctor from Ruby, JavaScript, Java or any language that runs on the JVM.
+And many people do use all of those.
+
+Asciidoctor has grown beyond anything we could have imagined.
 
 * 70 repositories
 * 2.5M gem downloads
 * 376 contributors
 * 80 backers
 
-== Adoption
+So many users, that we can't mention them all.
 
-Adoption is growing like crazy.
-Year after year, Asciidoctor picks up notable users, and this year is no different.
-The major adoption news this year came in August when Fedora announced it was switching from DocBook to Asciidoctor.
-This migration was 4 years in the making, an effort which was sparked by a talk I gave about Asciidoctor at the Fedora User and Developer conference.
-It's safe to say that Red Hat has embraced Asciidoctor across the board.
-There are also personal reasons why this one matters to me.
+Notable enterprise adoptions include:
 
-Perhaps pertinent to more folks in this audience, Oracle and the Java EE leadership announced recently that the Java EE tutorial will be rewritten in AsciiDoc and processed by Asciidoctor.
+* In August, Fedora announced it was switching from DocBook to Asciidoctor.
+* The Java EE leadership recently announced that the Java EE tutorial will be rewritten in AsciiDoc and processed by Asciidoctor.
 (ref: https://javaee.github.io/tutorial/)
-You'll also find Asciidoctor in use in the Spring projects, both for the documentation and, in the case of Spring REST Docs, as generated output for documenting REST APIs.
 
-In terms of adoption by other businesses, Vogella does all its tutorials and trainings in Asciidoctor and the Khronos Group uses Asciidoctor for its Vulkan manual.
-I mention both of those specifically because those companies also provide funding for the project.
-If you want to talk to an author who's used Asciidoctor firsthand, find Matt Raible.
-He wrote the JHipster MiniBook in AsciiDoc and converted it to PDF for download and print using Asciidoctor PDF.
+* Vogella does all its tutorials and trainings in Asciidoctor.
+* The Khronos Group uses Asciidoctor for its Vulkan manual.
+* Vogella and The Khronos Group also provide funding for the project.
+* Lifeform
 
-I'm proud to say there are too many users of Asciidoctor to mention here, notable or not.
-But you can find a list online of the ones we know about.
-While there's still no page on the asciidoctor.org site that lists notable users of Asciidoctor, we keep track of the list in an open issue titled "`Who's Using Asciidoctor?`".
-Our plan is to implement that page soon, which ties into something I'll mention later in the talk.
+* JHipster MiniBook by Matt Raible was written in AsciiDoc and converted to PDF for download and print using Asciidoctor PDF.
 
 == The Future
+
+* Semantic HTML
+* Validation
+* Docs Overhaul
+
+But first, let's talk project management and infrastructure.
+
+=== Project Management: Roadmaps & Releases
+
+This is a short section.
+Our experience in the past few years, especially as the Asciidoctor ecosystem grows, has it painfully obvious that we need to shift to semantic versioning.
+Each micro release of Asciidoctor core is like a major release, so there's no room for anything else.
+We need to make room.
+We also need to move away from a single version scheme across the ecosystem.
+I thought it was the right way to go, but I was mistaken.
+It's only slowed things down.
+We'll be much better off if projects themselves are versioned semantically and we then track compatible versions.
+
+Once we shift to 1.6.0, releases will go 1.6.0, 1.7.0, then perhaps 2.0.0 if a major change is ready to go in.
+
+We may still align the minor version number for the core components, AsciidoctorJ and Asciidoctor.js.
+But the alignment wouldn't extend much outside of those projects.
+
+A shift to semantic versioning should also allow us to release faster.
+I know I've held up the release because minor stuff got stuck behind major stuff.
+I'm not ready to commit to timed releases yet, but I am thinking about them.
 
 === Semantic HTML
 
 (slide: html5 logo?)
 From the very first day I worked on the HTML output in Asciidoctor I knew there would come a time when we needed to rework the converter to produce semantic HTML.
 At the time, I decided to mimic the output of Asciidoc.py, as eccentric as it was, because the goal at that time was to be a drop in replacement and gain adoption.
-We'll, that's behind us, so it's time to reevaluate.
+Well, that's behind us, so it's time to reevaluate.
 
 (slide: html5s converter)
 Jakub has started work on a semantic HTML5 converter using custom templates.
@@ -328,44 +343,6 @@ I'm also working on a series of posts that introduce the project and explain the
 You'll be hearing a lot about it in the coming months.
 
 
-////
-This section is probably too much
-
-== Grammar
-
-When talking about validation, I mentioned inline parsing.
-This is probably the Achilles heal of Asciidoctor.
-(slide: parser icon => inline AST tree)
-When I first implemented Asciidoctor, I was aiming for compatibility with AsciiDoc.py.
-Therefore, I took the same approach of using regular expressions to parse inline nodes.
-Since AsciiDoc is only a semi-structured language, this works amazingly well.
-But we have reached the limits of that strategy.
-It's time (perhaps past time) to switch to an inline parser.
-It will likely be a recursive decent parser with some overrides since that's what's used in most Markdown implementations.
-I'll probably implement it first in the validator, which provides a safe place to work on it.
-Once that's worked out, I'll then bring it in to core.
-There may be some migration, but I expect that in most cases, it's only going to get more scenarios right, not less.
-////
-
-=== Project Management: Roadmaps & Releases
-
-This is a short section.
-Our experience in the past few years, especially as the Asciidoctor ecosystem grows, has it painfully obvious that we need to shift to semantic versioning.
-Each micro release of Asciidoctor core is like a major release, so there's no room for anything else.
-We need to make room.
-We also need to move away from a single version scheme across the ecosystem.
-I thought it was the right way to go, but I was mistaken.
-It's only slowed things down.
-We'll be much better off if projects themselves are versioned semantically and we then track compatible versions.
-
-Once we shift to 1.6.0, releases will go 1.6.0, 1.7.0, then perhaps 2.0.0 if a major change is ready to go in.
-
-We may still align the minor version number for the core components, AsciidoctorJ and Asciidoctor.js.
-But the alignment wouldn't extend much outside of those projects.
-
-A shift to semantic versioning should also allow us to release faster.
-I know I've held up the release because minor stuff got stuck behind major stuff.
-I'm not ready to commit to timed releases yet, but I am thinking about them.
 
 == Funding
 
@@ -412,4 +389,46 @@ I still have some tricks up my sleeve for how to make the performance better, bu
 We may focus those optimizations on making Asciidoctor.js faster, for example.
 And one day an implementation of Asciidoctor in a faster language might be in the cards.
 Time will tell.
+
+== Adoption
+
+Adoption is growing like crazy.
+Year after year, Asciidoctor picks up notable users, and this year is no different.
+The major adoption news this year came in August when Fedora announced it was switching from DocBook to Asciidoctor.
+This migration was 4 years in the making, an effort which was sparked by a talk I gave about Asciidoctor at the Fedora User and Developer conference.
+It's safe to say that Red Hat has embraced Asciidoctor across the board.
+There are also personal reasons why this one matters to me.
+
+Perhaps pertinent to more folks in this audience, Oracle and the Java EE leadership announced recently that the Java EE tutorial will be rewritten in AsciiDoc and processed by Asciidoctor.
+(ref: https://javaee.github.io/tutorial/)
+You'll also find Asciidoctor in use in the Spring projects, both for the documentation and, in the case of Spring REST Docs, as generated output for documenting REST APIs.
+
+In terms of adoption by other businesses, Vogella does all its tutorials and trainings in Asciidoctor and the Khronos Group uses Asciidoctor for its Vulkan manual.
+I mention both of those specifically because those companies also provide funding for the project.
+If you want to talk to an author who's used Asciidoctor firsthand, find Matt Raible.
+He wrote the JHipster MiniBook in AsciiDoc and converted it to PDF for download and print using Asciidoctor PDF.
+
+I'm proud to say there are too many users of Asciidoctor to mention here, notable or not.
+But you can find a list online of the ones we know about.
+While there's still no page on the asciidoctor.org site that lists notable users of Asciidoctor, we keep track of the list in an open issue titled "`Who's Using Asciidoctor?`".
+Our plan is to implement that page soon, which ties into something I'll mention later in the talk.
+////
+
+////
+This section is probably too much
+
+== Grammar
+
+When talking about validation, I mentioned inline parsing.
+This is probably the Achilles heal of Asciidoctor.
+(slide: parser icon => inline AST tree)
+When I first implemented Asciidoctor, I was aiming for compatibility with AsciiDoc.py.
+Therefore, I took the same approach of using regular expressions to parse inline nodes.
+Since AsciiDoc is only a semi-structured language, this works amazingly well.
+But we have reached the limits of that strategy.
+It's time (perhaps past time) to switch to an inline parser.
+It will likely be a recursive decent parser with some overrides since that's what's used in most Markdown implementations.
+I'll probably implement it first in the validator, which provides a safe place to work on it.
+Once that's worked out, I'll then bring it in to core.
+There may be some migration, but I expect that in most cases, it's only going to get more scenarios right, not less.
 ////
