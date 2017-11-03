@@ -5,119 +5,48 @@ Dan Allen
 :title-separator: |
 :!sectids:
 :imagesdir: images
-:source-highlighter: coderay
+//:source-highlighter: coderay
 :coderay-css: style
 :icons: font
 :docinfo: shared
 
 [.code]
-== Inline issue macro
-
-// TODO put language in upper right corner
-----
-Asciidoctor::Extensions.register do
-  inline_macro :issue do
-    process do |parent, id, attrs|
-      base_uri = parent.document.attr 'uri-issues'
-      create_anchor parent, id, \
-          type: :link,
-          target: "#{base_uri}/#{id}",
-          attributes: attrs
-    end
-  end
-end
-----
-
-[.code]
-== Inline issue macro
-
-// TODO put language in upper right corner
-----
-Opal.Asciidoctor.Extensions.register(function () {
-  this.inlineMacro('issue', function () {
-    this.process((parent, id, attrs) => {
-      const baseUri = parent.getDocument()
-          .getAttribute('uri-issues')
-      return this.createInline(parent, 'anchor', id, {
-        type: 'link',
-        target: `${baseUri}/${id}`,
-        attributes: attrs
-      })
-    })
-  })
-})
-----
-
-[.code]
-== Inline issue macro
+== Basic presentation
 
 ----
-asciidoctor {
-  extensions {
-    inline_macro (name: 'issue') { parent, id, attrs ->
-      baseUri = parent.document.getAttribute('uri-issues')
-      createInline(parent, 'anchor', id, attrs, [
-        type: ':link',
-        target: "${baseUri}/${id}".toString(),
-        attributes: attrs
-      ])
-    }
-  }
-}
+= My Awesome Presentation
+
+== Get Ready In...
+
+[%build]
+* 3
+* 2
+* 1
+
+== Gather the Crowd
+
+== Shout It Aloud
+
+== Creative Cloud!
 ----
 
 [.code.io]
-== :xrefstyle: short
+== Fancy Text
 
 [.insert,build=items]
 --
 ----
-Refer to <<foreign-keys>>.
-
-...
-
-=== Foreign Keys
+[.remark%slice%fit]
+== This is a  Call  to All Engineers
 ----
 
-[example]
-Refer to [.underline]#Section 3.2#.
+[.call]
+====
+[.line.l1]#This is a#
+[.line.l2]#Call#
+[.line.l3]#to All Engineers#
+====
 --
-
-[.code.io]
-== :xrefstyle: full
-
---
-----
-Refer to <<foreign-keys>>.
-
-...
-
-=== Foreign Keys
-----
-
-[example]
-Refer to [.underline]#Section 3.2, “Foreign Keys”#.
---
-
-[.code]
-== textlint :: insecure-url-rule
-
-----
-const LinkMacroRx = /(http(s)?:\/\/[^\[]+)\[[\s\S]*?\]/g
-module.exports = ({ RuleError, report }) => ({
-  'ParagraphNode': (node) => {
-    node.children.forEach((line) => {
-      let match
-      while ((match = LinkMacroRx.exec(line.raw)) != null) {
-        if (match[2] != null) continue
-        report(line, new RuleError(
-          `Illegal link to a non-secure URL: ${match[1]}`,
-          { index: match.index }))
-      }
-    })
-  }
-})
-----
 
 [.tweet]
 == !
@@ -198,11 +127,254 @@ image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-ite
 [.topic]
 == Integration
 
+[.code]
+== Inline issue macro
+
+[source,ruby]
+----
+Asciidoctor::Extensions.register do
+  inline_macro :issue do
+    process do |parent, id, attrs|
+      base_uri = parent.document.attr 'uri-issues'
+      create_anchor parent, id, \
+          type: :link,
+          target: "#{base_uri}/#{id}",
+          attributes: attrs
+    end
+  end
+end
+----
+
+[.code]
+== Inline issue macro
+
+[source,js]
+----
+Opal.Asciidoctor.Extensions.register(function () {
+  this.inlineMacro('issue', function () {
+    this.process((parent, id, attrs) => {
+      const baseUri = parent.getDocument()
+          .getAttribute('uri-issues')
+      return this.createInline(parent, 'anchor', id, {
+        type: 'link',
+        target: `${baseUri}/${id}`,
+        attributes: attrs
+      })
+    })
+  })
+})
+----
+
+[.code]
+== Inline issue macro
+
+[source,groovy]
+----
+asciidoctor {
+  extensions {
+    inline_macro (name: 'issue') { parent, id, attrs ->
+      baseUri = parent.document.getAttribute('uri-issues')
+      createInline(parent, 'anchor', id, attrs, [
+        type: ':link',
+        target: "${baseUri}/${id}".toString(),
+        attributes: attrs
+      ])
+    }
+  }
+}
+----
+
 [.topic]
 == New Features
 
+[.feature]
+== xrefstyle & Reference Catalog
+
+[.code.io]
+== :xrefstyle: short
+
+[.insert,build=items]
+--
+----
+Refer to <<foreign-keys>>.
+
+...
+
+=== Foreign Keys
+----
+
+[example]
+Refer to [.underline]#Section 3.2#.
+--
+
+[.code.io]
+== :xrefstyle: full
+
+--
+----
+Refer to <<foreign-keys>>.
+
+...
+
+=== Foreign Keys
+----
+
+[example]
+Refer to [.underline]#Section 3.2, “Foreign Keys”#.
+--
+
+[.feature]
+== Advanced tag filtering
+
+[.code]
+== Tagged include file
+
+----
+package com.acme;
+//tag::named[]
+import javax.inject.Named;
+//end::named[]
+import javax.enterprise.context.RequestScoped;
+
+//tag::named[]
+@Named("X")
+//end::named[]
+@RequestScoped
+public class TheBeanCalledX {
+  ...
+}
+----
+
+[.code.io]
+== Exclude all tags
+
+[.insert,build=items]
+--
+[listing]
+....
+----
+\include::TheBeanCalledX.java[tags=!*]
+----
+....
+
+....
+package com.acme;
+import javax.enterprise.context.RequestScoped;
+
+@RequestScoped
+public class TheBeanCalledX {
+  ...
+}
+....
+--
+
+[.code.io]
+== Exclude tags by name
+
+--
+[listing]
+....
+----
+\include::TheBeanCalledX.java[tags=!named]
+----
+....
+
+....
+package com.acme;
+import javax.enterprise.context.RequestScoped;
+
+@RequestScoped
+public class TheBeanCalledX {
+  ...
+}
+....
+--
+
+[.code.io]
+== Include everything
+
+[.insert,build=items]
+--
+[listing]
+....
+----
+\include::TheBeanCalledX.java[tags=**]
+----
+....
+
+....
+package com.acme;
+
+import javax.inject.Named;
+import javax.enterprise.context.RequestScoped;
+
+@Named("X")
+@RequestScoped
+public class TheBeanCalledX {
+  ...
+}
+....
+--
+
+[.feature]
+== Strong SVG Support
+
+[.code.io]
+== Interactive SVG
+
+[.insert,build=items]
+--
+----
+image::diagram.svg[opts=interactive]
+----
+
+....
+<object type="image/svg+xml" data="diagram.svg">
+<span class="alt">diagram</span>
+</object>
+....
+--
+
+[.code.io]
+== Inline SVG
+
+[.insert,build=items]
+--
+----
+image::diagram.svg[opts=inline]
+----
+
+....
+<svg xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 600 400" version="1.1">
+  <g>
+    ...
+  </g>
+</svg>
+....
+--
+
 [.topic]
 == Antora
+
+[.code]
+== Antora playbook
+
+[source,yml]
+----
+site:
+  url: https://docs.example.com
+  title: Docs Site
+content:
+  sources:
+  - url: https://github.com/acme/solution-docs.git
+  - url: /home/username/projects/server-docs
+    branches: v2.5, v3.0, v3.1
+  - url: git@github.com:acme/rest-client-docs.git
+    branches: v2*
+ui:
+  bundle: ui.zip
+----
 
 [.topic]
 == Semantic HTML
@@ -210,12 +382,42 @@ image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-ite
 [.topic]
 == Validation
 
+[.code]
+== textlint :: insecure-url-rule
+
+[source,js]
+----
+const LinkMacroRx = /(http(s)?:\/\/[^\[]+)\[[\s\S]*?\]/g
+module.exports = ({ RuleError, report }) => ({
+  'ParagraphNode': (node) => {
+    node.children.forEach((line) => {
+      let match
+      while ((match = LinkMacroRx.exec(line.raw)) != null) {
+        if (match[2] != null) continue
+        report(line, new RuleError(
+          `Illegal link to a non-secure URL: ${match[1]}`,
+          { index: match.index }))
+      }
+    })
+  }
+})
+----
+
 [.topic]
 == Grammar
 
 //semantic versioning
 [.topic]
 == Releases
+
+== !
+
+* 1.5.6
+* 1.5.7
+* 1.6.0
+* 1.7.0
+* 2.0.0
+* ...
 
 [.topic]
 == Funding
