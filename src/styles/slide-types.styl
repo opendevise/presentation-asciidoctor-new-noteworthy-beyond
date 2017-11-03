@@ -2,7 +2,6 @@
   &.title
     background-color $c-black-bis
     header
-      font-size 1.25em
       padding 0 sw(5)
       text-align center
     h1, h2
@@ -10,8 +9,9 @@
     h1
       font-size 12.5rem
       font-weight 600
-      color $c-pri
-      color lighten(saturate($c-pri, 10%), 5%)
+      //color $c-pri
+      //color lighten(saturate($c-pri, 5%), 5%)
+      color lighten($c-pri, 10%)
     h2
       font-size 5.175rem
       font-weight 200
@@ -19,9 +19,17 @@
     footer
       display none
 
+  &.thanks
+    background-color $c-black-bis
+    h2
+      font-size 10rem
+      font-weight 600
+      color lighten($c-pri, 10%)
+
   &.topic
     font-size 6rem
     text-align center
+    padding 0 sw(5)
     //background-color $c-pri
     $g-from = darken($c-pri, 20%)
     $g-to = lighten($c-pri, 10%)
@@ -29,3 +37,61 @@
     color $c-pri-neg
     h2
       line-height 1.15
+
+  &.curtain
+    &::after
+      content ''
+      position absolute
+      top -8px
+      left 0
+      right 0
+      height sh(100) + 8px
+      background-color $c-black-bis
+      border-bottom 8px solid #757575
+      .bespoke-overview &
+        display none
+    &.bespoke-active::after
+      height 0
+      transition height 2s ease-in-out 1s
+
+   &.code
+     h2
+       font-weight 300
+       font-size 3rem
+       background-color $c-black-bis
+       color $c-white-bis
+       transform rotate(-90deg) translateX(-50%)
+       position absolute
+       padding 1rem 0
+       width sh(100)
+       left 0
+       top 50%
+       transform-origin top left
+       text-align center
+     pre
+       background #fcfafa
+       //box-shadow inset 0 4px $c-pri, inset 0 5px #e0e0e0, inset 0 -1px #e0e0e0, inset 0 -5px $c-pri
+       box-shadow inset 0 4px $c-pri, inset 0 5px #e0e0e0, inset 0 -4px $c-pri, inset 0 -5px #e0e0e0
+       padding 1rem 4rem 1.25rem 1.5rem
+       min-width 75%
+     h2 ~ *
+       margin-left 5rem
+     &.io
+       .build-items
+         display flex
+         width 100%
+         flex-direction column
+         align-items center
+       .exampleblock
+         font-size 2rem
+         font-family Nunito, sans-serif
+         font-weight 600
+         padding 4rem 1.5rem
+         background $c-pri
+         color $c-pri-neg
+         position relative
+         top -4px
+         min-width 75%
+         border-bottom 1px solid #e0e0e0
+       p
+         margin 0

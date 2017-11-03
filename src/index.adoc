@@ -1,19 +1,224 @@
-= Asciidoctor: New, Noteworthy, & Beyond
+= Asciidoctor | New, Noteworthy, & Beyond
 Dan Allen
+:organization: OpenDevise
+:twitter: @mojavelinux
+:title-separator: |
 :!sectids:
 :imagesdir: images
 :source-highlighter: coderay
 :coderay-css: style
 :icons: font
+:docinfo: shared
 
-[.topic]
-== Adoption
+[.code]
+== Inline issue macro
 
-[.topic]
-== Performance
+// TODO put language in upper right corner
+----
+Asciidoctor::Extensions.register do
+  inline_macro :issue do
+    process do |parent, id, attrs|
+      base_uri = parent.document.attr 'uri-issues'
+      create_anchor parent, id, \
+          type: :link,
+          target: "#{base_uri}/#{id}",
+          attributes: attrs
+    end
+  end
+end
+----
+
+[.code]
+== Inline issue macro
+
+// TODO put language in upper right corner
+----
+Opal.Asciidoctor.Extensions.register(function () {
+  this.inlineMacro('issue', function () {
+    this.process((parent, id, attrs) => {
+      const baseUri = parent.getDocument()
+          .getAttribute('uri-issues')
+      return this.createInline(parent, 'anchor', id, {
+        type: 'link',
+        target: `${baseUri}/${id}`,
+        attributes: attrs
+      })
+    })
+  })
+})
+----
+
+[.code]
+== Inline issue macro
+
+----
+asciidoctor {
+  extensions {
+    inline_macro (name: 'issue') { parent, id, attrs ->
+      baseUri = parent.document.getAttribute('uri-issues')
+      createInline(parent, 'anchor', id, attrs, [
+        type: ':link',
+        target: "${baseUri}/${id}".toString(),
+        attributes: attrs
+      ])
+    }
+  }
+}
+----
+
+[.code.io]
+== :xrefstyle: short
+
+[.insert,build=items]
+--
+----
+Refer to <<foreign-keys>>.
+
+...
+
+=== Foreign Keys
+----
+
+[example]
+Refer to [.underline]#Section 3.2#.
+--
+
+[.code.io]
+== :xrefstyle: full
+
+--
+----
+Refer to <<foreign-keys>>.
+
+...
+
+=== Foreign Keys
+----
+
+[example]
+Refer to [.underline]#Section 3.2, “Foreign Keys”#.
+--
+
+[.code]
+== textlint :: insecure-url-rule
+
+----
+const LinkMacroRx = /(http(s)?:\/\/[^\[]+)\[[\s\S]*?\]/g
+module.exports = ({ RuleError, report }) => ({
+  'ParagraphNode': (node) => {
+    node.children.forEach((line) => {
+      let match
+      while ((match = LinkMacroRx.exec(line.raw)) != null) {
+        if (match[2] != null) continue
+        report(line, new RuleError(
+          `Illegal link to a non-secure URL: ${match[1]}`,
+          { index: match.index }))
+      }
+    })
+  }
+})
+----
+
+[.tweet]
+== !
+
+++++
+<blockquote class="twitter-tweet" data-dnt="true" data-lang="en" data-width="400"><p lang="en" dir="ltr">The more I work with <a href="https://twitter.com/asciidoctor">@asciidoctor</a> the more I love writing documentation. Very nice when the default output is gorgeous.</p>&mdash; Garrett D&#39;Amore (@gedamore) <a href="https://twitter.com/gedamore/status/921452899460202496">October 20, 2017</a></blockquote>
+++++
 
 [.topic]
 == Brand
 
+[.curtain]
+== !
+
+image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-items]
+
+[.topic]
+== A Brief History
+
+[.topic]
+// or By the Numbers?
+== Growth
+
+////
+[.stats]
+== !
+
+[.stat]
+--
+[discrete]
+== Downloads (gem)
+2.5M+
+
+--
+[.stat]
+--
+[discrete]
+== Repositories
+70
+--
+
+[.stat]
+--
+[discrete]
+== Contributors 
+376
+--
+////
+
+[.topic]
+== Adoption
+
+== !
+
+[.tweet]
+++++
+<blockquote class="twitter-tweet" data-dnt="true" data-cards="hidden" data-lang="en" data-width="400"><p lang="en" dir="ltr">4 Years after hearing <a href="https://twitter.com/mojavelinux">@mojavelinux</a> talk about asciidoc at FUDCon Lawrence <a href="https://twitter.com/fedora">@Fedora</a> docs has finally moved away from… <a href="https://t.co/lDBcrLpiSe">https://t.co/lDBcrLpiSe</a></p>&mdash; Zach Oglesby (@zmoglesby) <a href="https://twitter.com/zmoglesby/status/900873959121530882">August 25, 2017</a></blockquote>
+++++
+
+== !
+
+* Fedora Documentation
+* Red Hat 
+* Java EE 8 Tutorial
+* Spring Documentation
+* Vogella Tutorials
+* Khronos Group
+* JHipster Mini-Book
+
+[.topic]
+== Performance
+
+[.enorme]
+== 25%
+
+== Asciidoctor icon:fast-forward[] AsciiDoc.py
+
+[.topic]
+== Integration
+
+[.topic]
+== New Features
+
 [.topic]
 == Antora
+
+[.topic]
+== Semantic HTML
+
+[.topic]
+== Validation
+
+[.topic]
+== Grammar
+
+//semantic versioning
+[.topic]
+== Releases
+
+[.topic]
+== Funding
+
+[.thanks]
+== Thank You!

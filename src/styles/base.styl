@@ -1,6 +1,7 @@
 .deck
   font-family sans-serif
   font-size 3rem
+  color $text
 
 h1, h2, h3, h4, h5, h6
   font-family Nunito, sans-serif
@@ -16,8 +17,37 @@ ul
   ul
     margin 0 0 0 1em
 
+pre, code
+  font-family Inconsolata, monospace
+  -webkit-text-fill-color $text
+  -webkit-text-stroke-width 0.005em
+
+pre
+  font-size 2rem
+  margin 0
+  line-height 1.4
+
 .line
   display block
+
+.underline
+  background linear-gradient(to bottom, currentColor 0%, currentColor 100%) repeat-x left 1.15em / 100% .0625em
+
+.insert
+  .bespoke-bullet-inactive
+    position absolute !important
+    .bespoke-overview &
+      position static !important
+
+.reveal
+  .bespoke-bullet-inactive
+    position absolute !important
+    opacity 0
+    .bespoke-overview &
+      position static !important
+      opacity 1
+  .bespoke-bullet-active:not(:first-child)
+    transition opacity 1.5s ease-in-out 0.5s
 
 .bespoke-overview .bespoke-active
   outline 10px solid #fdd835
