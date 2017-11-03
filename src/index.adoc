@@ -10,44 +10,6 @@ Dan Allen
 :icons: font
 :docinfo: shared
 
-[.code]
-== Basic presentation
-
-----
-= My Awesome Presentation
-
-== Get Ready In...
-
-[%build]
-* 3
-* 2
-* 1
-
-== Gather the Crowd
-
-== Shout It Aloud
-
-== Creative Cloud!
-----
-
-[.code.io]
-== Fancy Text
-
-[.insert,build=items]
---
-----
-[.remark%slice%fit]
-== This is a  Call  to All Engineers
-----
-
-[.call]
-====
-[.line.l1]#This is a#
-[.line.l2]#Call#
-[.line.l3]#to All Engineers#
-====
---
-
 [.tweet]
 == !
 
@@ -338,7 +300,6 @@ image::diagram.svg[opts=interactive]
 [.code.io]
 == Inline SVG
 
-[.insert,build=items]
 --
 ----
 image::diagram.svg[opts=inline]
@@ -347,11 +308,50 @@ image::diagram.svg[opts=inline]
 ....
 <svg xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 600 400" version="1.1">
-  <g>
-    ...
-  </g>
+  <g>...</g>
 </svg>
 ....
+--
+
+[.feature]
+== Bespoke Converter
+
+[.code]
+== Basic presentation
+
+----
+= My Awesome Presentation
+
+== Get Ready In...
+
+[%build]
+* 3
+* 2
+* 1
+
+== Gather the Crowd
+
+== Shout It Aloud
+
+== Creative Cloud!
+----
+
+[.code.io]
+== Fancy Text
+
+[.insert,build=items]
+--
+----
+[.remark%slice%fit]
+== This is a  Call  to All Engineers
+----
+
+[.call]
+====
+[.line.l1]#This is a#
+[.line.l2]#Call#
+[.line.l3]#to All Engineers#
+====
 --
 
 [.topic]
