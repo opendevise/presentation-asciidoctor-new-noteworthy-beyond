@@ -285,6 +285,9 @@ image::gem-download-chart.png[,800]
 ////
 [.stats]
 == !
+// AsciidoctorJ gets a quarter million downloads a year on Bintray (Gradle)
+// AsciidoctorJ maven: about 30,000 a month
+// Asciidoctor.js (npm) ?
 
 [.stat]
 --
@@ -312,6 +315,7 @@ image::gem-download-chart.png[,800]
 == AsciidoctorJ
 
 == !
+// SVG pending
 
 ....
   Maven                  Gradle
@@ -330,8 +334,24 @@ image::gem-download-chart.png[,800]
 [.feature]
 == Asciidoctor.js
 
-[.feature]
-== Portable extensions
+== !
+// SVG pending
+
+....
+  Atom                   Brackets
+  Plugin                 Plugin
+
+      \                  /
+
+          Asciidoctor.js
+
+      /                  \
+
+  Browsers                docgist
+....
+
+//[.feature]
+//== Portable extensions
 
 [.code]
 == Inline issue macro
@@ -456,8 +476,9 @@ asciidoctor {
 
 //semantic versioning
 [.feature]
-== Planning & releases
+== Release planning
 
+// Image pending
 == <Releases diagram>
 
 * 1.5.6
@@ -515,7 +536,7 @@ server-docs/modules/ROOT/content/user-manual.adoc
 [.topic]
 == Antora
 
-== <Antora diagram>
+== <drop in from other pres>
 
 [.code]
 == Antora playbook
@@ -544,7 +565,7 @@ ui:
 .\http://asciidoctor.org/docs/user-manual/
 image::asciidoctor-user-manual.png[role=cover]
 
-== <Antora UI screenshot>
+//== <Antora UI screenshot>
 
 //[.topic]
 //== Funding

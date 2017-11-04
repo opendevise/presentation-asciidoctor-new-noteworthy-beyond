@@ -56,8 +56,6 @@ Asciidoctor = adaptability.
 // see https://github.com/asciidoctor/brand/issues/4
 ////
 
-//We choose carmine as the color because it's bold and dynamic, exactly how we see this project.
-
 And with that, I'm closing the issue.
 Further initiatives involving the brand will happen in the brand repository, where you'll also be able to find the logo.
 
@@ -100,6 +98,7 @@ It's also possible to include all lines, tagged or otherwise (but not the tag ma
 Asciidoctor now has much better SVG support, including support for interactive (object) and inline SVGs (embedded).
 Much of the driving factor for the improvements to SVG support came from Asciidoctor Diagram.
 
+// SAW: This content should be said while on the Stronger SVG support slide unless there is a really compelling reason for another slide
 === Moar Diagrams
 
 Diagrams are best rendered in SVG.
@@ -203,8 +202,12 @@ Optimal performance is also incredibly important to the diverse integration and 
 Asciidoctor has grown beyond anything we could have imagined.
 
 //* 3 language platforms / implementations
-* 70 repositories
+
 * 2.5M gem downloads
+* AsciidoctorJ gets a quarter million downloads a year on Bintray (Gradle)
+* AsciidoctorJ maven: about 30,000 a month
+* Asciidoctor.js (npm) ?
+* 70 repositories
 * 376 contributors
 * 80 backers
 
@@ -222,6 +225,7 @@ In fact, many of the repositories are specific to one or more of these implement
 I want to talk about what's new in these implementations and how that progress relates to core.
 
 === AsciidoctorJ
+// SAW: AsciidoctorJ wheel and spoke SVG diagram pending
 
 AsciidoctorJ brings Asciidoctor to the JVM.
 It's a pure Java API that manages JRuby underneath and wraps the Ruby API so you can use the Asciidoctor gem without even having to think about it.
@@ -247,6 +251,9 @@ What's next?
 * support for Java 9 is coming; we're waiting on Java 9 support in JRuby, which is happening
 
 === Asciidoctor.js
+// SAW: I removed the slide for "Portable extensions", you now need to structure this section out to compliment the example slides for: Inline issue macro (Ruby), Inline issue macro (Javascript), Inline issue macro (Groovy), and Bespoke converter
+
+// SAW: Asciidoctor.js wheel and spoke SVG diagram pending
 
 While AsciidoctorJ was happening, there was this whole other initiative going on to bring Asciidoctor to JavaScript.
 That project became Asciidoctor.js and is now led by Guillaume Grosstie.
@@ -319,6 +326,8 @@ If you search, you'll be able to find many more uses of Asciidoctor.
 
 === Project Management: Roadmaps & Releases
 //message: enterprise ready
+
+// SAW: roadmap image pending
 
 This is a short section.
 Our experience in the past few years, especially as the Asciidoctor ecosystem grows, has it painfully obvious that we need to shift to semantic versioning.
