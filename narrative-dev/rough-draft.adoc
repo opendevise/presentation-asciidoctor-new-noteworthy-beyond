@@ -16,6 +16,7 @@ Specifically, I'm going to talk about:
 * And finally, another surprise
 
 To get started, I'll restate what Asciidoctor is all about.
+//For those who may not be familiar with Asciidoctor, let's revisit its mission.
 
 == Mission
 
@@ -31,6 +32,7 @@ Very nice when the default output is gorgeous."
 We want writers to love writing documentation and be productive at it.
 And we want readers to love reading documentation and be able to learn effectively from it.
 
+// SAW: I like "Now, speaking of gorgeous" better - it connects to the tweet and can't get misinterpreted.
 //Speaking of gorgeous.
 Now, speaking of eye candy.
 
@@ -91,10 +93,11 @@ We can exclude the lines tagged "named" using the negated asterisk.
 We could have also identified tag by name.
 It's also possible to include all lines, tagged or otherwise (but not the tag markers), using double asterisk.
 //Q: should we mention that there are a few other cases not mentioned here?
+// SAW: That depends on whether you can just list the things off or if they'd need explanation to be of any use.
 
-=== Strong SVG support
+=== Stronger SVG support
 
-Asciidoctor now much better SVG support, including support for interactive (object) and inline SVGs (embedded).
+Asciidoctor now has much better SVG support, including support for interactive (object) and inline SVGs (embedded).
 Much of the driving factor for the improvements to SVG support came from Asciidoctor Diagram.
 
 === Moar Diagrams
@@ -106,7 +109,7 @@ The new capability of Asciidoctor has enabled both interactive diagrams and tigh
 
 With enough eyes, all bugs are shallow.
 That's especially true in Asciidoctor.
-Users have helped us find all sorts of edge cases, many of which we have fixes straightaway.
+Users have helped us find all sorts of edge cases, many of which we have fixed straightaway.
 120 issues were fixed in 1.5.6 alone.
 At this point, I'm very comfortable saying Asciidoctor is enterprise ready.
 
@@ -121,7 +124,7 @@ Of course, if we're going to talk about performance, we have to address the elep
 === "Why Ruby?" screams everyone who isn't a Ruby dev
 
 In 2012, some people at GitHub started working on an OSS Ruby implementation of AsciiDoc.
-They needed to replace the Python implementation of AsciiDoc, which at that point was a decade old, because it was too slow and insecure.
+They needed to replace the Python implementation of AsciiDoc, which, at that point, was a decade old, because it was too slow and insecure.
 At the same time, I was looking for an AsciiDoc implementation to work with the static site generator I was using.
 And so it began.
 
@@ -130,7 +133,8 @@ Just the important stuff: paragraphs, section titles, lists, etc.
 In other words, a minimum viable product.
 After a string of late nights, we managed to pull it off.
 In January 2013, Asciidoctor was running on GitHub.com and available to all 5 million+ repositories.
-GitHub still keeps in sync with Asciidoctor releases and, in general, the AsciiDoc rendering there is pretty nice.
+GitHub keeps in sync with Asciidoctor releases and, in general, the AsciiDoc rendering there is pretty nice.
+// GitHub keeps in sync with Asciidoctor releases and, this is why AsciiDoc files render in repositories.
 
 //Asciidoctor Core runs on GitHub and is used in many static site generators.
 
@@ -158,7 +162,7 @@ In a recent consulting engagement, we worked with a project that required over 5
 While it would take AsciiDoc Python 8 hours to build it, Asciidoctor is able to do it in under 5 minutes.
 Performance has a real impact on workflows in the real world.
 
-Also, the faster Asciidoctor runs, the quicker writers can see a preview of the document in a local editor.
+Also, the faster Asciidoctor runs, the sooner writers can see a preview of the document in a local editor.
 In fact, optimal performance of the processor is incredibly important to the diverse integration and extension ecosystem that depends on core.
 So you can be sure I check every commit going into master to be sure it doesn't degrade performance.
 
@@ -210,7 +214,7 @@ There are in fact three implementations of Asciidoctor:
 * AsciidoctorJ
 * Asciidoctor.js
 
-There's no risk of diverence though as they are all based on the same core Ruby code.
+There's no risk of divergence though as they are all based on the same core Ruby code.
 
 So why have all three?
 Documentation and technical writing aren't tied to any one platform, so it's important that Asciidoctor be able to run in a lot of places.
@@ -230,7 +234,7 @@ So what's new?
 
 * thanks to Robert's strong grasp of JRuby, objects now move much more seamlessly between the Ruby and Java runtimes
 * this has the impact of making the API feel a lot more Java-like
-* it also enables you write full extensions purely in Java or Groovy, including a Groovy DSL that resembles the native one in Ruby
+* it also enables you to be able to write full extensions purely in Java or Groovy, including a Groovy DSL that resembles the native one in Ruby
 * if you're writing extensions, you should definitely be using the 1.6.0 releases, which is where most of these improvements live
 * in general, AsciidoctorJ's API is really maturing and filling out, allowing access to more of the Asciidoctor API, and in some cases goes beyond it, including creating and reading lists and tables
 
@@ -239,7 +243,7 @@ While the Maven and Gradle plugins started out using JRuby directly, they have s
 
 What's next?
 
-* 1.6.0 in progress; it's really just waiting on the 1.6.0 release of Asciidoctor, which we're going to talk about shortly.
+* 1.6.0 is in progress; it's really just waiting on the 1.6.0 release of Asciidoctor, which we're going to talk about shortly.
 * support for Java 9 is coming; we're waiting on Java 9 support in JRuby, which is happening
 
 === Asciidoctor.js
@@ -257,8 +261,8 @@ More on that later.
 
 Here's what's new:
 
-* Asciidoctor.js is on par with core; no reduction functionality
-* it also offers a porcelain API (core & extension), which abstracts away artifacts left behind by Opal
+* Asciidoctor.js is on par with core; there is no reduction in functionality
+* it offers a porcelain API (core & extension), which abstracts away artifacts left behind by Opal
 * The latest release brings full Unicode support, which was a critical step in matching the capability of core
 * Asciidoctor.js provides full access to core and its extension points
 * You can write extensions in JavaScript
@@ -342,7 +346,7 @@ But we always knew we'd eventually switch to producing HTML that is more semanti
 That time is upon us.
 
 In fact, that transition is already underway.
-When we made the HTML for the EPUB3 converter, we experiented with how AsciiDoc mapped to a semantic HTML structure.
+When we made the HTML for the EPUB3 converter, we experimented with how AsciiDoc mapped to a semantic HTML structure.
 I also did the same for the Bespoke converter, minus the parts that are slide-specific.
 Inspired by that work, Jakub Jirutka has put together a template-based converter named html5s that produces semantic HTML5 output.
 You can use all of those today.
@@ -374,19 +378,20 @@ We'll also need a new default stylesheet, which is a good time to revisit the ag
 Another feature users often ask about is validation.
 I had always planned on adding validation of AsciiDoc to the processor.
 When I started working on it in a recent contract, I realized that validation doesn't belong in the processor.
-The needs of the processor are just very different from the needs of a validation.
+The needs of the processor are just very different from the needs of a validator.
 A validator needs to keep track of where every character is in the original source so it can give exact details, offsets, and perhaps even fix the problem.
 The processor only cares about the effective value and general information about context for reporting.
 So we needed a validation system.
 
-I looked around and discovered textlint.
+This is where textlint comes in.
 textlint builds on the popularity of eslint.
 First, you implement a parser for the language, which I've started to do.
 The parser currently only handles blocks, but I'm going to take a crack at parsing inline nodes like formatted text and macros.
-What I'm hoping will come out of this effort is a strategy for making an inline parser for core, which has long been it's Achilles heal.
+What I'm hoping will come out of this effort is a strategy for making an inline parser for core, which has long been its Achilles heal.
 The regular expression-base approach has brought us a long way, but we're reaching its limits and it's time to get formal.
 Once the document is parsed, then you write rules that listen for nodes and look for things to validate.
 For example, if you wanted to check for insecure URLs, you could listen for all paragraph nodes and only check for URLs in those regions, thus skipping any verbatim blocks.
+
 (slide: insecure url rule example)
 As you can see, you get exact line number and character offsets in the message.
 
@@ -426,10 +431,10 @@ We still have a ways to go on the validator, but the good news is that the effor
 
 === Antora
 
-What I'm most excited to cover in this talk, and the most noteworthy, and most likely to impact the future of Asciidoctor, is a new project I've been working on named Antora.
-The last couple of years, my company has been consulting with other companies on their documentation systems.
-What we've noticed is that although there are a ton of static site generators available, few if any are well-suited for documentation sites...and more specifically AsciiDoc-based documentation sites.
-//I talk a lot about that in my other talk, Applying Engineering Practices to Documentation
+I'm very excited to to talk about a new project I've been working on that will impact the future of Asciidoctor: Antora.
+//What I'm most excited to cover in this talk, and the most noteworthy, and most likely to impact the future of Asciidoctor, is a new project I've been working on named Antora.
+Over the last couple of years, my company has been consulting with other companies on their documentation systems.
+What we've noticed is that although there are a ton of static site generators available, few, if any, are well-suited for documentation sites...and more specifically AsciiDoc-based documentation sites.
 Antora is designed exactly for that use case.
 
 Antora is an open source, modular Asciidoctor documentation toolchain and workflow that empowers technical writing teams to create, manage, collaborate on, remix, and publish documentation sites sourced from a variety of versioned content repositories without needing expertise in web technologies, build automation, or system administration.
@@ -447,12 +452,12 @@ Out of Antora comes a new source-to-source xref system for making references acr
 Our goal with Antora is to make documentation sites easy to create, simple to manage, and fun to work on.
 And it provides a real world use case for us to improve Asciidoctor.
 
-// Asciidoctor.js
 Antora uses Asciidoctor.js, so it's going to have a particularly strong impact on that project.
 I meant it when I said that Asciidoctor.js was ready for prime time.
 
 You can learn more about Antora and follow along with development at https://gitlab.com/antora.
 I'm also working on a series of posts that introduce the project and explain the problem we're trying to solve with it.
+I talk a lot about that in my other talk, Applying Engineering Practices to Documentation on Wednesday.
 You'll be hearing a lot about it in the coming months.
 
 //=== Antora-ize the Docs
@@ -461,7 +466,7 @@ You'll be hearing a lot about it in the coming months.
 The Asciidoctor user manual has received considerable contributions over the past year, especially from Rocky Allen and Andrew Carver.
 The manual remains the best place to get accurate and up-to-date information about the AsciiDoc syntax and Asciidoctor capabilities.
 
-While it's provides great raw material, it needs to be overhauled.
+While it provides great raw material, it needs to be overhauled.
 That's where Antora comes in.
 We're going to drink our own beer and use Antora for the Asciidoctor documentation.
 Not only will this bring some spring cleaning to the content that is already there, it will also address the problem that asciidoctor.org mostly only covers the core processor.

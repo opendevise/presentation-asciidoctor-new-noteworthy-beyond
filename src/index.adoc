@@ -32,6 +32,7 @@ image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-ite
 [.topic]
 == Processor
 
+// SAW: This slide just really doesn't work for me. I'd just cut it, and say this part of the transcript while you're on the slide above.
 [.feature%slice]
 == AsciiDoc icon:home[]  Asciidoctor
 
@@ -265,8 +266,9 @@ image::diagram.svg[opts=inline]
 [.enorme]
 == 25%
 
-[%slice]
-== icon:fast-forward[] Asciidoctor  AsciiDoc.py
+// SAW: No to this slide, it doesn't add anything and I keep interpreting it as "fast-forward Asciidoctor to AsciiDoc.py"
+//[%slice]
+//== icon:fast-forward[] Asciidoctor  AsciiDoc.py
 
 [.topic]
 //== Ecosystem Growth
@@ -301,7 +303,7 @@ image::gem-download-chart.png[,800]
 [.stat]
 --
 [discrete]
-== Contributors 
+== Contributors
 376
 --
 ////
@@ -442,7 +444,7 @@ asciidoctor {
 == !
 
 * Fedora Documentation
-* Red Hat 
+* Red Hat
 * Java EE 8 Tutorial
 * Spring Documentation
 * Vogella Tutorials
