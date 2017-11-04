@@ -1,5 +1,4 @@
 //.TODO
-// - AsciidoctorJ and Asciidoctor.js sections need revising
 // - upstream builds (fun takeaway)
 = Asciidoctor: New, Noteworthy, & Beyond
 
@@ -197,105 +196,88 @@ Optimal performance is also incredibly important to the diverse integration and 
 //== Integrations & Extensions
 == Ecosystem Growth
 
-Documentation and technical writing are not tied to any one platform, so it's important that Asciidoctor be able to run in a lot of places.
-
 Asciidoctor has grown beyond anything we could have imagined.
 
-* 3 language platforms / implementations
+//* 3 language platforms / implementations
 * 70 repositories
 * 2.5M gem downloads
 * 376 contributors
 * 80 backers
 
+There are in fact three implementations of Asciidoctor:
+
+* Asciidoctor (aka “core”)
+* AsciidoctorJ
+* Asciidoctor.js
+
+There's no risk of diverence though as they are all based on the same core Ruby code.
+
+So why have all three?
+Documentation and technical writing aren't tied to any one platform, so it's important that Asciidoctor be able to run in a lot of places.
+In fact, many of the repositories are specific to one or more of these implementations, while others are shared.
+I want to talk about what's new in these implementations and how that progress relates to core.
+
 === AsciidoctorJ
 
-AsciidoctorJ::
-A pure Java API that wraps and manages JRuby so you can use Asciidoctor on the JVM.
+AsciidoctorJ brings Asciidoctor to the JVM.
+It's a pure Java API that manages JRuby underneath and wraps the Ruby API so you can use the Asciidoctor gem without even having to think about it.
 
-Founded by Alex Soto who completed the initial implementation.
-Currently led by Robert Panzer.
+AsciidoctorJ was founded by Alex Soto, who came up with initial concept and wrote the first implementation.
+Credit also goes to Jason Porter and Andres Almiray, who were all simultaneously working on solutions to integrate Asciidoctor into the JVM via JRuby.
+Robert Panzer, who now leads AsciidoctorJ, came along and really enhanced the implementation.
 
-Let's roll the highlights:
+So what's new?
 
-* objects can move between the Ruby and Java runtimes seamlessly
-* you write full extensions purely in Java or Groovy, including a Groovy DSL that resembles the native one in Ruby
-* has a maturing API which allows the creation and access to lists and tables
+* thanks to Robert's strong grasp of JRuby, objects now move much more seamlessly between the Ruby and Java runtimes
+* this has the impact of making the API feel a lot more Java-like
+* it also enables you write full extensions purely in Java or Groovy, including a Groovy DSL that resembles the native one in Ruby
+* if you're writing extensions, you should definitely be using the 1.6.0 releases, which is where most of these improvements live
+* in general, AsciidoctorJ's API is really maturing and filling out, allowing access to more of the Asciidoctor API, and in some cases goes beyond it, including creating and reading lists and tables
 
-Integrations made possible with AsciidoctorJ:
+AsciidoctorJ powers the Maven plugin, the Gradle plugin, the Ant plugin, the JavaDoc Doclet, and the IntelliJ plugin.
+While the Maven and Gradle plugins started out using JRuby directly, they have since switched to using AsciidoctorJ.
 
-Maven plugin:
+What's next?
 
-* definition
-* lead:
-
-Gradle plugin:
-
-* definition
-* Andres Almiray
-
-JavaDoc plugin:
-
-* definition
-* lead:
-
-IntelliJ plugin:
-
-* definition
-* lead:
-
-Future:
-
-* 1.6.0 in progress
+* 1.6.0 in progress; it's really just waiting on the 1.6.0 release of Asciidoctor, which we're going to talk about shortly.
 * support for Java 9 is coming; we're waiting on Java 9 support in JRuby, which is happening
 
 === Asciidoctor.js
 
-Asciidoctor.js::
-A pure Javascript API so you can use Asciidoctor with Node, Electron, Nashhorn, and web browsers.
+While AsciidoctorJ was happening, there was this whole other initiative going on to bring Asciidoctor to JavaScript.
+That project became Asciidoctor.js and is now led by Guillaume Grosstie.
+Asciidoctor.js provides a pure JavaScript implementation of Asciidoctor, which lets you use Asciidoctor in Node, Electron, Nashhorn, and web browsers.
+Asciidoctor.js is made by transpiling the Ruby code to JavaScript using Opal.
+It seemed like a longshot at first, but Guillaume really worked some magic to make it happen.
 
-Using a tool called Opal, Asciidoctor.js transpiles core to JavaScript.
+Asciidoctor.js is particularly important because it sits at the center of the tooling ecosystem.
+In particular, it provides in-application previews of the document, rendered directly in the browser, which is seen in the Atom plugin, the Brackets plugin, the Chrome/Firefox/Opera extension, and docgist.
+It's also used in several Node-based static site generators.
+More on that later.
 
-Asciidoctor.js powers browser previews, tooling and editors, and static site generators.
+Here's what's new:
 
-Led by Guillaume Grosstie.
-
-What's notable and new:
-
-* Asciidoctor.js provides full access to core and many of its extensions (names?)
-* It provides support for templates.
-** This capability brings the Reveal.js and Bespoke.js converters to JavaScript.
- which brings converters such as Reveal.js
+* Asciidoctor.js is on par with core; no reduction functionality
+* it also offers a porcelain API (core & extension), which abstracts away artifacts left behind by Opal
+* The latest release brings full Unicode support, which was a critical step in matching the capability of core
+* Asciidoctor.js provides full access to core and its extension points
 * You can write extensions in JavaScript
-* It has full Unicode support
-
-//** new porcelain API (core & extension) (abstracts away Opal)
-Integrations made possible with Asciidoctor.js:
-
-Atom plugin
-
-* definition
-* lead:
-
-Chrome and Firefox extensions
-
-* definition
-* lead:
-
-//Asciidoctor.js plays an important role later in this story.
+* It now provides support for templates
+ ** This capability brings the Reveal.js and (eventually) Bespoke.js converters to JavaScript.
+* Also in the JavaScript world, but not related directly to Asciidoctor.js, there is now a full AsciiDoc language grammar for Atom, which was created by Ludovic Fernandez, Anton Moiseev, and Nico Rikken.
+This is by far the best syntax highlighting for AsciiDoc available as it's based on the match expressions in core.
 
 Future:
 
 * Performance optimizations to improve tooling and browser preview speeds.
+* More API improvements
+* Better tooling to compile extensions and templates.
+* Figure out how to enable access to more extensions like Asciidoctor Diagram.
 
-Portable extensions
-
-Bespoke converter, which was use to create this presentation
-
-Reveal.js converter, which closely resembles the Bespoke converter; the two influence each other
-
+// Q: should we mention other projects?
 === Integration Summary
 
-Improvements to Asciidoctor.js and AsciidoctorJ APIs are strengthening and hardening the API in core.
+Improvements to the Asciidoctor.js and AsciidoctorJ APIs are strengthening and hardening the API in core.
 
 == Adoption
 // see http://bestgems.org/gems/asciidoctor
