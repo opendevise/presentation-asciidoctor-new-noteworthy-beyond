@@ -39,7 +39,7 @@ image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-ite
 == xrefstyle
 
 [.code.io]
-== :xrefstyle: short
+== :xrefstyle: full
 
 [.insert,build=items]
 --
@@ -52,11 +52,11 @@ Refer to <<foreign-keys>>.
 ----
 
 [example]
-Refer to [.underline]#Section 3.2#.
+Refer to [.underline]#Section 3.2, “Foreign Keys”#.
 --
 
 [.code.io]
-== :xrefstyle: full
+== :xrefstyle: short
 
 --
 ----
@@ -68,7 +68,7 @@ Refer to <<foreign-keys>>.
 ----
 
 [example]
-Refer to [.underline]#Section 3.2, “Foreign Keys”#.
+Refer to [.underline]#Section 3.2#.
 --
 
 [.feature]
@@ -250,7 +250,7 @@ image::diagram.svg[opts=inline]
 --
 
 [.feature]
-== Compliance and stability
+== Compliance & stability
 // sort of like Java's project coin
 
 [.topic]
