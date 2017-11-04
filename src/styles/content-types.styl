@@ -10,9 +10,17 @@ twitterwidget.twitter-tweet
     .Tweet-brand, .tweet-InformationCircle, img.Emoji
       display none
 
-figure.cover
+figure.cover, figure.grow
   img
     width 100%
+
+// flex required for print
+figure.grow
+  flex-grow 1
+  display flex
+  align-items center
+
+figure.cover
   figcaption
     position absolute
     left 0

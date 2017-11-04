@@ -473,7 +473,7 @@ asciidoctor {
 
 == !
 
-image::textlint.png[,100%]
+image::textlint.png[role=grow]
 
 [.code]
 == textlint :: insecure-url-rule
