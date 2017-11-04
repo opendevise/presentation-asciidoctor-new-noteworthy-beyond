@@ -2,7 +2,7 @@
   &.title
     background-color $c-black-bis
     header
-      padding 0 sw(5)
+      margin -2rem sw(5) 0 sw(5)
       text-align center
     h1, h2
       line-height 1.2
@@ -18,7 +18,21 @@
       font-weight $weight-light
       color $c-white-bis
     footer
-      display none
+      position absolute
+      bottom 0
+      width 80%
+      color #757575
+      font-size 1.75rem
+      font-weight $weight-light
+      letter-spacing 0.25em
+    p.author
+      margin-top 0
+      height 4rem
+      display flex
+      align-items flex-start
+      > span
+        flex 1 0 33.3333%
+        text-align center
 
   &.translations
     h2
