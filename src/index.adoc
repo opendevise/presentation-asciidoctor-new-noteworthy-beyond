@@ -1,5 +1,6 @@
 //.TODO
-//- more diagrams
+//- diagrams example to highlight more diagrams
+//- heads under project subject slide
 = Asciidoctor | New, Noteworthy, & Beyond
 Dan Allen
 :organization: OpenDevise
@@ -10,6 +11,7 @@ Dan Allen
 //:source-highlighter: coderay
 :coderay-css: style
 :icons: font
+:iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 :docinfo: shared
 
 [.tweet]
@@ -20,7 +22,7 @@ Dan Allen
 ++++
 
 [.topic]
-== Brand
+== Logo
 
 [.curtain]
 == !
@@ -28,128 +30,10 @@ Dan Allen
 image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-items]
 
 [.topic]
-== A Brief History
+== Processor
 
-[.topic]
-// or By the Numbers?
-== Growth
-
-////
-[.stats]
-== !
-
-[.stat]
---
-[discrete]
-== Downloads (gem)
-2.5M+
-
---
-[.stat]
---
-[discrete]
-== Repositories
-70
---
-
-[.stat]
---
-[discrete]
-== Contributors 
-376
---
-////
-
-[.topic]
-== Adoption
-
-== !
-
-[.tweet]
-++++
-<blockquote class="twitter-tweet" data-dnt="true" data-cards="hidden" data-lang="en" data-width="400"><p lang="en" dir="ltr">4 Years after hearing <a href="https://twitter.com/mojavelinux">@mojavelinux</a> talk about asciidoc at FUDCon Lawrence <a href="https://twitter.com/fedora">@Fedora</a> docs has finally moved away from… <a href="https://t.co/lDBcrLpiSe">https://t.co/lDBcrLpiSe</a></p>&mdash; Zach Oglesby (@zmoglesby) <a href="https://twitter.com/zmoglesby/status/900873959121530882">August 25, 2017</a></blockquote>
-++++
-
-== !
-
-* Fedora Documentation
-* Red Hat 
-* Java EE 8 Tutorial
-* Spring Documentation
-* Vogella Tutorials
-* Khronos Group
-* JHipster Mini-Book
-
-[.topic]
-== Performance
-
-[.enorme]
-== 25%
-
-== Asciidoctor icon:fast-forward[] AsciiDoc.py
-
-[.topic]
-== Integration
-
-[.code]
-== Inline issue macro
-
-[source,ruby]
-----
-Asciidoctor::Extensions.register do
-  inline_macro :issue do
-    process do |parent, id, attrs|
-      base_uri = parent.document.attr 'uri-issues'
-      create_anchor parent, id, \
-          type: :link,
-          target: "#{base_uri}/#{id}",
-          attributes: attrs
-    end
-  end
-end
-----
-
-[.code]
-== Inline issue macro
-
-[source,js]
-----
-Opal.Asciidoctor.Extensions.register(function () {
-  this.inlineMacro('issue', function () {
-    this.process((parent, id, attrs) => {
-      const baseUri = parent.getDocument()
-          .getAttribute('uri-issues')
-      return this.createInline(parent, 'anchor', id, {
-        type: 'link',
-        target: `${baseUri}/${id}`,
-        attributes: attrs
-      })
-    })
-  })
-})
-----
-
-[.code]
-== Inline issue macro
-
-[source,groovy]
-----
-asciidoctor {
-  extensions {
-    inline_macro (name: 'issue') { parent, id, attrs ->
-      baseUri = parent.document.getAttribute('uri-issues')
-      createInline(parent, 'anchor', id, attrs, [
-        type: ':link',
-        target: "${baseUri}/${id}".toString(),
-        attributes: attrs
-      ])
-    }
-  }
-}
-----
-
-[.topic]
-== New Features
+[.feature%slice]
+== AsciiDoc icon:home[]  Asciidoctor
 
 [.feature]
 == xrefstyle
@@ -222,6 +106,20 @@ Refer to [.underline]#Section 3.2, “Foreign Keys”#.
 * uk
 * zh_CN
 * zh_TW
+
+[.code]
+== Translated attributes :: fr
+
+----
+:appendix-caption: Appendice
+:appendix-refsig: {appendix-caption}
+:caution-caption: Avertissement
+:example-caption: Exemple
+:figure-caption: Figure
+:important-caption: Important
+:last-update-label: Dernière mise à jour
+...
+----
 
 [.feature]
 == Advanced tag filtering
@@ -317,7 +215,7 @@ public class TheBeanCalledX {
 --
 
 [.feature]
-== Strong SVG support
+== Stronger SVG support
 
 [.code.io]
 == Interactive SVG
@@ -350,6 +248,145 @@ image::diagram.svg[opts=inline]
 </svg>
 ....
 --
+
+[.feature]
+== Compliance and stability
+// sort of like Java's project coin
+
+[.topic]
+== Performance
+
+[.feature]
+== Why icon:diamond[role=accent ruby] ?
+
+[.feature]
+== GitHub icon:heart[role=accent] AsciiDoc
+
+[.enorme]
+== 25%
+
+[%slice]
+== icon:fast-forward[] Asciidoctor  AsciiDoc.py
+
+[.topic]
+//== Ecosystem Growth
+== Ecosystem icon:line-chart[]
+
+[.feature]
+== By the numbers
+
+== !
+
+.Source: \http://bestgems.org/gems/asciidoctor
+image::gem-download-chart.png[,800]
+
+////
+[.stats]
+== !
+
+[.stat]
+--
+[discrete]
+== Downloads (gem)
+2.5M+
+
+--
+[.stat]
+--
+[discrete]
+== Repositories
+70
+--
+
+[.stat]
+--
+[discrete]
+== Contributors 
+376
+--
+////
+
+[.feature]
+== AsciidoctorJ
+
+== !
+
+....
+  Maven                  Gradle
+  Plugin                 Plugin
+
+      \                  /
+
+          AsciidoctorJ
+
+      /                  \
+
+  JavaDoc                IntelliJ
+  Doclet                 Plugin
+....
+
+[.feature]
+== Asciidoctor.js
+
+[.feature]
+== Portable extensions
+
+[.code]
+== Inline issue macro
+
+[source,ruby]
+----
+Asciidoctor::Extensions.register do
+  inline_macro :issue do
+    process do |parent, id, attrs|
+      base_uri = parent.document.attr 'uri-issues'
+      create_anchor parent, id, \
+          type: :link,
+          target: "#{base_uri}/#{id}",
+          attributes: attrs
+    end
+  end
+end
+----
+
+[.code]
+== Inline issue macro
+
+[source,js]
+----
+Opal.Asciidoctor.Extensions.register(function () {
+  this.inlineMacro('issue', function () {
+    this.process((parent, id, attrs) => {
+      const baseUri = parent.getDocument()
+          .getAttribute('uri-issues')
+      return this.createInline(parent, 'anchor', id, {
+        type: 'link',
+        target: `${baseUri}/${id}`,
+        attributes: attrs
+      })
+    })
+  })
+})
+----
+
+[.code]
+== Inline issue macro
+
+[source,groovy]
+----
+asciidoctor {
+  extensions {
+    inline_macro (name: 'issue') { parent, id, attrs ->
+      baseUri = parent.document.getAttribute('uri-issues')
+      createInline(parent, 'anchor', id, attrs, [
+        type: ':link',
+        target: "${baseUri}/${id}".toString(),
+        attributes: attrs
+      ])
+    }
+  }
+}
+----
 
 [.feature]
 == Bespoke converter
@@ -392,37 +429,51 @@ image::diagram.svg[opts=inline]
 ====
 --
 
+[.topic]
+== Adoption
+
+== !
+
+[.tweet]
+++++
+<blockquote class="twitter-tweet" data-dnt="true" data-cards="hidden" data-lang="en" data-width="400"><p lang="en" dir="ltr">4 Years after hearing <a href="https://twitter.com/mojavelinux">@mojavelinux</a> talk about asciidoc at FUDCon Lawrence <a href="https://twitter.com/fedora">@Fedora</a> docs has finally moved away from… <a href="https://t.co/lDBcrLpiSe">https://t.co/lDBcrLpiSe</a></p>&mdash; Zach Oglesby (@zmoglesby) <a href="https://twitter.com/zmoglesby/status/900873959121530882">August 25, 2017</a></blockquote>
+++++
+
+== !
+
+* Fedora Documentation
+* Red Hat 
+* Java EE 8 Tutorial
+* Spring Documentation
+* Vogella Tutorials
+* Khronos Group
+* JHipster Mini-Book
+
+[.topic]
+== Future
+
+//semantic versioning
 [.feature]
-== Compliance and stability
-// sort of like Java's project coin
+== Planning & releases
 
-[.topic]
-== Antora
+== <Releases diagram>
 
-[.code]
-== Antora playbook
+* 1.5.6
+* 1.5.7
+* 1.6.0
+* 1.7.0
+* 2.0.0
+* ...
 
-[source,yml]
-----
-site:
-  url: https://docs.example.com
-  title: Docs Site
-content:
-  sources:
-  - url: https://github.com/acme/solution-docs.git
-  - url: /home/username/projects/server-docs
-    branches: v2.5, v3.0, v3.1
-  - url: git@github.com:acme/rest-client-docs.git
-    branches: v2*
-ui:
-  bundle: ui.zip
-----
-
-[.topic]
+[.feature]
 == Semantic HTML
 
-[.topic]
-== Validation
+[.feature]
+== Validation & grammar
+
+== !
+
+image::textlint.png[,100%]
 
 [.code]
 == textlint :: insecure-url-rule
@@ -445,24 +496,59 @@ module.exports = ({ RuleError, report }) => ({
 })
 ----
 
-[.topic]
-== Grammar
+[.code]
+== !
 
-//semantic versioning
+----
+$ node validate
+
+server-docs/modules/ROOT/content/user-manual.adoc
+
+  14:124  error  Illegal link to a non-secure URL:
+                 http://example.com (non-secure-url)
+
+✖ 1 problem (1 error, 0 warnings)
+----
+
 [.topic]
-== Releases
+== Antora
+
+== <Antora diagram>
+
+[.code]
+== Antora playbook
+
+[source,yml]
+----
+site:
+  url: https://docs.example.com
+  title: Docs Site
+content:
+  sources:
+  - url: https://github.com/acme/solution-docs.git
+  - url: /home/username/projects/server-docs
+    branches: v2.5, v3.0, v3.1
+  - url: git@github.com:acme/rest-client-docs.git
+    branches: v2*
+ui:
+  bundle: ui.zip
+----
+
+[.topic]
+== Documentation
 
 == !
 
-* 1.5.6
-* 1.5.7
-* 1.6.0
-* 1.7.0
-* 2.0.0
-* ...
+.\http://asciidoctor.org/docs/user-manual/
+image::asciidoctor-user-manual.png[role=cover]
 
-[.topic]
-== Funding
+== <Antora UI screenshot>
+
+//[.topic]
+//== Funding
+
+[.feature%slice]
+== Asciidoctor icon:handshake-o[] Antora  FTW!
 
 [.thanks]
 == Thank You!
