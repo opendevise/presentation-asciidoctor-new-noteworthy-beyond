@@ -315,8 +315,13 @@ image::gem-download-chart.png[,800]
 == AsciidoctorJ
 
 == !
+
+image::asciidoctorj.svg[role=grow]
+
+//== !
 // SVG pending
 
+////
 ....
   Maven                  Gradle
   Plugin                 Plugin
@@ -330,13 +335,17 @@ image::gem-download-chart.png[,800]
   JavaDoc                IntelliJ
   Doclet                 Plugin
 ....
+////
 
 [.feature]
 == Asciidoctor.js
 
 == !
-// SVG pending
 
+image::asciidoctorjs.svg[role=grow]
+
+//== !
+////
 ....
   Atom                   Brackets
   Plugin                 Plugin
@@ -349,6 +358,7 @@ image::gem-download-chart.png[,800]
 
   Browsers                docgist
 ....
+////
 
 //[.feature]
 //== Portable extensions
