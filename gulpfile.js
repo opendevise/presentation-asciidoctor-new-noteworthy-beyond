@@ -96,7 +96,7 @@ gulp.task('clean:fonts', function() {
 });
 
 gulp.task('connect', ['build'], function() {
-  connect.server({ root: 'dist', port: process.env.PORT || 8000, livereload: true });
+  connect.server({ root: 'dist', port: process.env.PORT || 8000, livereload: false });
 });
 
 gulp.task('watch', function() {
