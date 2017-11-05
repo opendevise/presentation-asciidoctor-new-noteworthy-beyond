@@ -318,50 +318,12 @@ image::gem-download-chart.png[,800]
 
 image::asciidoctorj.svg[role=grow]
 
-//== !
-// SVG pending
-
-////
-....
-  Maven                  Gradle
-  Plugin                 Plugin
-
-      \                  /
-
-          AsciidoctorJ
-
-      /                  \
-
-  JavaDoc                IntelliJ
-  Doclet                 Plugin
-....
-////
-
 [.feature]
 == Asciidoctor.js
 
 == !
 
 image::asciidoctorjs.svg[role=grow]
-
-//== !
-////
-....
-  Atom                   Brackets
-  Plugin                 Plugin
-
-      \                  /
-
-          Asciidoctor.js
-
-      /                  \
-
-  Browsers                docgist
-....
-////
-
-//[.feature]
-//== Portable extensions
 
 [.code]
 == Inline issue macro
