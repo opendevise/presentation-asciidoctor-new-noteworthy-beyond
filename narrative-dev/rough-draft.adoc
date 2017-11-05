@@ -27,7 +27,7 @@ This tweet nails it.
 
 "The more I work with @asciidoctor the more I love writing documentation.
 Very nice when the default output is gorgeous."
--- Garrett D`'Amore
+-- Garrett D’Amore
 
 We want writers to love writing documentation and be productive at it.
 And we want readers to love reading documentation and be able to learn effectively from it.
