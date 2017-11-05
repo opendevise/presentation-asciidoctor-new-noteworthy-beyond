@@ -158,7 +158,7 @@ Why the focus on performance?
 Asciidoctor must process a ton of documents, and that can have a significant impact on the turnaround time of CI and CD.
 Plus, nobody wants to wait a long time to see results.
 In a recent consulting engagement, we worked with a project that required over 5,000 AsciiDoc files to be processed in a single build.
-While it would take AsciiDoc Python 8 hours to build it, Asciidoctor is able to do it in under 5 minutes.
+While it would take AsciiDoc Python an entire work day to build it, Asciidoctor is able to do it in under 5 minutes.
 Performance has a real impact on workflows in the real world.
 
 Also, the faster Asciidoctor runs, the sooner writers can see a preview of the document in a local editor.
