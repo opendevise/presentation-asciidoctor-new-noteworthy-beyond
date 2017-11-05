@@ -314,14 +314,14 @@ image::gem-download-chart.png[,800]
 
 == !
 
-image::asciidoctorj.svg[role=grow]
+image::asciidoctorj.svg[role=grow,opts=interactive]
 
 [.feature]
 == Asciidoctor.js
 
 == !
 
-image::asciidoctorjs.svg[role=grow]
+image::asciidoctorjs.svg[role=grow,opts=interactive]
 
 [.code]
 == Inline issue macro
