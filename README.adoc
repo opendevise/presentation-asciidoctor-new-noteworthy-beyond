@@ -13,8 +13,10 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 
 [abstract]
 --
+Next presentation: https://cfp.devoxx.be/2017/talk/TWI-5560/Asciidoctor:_New,_Noteworthy,_and_Beyond[Devoxx 2017]
+
 // tag:abstract[]
-sciidoctor continues to take technical documentation by storm, especially in the Java sector.
+Asciidoctor continues to take technical documentation by storm, especially in the Java sector.
 From software projects like Spring, JUnit, Hiberate, and Elastic, to specifications like CDI and Bean Validation, to tech publishers like InfoQ, O'Reilly, and independents, you don't have to look far to find AsciiDoc powering documentation.
 These abundant and diverse use cases have helped push Asciidoctor to new limits.
 So what's new and where's it headed?
