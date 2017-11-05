@@ -282,34 +282,32 @@ image::diagram.svg[opts=inline]
 .Source: \http://bestgems.org/gems/asciidoctor
 image::gem-download-chart.png[,800]
 
-////
 [.stats]
 == !
-// AsciidoctorJ gets a quarter million downloads a year on Bintray (Gradle)
-// AsciidoctorJ maven: about 30,000 a month
-// Asciidoctor.js (npm) ?
 
-[.stat]
+[.container]
 --
-[discrete]
-== Downloads (gem)
-2.5M+
+.icon:download[] Gem
+//.Gem Downloads
+2.5m
 
---
-[.stat]
---
-[discrete]
-== Repositories
+.icon:download[] AsciidoctorJ
+//.AsciidoctorJ Downloads
+{blank}.25m/y
+
+.icon:download[] Asciidoctor.js
+//.Asciidoctor.js Downloads
+35.5k
+
+.Repositories
 70
---
 
-[.stat]
---
-[discrete]
-== Contributors
+.Contributors
 376
+
+.Backers
+80
 --
-////
 
 [.feature]
 == AsciidoctorJ
