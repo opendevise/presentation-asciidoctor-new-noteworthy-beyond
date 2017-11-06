@@ -19,12 +19,18 @@ Alex Soto
 include::{uri-script}[tag=title]
 ****
 
+== !
+
+image::love-writing-tweet.png[role=cover]
+
+////
 [.tweet]
 == !
 
 ++++
 <blockquote class="twitter-tweet" data-dnt="true" data-lang="en" data-width="400"><p lang="en" dir="ltr">The more I work with <a href="https://twitter.com/asciidoctor">@asciidoctor</a>, the more I love writing documentation. Very nice when the default output is gorgeous.</p>&mdash; Garrett D&#39;Amore (@gedamore) <a href="https://twitter.com/gedamore/status/921452899460202496">October 20, 2017</a></blockquote>
 ++++
+////
 
 [.cue]
 ****
