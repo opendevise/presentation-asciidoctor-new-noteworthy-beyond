@@ -12,6 +12,12 @@ Alex Soto
 :icons: font
 :iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 :docinfo: shared
+:uri-script: notes/script.adoc
+
+[.cue]
+****
+include::{uri-script}[tag=title]
+****
 
 [.tweet]
 == !
@@ -20,30 +26,70 @@ Alex Soto
 <blockquote class="twitter-tweet" data-dnt="true" data-lang="en" data-width="400"><p lang="en" dir="ltr">The more I work with <a href="https://twitter.com/asciidoctor">@asciidoctor</a>, the more I love writing documentation. Very nice when the default output is gorgeous.</p>&mdash; Garrett D&#39;Amore (@gedamore) <a href="https://twitter.com/gedamore/status/921452899460202496">October 20, 2017</a></blockquote>
 ++++
 
+[.cue]
+****
+include::{uri-script}[tag=love-writing]
+****
+
 [.topic]
 == Logo
+
+[.cue]
+****
+include::{uri-script}[tag=logo]
+****
 
 == !
 
 image::issue-48-open.png[role=cover]
+
+[.cue]
+****
+include::{uri-script}[tag=issue-48-open]
+****
 
 [.curtain]
 == !
 
 image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,role=reveal build-items]
 
+[.cue]
+****
+include::{uri-script}[tag=logo-reveal]
+****
+
 == !
 
 image::issue-48-closed.png[role=cover]
 
+[.cue]
+****
+include::{uri-script}[tag=issue-48-closed]
+****
+
 [.topic]
 == Processor
+
+[.cue]
+****
+include::{uri-script}[tag=processor]
+****
 
 [.feature%slice]
 == Asciidoctor  icon:home[role=whole] AsciiDoc
 
+[.cue]
+****
+include::{uri-script}[tag=home-of-asciidoc]
+****
+
 [.feature]
 == xrefstyle
+
+[.cue]
+****
+include::{uri-script}[tag=xrefstyle]
+****
 
 [.code.io]
 == :xrefstyle: full
@@ -62,6 +108,11 @@ Refer to <<foreign-keys>>.
 Refer to [.underline]#Section 3.2, “Foreign Keys”#.
 --
 
+[.cue]
+****
+include::{uri-script}[tag=xrefstyle-full]
+****
+
 [.code.io]
 == :xrefstyle: short
 
@@ -78,8 +129,18 @@ Refer to <<foreign-keys>>.
 Refer to [.underline]#Section 3.2#.
 --
 
+[.cue]
+****
+include::{uri-script}[tag=xrefstyle-short]
+****
+
 [.feature]
 == icon:language[] Translations
+
+[.cue]
+****
+include::{uri-script}[tag=translations]
+****
 
 [.translations]
 == data/locale/attributes-<lang>.adoc
@@ -114,6 +175,11 @@ Refer to [.underline]#Section 3.2#.
 * zh_CN
 * zh_TW
 
+[.cue]
+****
+include::{uri-script}[tag=translation-langs]
+****
+
 [.code]
 == Translated attributes :: fr
 
@@ -128,8 +194,18 @@ Refer to [.underline]#Section 3.2#.
 ...
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=translation-fr]
+****
+
 [.feature]
 == Advanced tag filtering
+
+[.cue]
+****
+include::{uri-script}[tag=tag-filtering]
+****
 
 [.code]
 == Tagged include file
@@ -149,6 +225,11 @@ public class TheBeanCalledX {
   ...
 }
 ----
+
+[.cue]
+****
+include::{uri-script}[tag=tagged-class]
+****
 
 [.code.io]
 == Exclude all tags
@@ -173,6 +254,11 @@ public class TheBeanCalledX {
 ....
 --
 
+[.cue]
+****
+include::{uri-script}[tag=exclude-tags]
+****
+
 [.code.io]
 == Exclude tags by name
 
@@ -194,6 +280,11 @@ public class TheBeanCalledX {
 }
 ....
 --
+
+[.cue]
+****
+include::{uri-script}[tag=exclude-tag]
+****
 
 [.code.io]
 == Include everything
@@ -221,8 +312,18 @@ public class TheBeanCalledX {
 ....
 --
 
+[.cue]
+****
+include::{uri-script}[tag=include-all]
+****
+
 [.feature]
 == Stronger SVG support
+
+[.cue]
+****
+include::{uri-script}[tag=svg-support]
+****
 
 [.code.io]
 == Interactive SVG
@@ -240,6 +341,11 @@ image::diagram.svg[opts=interactive]
 ....
 --
 
+[.cue]
+****
+include::{uri-script}[tag=interactive-svg]
+****
+
 [.code.io]
 == Inline SVG
 
@@ -255,6 +361,11 @@ image::diagram.svg[opts=inline]
 </svg>
 ....
 --
+
+[.cue]
+****
+include::{uri-script}[tag=inline-svg]
+****
 
 [.code]
 == Diagrams in SVG...
@@ -273,18 +384,38 @@ stop
 ----
 ....
 
+[.cue]
+****
+include::{uri-script}[tag=diagram-block]
+****
+
 // FIXME turn this into a replace build
 [.code]
 == ...means diagrams are crisp
 
 image::devoxx-activity-diagram.svg[role=grow-y]
 
+[.cue]
+****
+include::{uri-script}[tag=svg-diagram]
+****
+
 [.feature]
 == Compliance & stability
 // akin to Java's project coin
 
+[.cue]
+****
+include::{uri-script}[tag=compliance]
+****
+
 [.feature]
 == Asciidoctor Bespoke
+
+[.cue]
+****
+include::{uri-script}[tag=bespoke]
+****
 
 [.code]
 == Basic presentation
@@ -306,6 +437,11 @@ image::devoxx-activity-diagram.svg[role=grow-y]
 == Creative Cloud!
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=awesome-prez]
+****
+
 [.code.io]
 == Fancy Text
 
@@ -324,36 +460,63 @@ image::devoxx-activity-diagram.svg[role=grow-y]
 ====
 --
 
+[.cue]
+****
+include::{uri-script}[tag=fancy-text]
+****
+
 [.topic]
 == Performance
+
+[.cue]
+****
+include::{uri-script}[tag=performance]
+****
 
 [.feature]
 == Why icon:diamond[role=accent ruby] ?
 
+[.cue]
+****
+include::{uri-script}[tag=why-ruby]
+****
+
 [.feature]
 == GitHub icon:heart[role=accent] AsciiDoc
+
+[.cue]
+****
+include::{uri-script}[tag=github-heart-asciidoc]
+****
 
 [.enorme]
 == [.hi]#35%# faster!
 
-// SAW: No to this slide, it doesn't add anything and I keep interpreting it as "fast-forward Asciidoctor to AsciiDoc.py"
-//[%slice]
-//== icon:fast-forward[] Asciidoctor  AsciiDoc.py
+[.cue]
+****
+include::{uri-script}[tag=speed-boost]
+****
 
 [.topic]
-//== Ecosystem Growth
 == Ecosystem icon:line-chart[]
+
+[.cue]
+****
+include::{uri-script}[tag=ecosystem-growth]
+****
 
 == !
 
 .Source: \http://bestgems.org/gems/asciidoctor
 image::gem-download-chart.png[,800]
 
-//[.feature]
-//== By the numbers
+[.cue]
+****
+include::{uri-script}[tag=growth-chart]
+****
 
 [.stats]
-== !
+== ! By the numbers
 
 [.container]
 --
@@ -379,18 +542,34 @@ image::gem-download-chart.png[,800]
 80
 --
 
+[.cue]
+****
+include::{uri-script}[tag=by-the-numbers]
+****
+
 [.feature]
 == AsciidoctorJ
+
+[.cue]
+****
+include::{uri-script}[tag=asciidoctorj]
+****
 
 == !
 
 image::asciidoctorj.svg[role=grow,opts=interactive]
+
+[.cue]
+****
+include::{uri-script}[tag=powered-by-asciidoctorj]
+****
 
 [.code]
 == Inline issue macro
 
 [source,ruby]
 ----
+# ex. issue:48[]
 Asciidoctor::Extensions.register do
   inline_macro :issue do
     process do |parent, id, attrs|
@@ -404,11 +583,17 @@ Asciidoctor::Extensions.register do
 end
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=issue-macro-ruby-1]
+****
+
 [.code]
 == Inline issue macro
 
 [source,groovy]
 ----
+// ex. issue:48[]
 asciidoctor {
   extensions {
     inline_macro (name: 'issue') { parent, id, attrs ->
@@ -423,18 +608,34 @@ asciidoctor {
 }
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=issue-macro-groovy]
+****
+
 [.feature]
 == Asciidoctor.js
+
+[.cue]
+****
+include::{uri-script}[tag=asciidoctorjs]
+****
 
 == !
 
 image::asciidoctorjs.svg[role=grow,opts=interactive]
+
+[.cue]
+****
+include::{uri-script}[tag=powered-by-asciidoctorjs]
+****
 
 [.code]
 == Inline issue macro
 
 [source,ruby]
 ----
+# ex. issue:48[]
 Asciidoctor::Extensions.register do
   inline_macro :issue do
     process do |parent, id, attrs|
@@ -448,11 +649,17 @@ Asciidoctor::Extensions.register do
 end
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=issue-macro-ruby-2]
+****
+
 [.code]
 == Inline issue macro
 
 [source,js]
 ----
+// ex. issue:48[]
 Opal.Asciidoctor.Extensions.register(function () {
   this.inlineMacro('issue', function () {
     this.process((parent, id, attrs) => {
@@ -468,12 +675,27 @@ Opal.Asciidoctor.Extensions.register(function () {
 })
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=issue-macro-js]
+****
+
 == !
 
 image::asciidoc-in-atom.png[role=cover]
 
+[.cue]
+****
+include::{uri-script}[tag=atom-plugins]
+****
+
 [.topic]
 == Adoption
+
+[.cue]
+****
+include::{uri-script}[tag=adoption]
+****
 
 ////
 == !
@@ -498,30 +720,70 @@ image::logos/khronos-group.jpg[Khronos Group]
 image::logos/jhipster-minibook.jpg[JHipster Mini-book]
 --
 
+[.cue]
+****
+include::{uri-script}[tag=user-stories]
+****
+
 [.topic]
 == Future
 
+[.cue]
+****
+include::{uri-script}[tag=future]
+****
+
 [.feature]
 == Semantic versioning
+
+[.cue]
+****
+include::{uri-script}[tag=semver]
+****
 
 == !
 
 image::versions.svg[role=grow,opts=interactive]
 
+[.cue]
+****
+include::{uri-script}[tag=version-roadmap]
+****
+
 [.feature]
 == Semantic HTML
+
+[.cue]
+****
+include::{uri-script}[tag=semhtml]
+****
 
 == !
 
 .\https://github.com/jirutka/asciidoctor-html5s
 image::asciidoctor-html5s.png[role=cover]
 
+[.cue]
+****
+include::{uri-script}[tag=html5s]
+****
+
 [.feature]
 == Validation
+
+[.cue]
+****
+include::{uri-script}[tag=validation]
+****
 
 == !
 
 image::logos/textlint.png[role=grow]
+
+[.cue]
+****
+include::{uri-script}[tag=textlint]
+****
 
 [.code]
 == textlint :: insecure-url-rule
@@ -544,6 +806,11 @@ module.exports = ({ RuleError, report }) => ({
 })
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=insecure-url-rule]
+****
+
 [.code]
 == !
 
@@ -558,12 +825,27 @@ server-docs/modules/ROOT/content/user-manual.adoc
 ✖ 1 problem (1 error, 0 warnings)
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=rule-violation]
+****
+
 [.topic]
 == icon:star-o[] Antora icon:star-o[]
+
+[.cue]
+****
+include::{uri-script}[tag=antora]
+****
 
 == !
 
 image::antora-pipeline-aggregate-classify.svg[role=grow-y]
+
+[.cue]
+****
+include::{uri-script}[tag=antora-pipeline]
+****
 
 [.code]
 == Antora playbook
@@ -582,22 +864,39 @@ content:
     branches: v2*
 ----
 
+[.cue]
+****
+include::{uri-script}[tag=antora-playbook]
+****
+
 [.topic]
 == Documentation
+
+[.cue]
+****
+include::{uri-script}[tag=documentation]
+****
 
 == !
 
 .\http://asciidoctor.org/docs/user-manual/
 image::asciidoctor-user-manual.png[role=cover]
 
-//== <Antora UI screenshot>
+[.cue]
+****
+include::{uri-script}[tag=user-manual]
+****
 
 //[.topic]
 //== Funding
 
 [.feature%slice]
-//== Asciidoctor icon:handshake-o[] Antora  FTW!
 == Antora icon:book[] Asciidoctor
+
+[.cue]
+****
+include::{uri-script}[tag=antora-plus-asciidoctor]
+****
 
 [.thanks]
 == Thank You!
@@ -612,3 +911,8 @@ asciidoctor.org
 [.affiliation]#Red Hat#
 [.contact]#@alexsotob#
 --
+
+[.cue]
+****
+include::{uri-script}[tag=thanks]
+****

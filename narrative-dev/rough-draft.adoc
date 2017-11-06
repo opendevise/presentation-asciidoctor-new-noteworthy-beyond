@@ -155,6 +155,7 @@ Just the important stuff: paragraphs, section titles, lists, etc.
 In other words, a minimum viable product.
 After a string of late nights, the initial team managed to pull it off.
 In January 2013, Asciidoctor was running on GitHub.com and available to all 5 million+ repositories.
+
 GitHub keeps up with Asciidoctor releases and, overall, the AsciiDoc rendering there is pretty nice.
 Asciidoctor also brought AsciiDoc support to many static site generators, including Jekyll and Middleman.
 
@@ -164,8 +165,7 @@ As it turns out, Ruby ended up being a huge benefit in terms of portability, as 
 === Isn't Ruby kind of slow?
 
 We recognize Ruby is not the fastest language out there.
-But our goal has been to make Asciidoctor as fast as possible regardless.
-You could call it an obsession.
+Our goal has been to make Asciidoctor as fast as possible regardless.
 We've used every trick in the book to squeeze performance out of Ruby, and it has paid off.
 
 Asciidoctor 1.5.6 is 35% faster than 1.5.5.
@@ -246,7 +246,6 @@ And all improvements to the AsciidoctorJ and Asciidoctor.js APIs only strengthen
 I want to talk about what's new in these bridge implementations and how that progress relates to core.
 
 === AsciidoctorJ
-// SAW: AsciidoctorJ wheel and spoke SVG diagram pending
 
 AsciidoctorJ brings Asciidoctor to the JVM.
 It's a pure Java API that manages JRuby underneath and wraps the Ruby API so you can use the Asciidoctor gem without giving it any thought.
@@ -296,7 +295,7 @@ Here's what's new:
 * In fact, Asciidoctor.js provides full access to core and its extension points, so you can write extensions in JavaScript.
 * Remember that extension you saw in the last section?
 * Here's the same extension written for the lastest Asciidoctor.js release.
-* You also have the option of simply tranpiling the Ruby extension using Opal.
+* You also have the option of simply transpiling the Ruby extension using Opal.
 * Another exciting new feature is support for Slim templates for customizing the output.
  ** This capability brings the Reveal.js converter to JavaScript (and eventually Bespoke)
 * Also in the JavaScript world, but not related directly to Asciidoctor.js, there is now a full AsciiDoc language grammar for Atom, which was created by Ludovic Fernandez, Anton Moiseev, and Nico Rikken.
@@ -344,7 +343,6 @@ If you search, you'll quickly be able to find many more.
 //=== Release planning
 //message: enterprise ready
 
-This is a short section.
 Our experience in the past few years, especially as the Asciidoctor ecosystem grows, has made it painfully obvious that we need to shift to semantic versioning.
 The time between releases is too long and each micro release of Asciidoctor core is like a major release, so there's no room for anything else.
 We need to make room.
