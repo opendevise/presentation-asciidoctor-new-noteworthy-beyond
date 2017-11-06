@@ -10,6 +10,7 @@ Alex Soto
 :imagesdir: images
 :source-highlighter: highlight.js
 :highlightjs-theme: ascetic
+:highlightjsdir: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0
 :icons: font
 :iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 :docinfo: shared
