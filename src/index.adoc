@@ -305,7 +305,7 @@ image::gem-download-chart.png[,800]
 .Contributors
 376
 
-.Backers
+.Supporters
 80
 --
 
