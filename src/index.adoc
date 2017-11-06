@@ -264,7 +264,7 @@ image::diagram.svg[opts=inline]
 == GitHub icon:heart[role=accent] AsciiDoc
 
 [.enorme]
-== 35% faster!
+== [.hi]#35%# faster!
 
 // SAW: No to this slide, it doesn't add anything and I keep interpreting it as "fast-forward Asciidoctor to AsciiDoc.py"
 //[%slice]
