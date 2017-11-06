@@ -17,7 +17,7 @@ Alex Soto
 == !
 
 ++++
-<blockquote class="twitter-tweet" data-dnt="true" data-lang="en" data-width="400"><p lang="en" dir="ltr">The more I work with <a href="https://twitter.com/asciidoctor">@asciidoctor</a> the more I love writing documentation. Very nice when the default output is gorgeous.</p>&mdash; Garrett D&#39;Amore (@gedamore) <a href="https://twitter.com/gedamore/status/921452899460202496">October 20, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-dnt="true" data-lang="en" data-width="400"><p lang="en" dir="ltr">The more I work with <a href="https://twitter.com/asciidoctor">@asciidoctor</a>, the more I love writing documentation. Very nice when the default output is gorgeous.</p>&mdash; Garrett D&#39;Amore (@gedamore) <a href="https://twitter.com/gedamore/status/921452899460202496">October 20, 2017</a></blockquote>
 ++++
 
 [.topic]
@@ -27,6 +27,8 @@ Alex Soto
 == !
 
 image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-items]
+
+== <screenshot of closed issue>
 
 [.topic]
 == Processor
@@ -275,7 +277,48 @@ image::devoxx-activity-diagram.svg[role=grow-y]
 
 [.feature]
 == Compliance & stability
-// sort of like Java's project coin
+// akin to Java's project coin
+
+[.feature]
+== Asciidoctor Bespoke
+
+[.code]
+== Basic presentation
+
+----
+= My Awesome Presentation
+
+== Get Ready In...
+
+[%build]
+* 3
+* 2
+* 1
+
+== Gather the Crowd
+
+== Shout It Aloud
+
+== Creative Cloud!
+----
+
+[.code.io]
+== Fancy Text
+
+[.insert,build=items]
+--
+----
+[.remark%slice%fit]
+== This is a  Call  to All Engineers
+----
+
+[.call]
+====
+[.line.l1]#This is a#
+[.line.l2]#Call#
+[.line.l3]#to All Engineers#
+====
+--
 
 [.topic]
 == Performance
@@ -302,8 +345,8 @@ image::devoxx-activity-diagram.svg[role=grow-y]
 .Source: \http://bestgems.org/gems/asciidoctor
 image::gem-download-chart.png[,800]
 
-[.feature]
-== By the numbers
+//[.feature]
+//== By the numbers
 
 [.stats]
 == !
@@ -316,7 +359,7 @@ image::gem-download-chart.png[,800]
 
 .icon:download[] AsciidoctorJ
 //.AsciidoctorJ Downloads
-{blank}.25m/y
+{blank}0.5m/y
 
 .icon:download[] Asciidoctor.js
 //.Asciidoctor.js Downloads
@@ -338,6 +381,43 @@ image::gem-download-chart.png[,800]
 == !
 
 image::asciidoctorj.svg[role=grow,opts=interactive]
+
+[.code]
+== Inline issue macro
+
+[source,ruby]
+----
+Asciidoctor::Extensions.register do
+  inline_macro :issue do
+    process do |parent, id, attrs|
+      base_uri = parent.document.attr 'uri-issues'
+      create_anchor parent, id, \
+          type: :link,
+          target: "#{base_uri}/#{id}",
+          attributes: attrs
+    end
+  end
+end
+----
+
+[.code]
+== Inline issue macro
+
+[source,groovy]
+----
+asciidoctor {
+  extensions {
+    inline_macro (name: 'issue') { parent, id, attrs ->
+      baseUri = parent.document.getAttribute('uri-issues')
+      createInline(parent, 'anchor', id, attrs, [
+        type: ':link',
+        target: "${baseUri}/${id}".toString(),
+        attributes: attrs
+      ])
+    }
+  }
+}
+----
 
 [.feature]
 == Asciidoctor.js
@@ -384,75 +464,21 @@ Opal.Asciidoctor.Extensions.register(function () {
 })
 ----
 
-[.code]
-== Inline issue macro
+== !
 
-[source,groovy]
-----
-asciidoctor {
-  extensions {
-    inline_macro (name: 'issue') { parent, id, attrs ->
-      baseUri = parent.document.getAttribute('uri-issues')
-      createInline(parent, 'anchor', id, attrs, [
-        type: ':link',
-        target: "${baseUri}/${id}".toString(),
-        attributes: attrs
-      ])
-    }
-  }
-}
-----
-
-[.feature]
-== Bespoke converter
-
-[.code]
-== Basic presentation
-
-----
-= My Awesome Presentation
-
-== Get Ready In...
-
-[%build]
-* 3
-* 2
-* 1
-
-== Gather the Crowd
-
-== Shout It Aloud
-
-== Creative Cloud!
-----
-
-[.code.io]
-== Fancy Text
-
-[.insert,build=items]
---
-----
-[.remark%slice%fit]
-== This is a  Call  to All Engineers
-----
-
-[.call]
-====
-[.line.l1]#This is a#
-[.line.l2]#Call#
-[.line.l3]#to All Engineers#
-====
---
+image::asciidoc-in-atom.png[role=cover]
 
 [.topic]
 == Adoption
 
+////
 == !
 
 [.tweet]
 ++++
 <blockquote class="twitter-tweet" data-dnt="true" data-cards="hidden" data-lang="en" data-width="400"><p lang="en" dir="ltr">4 Years after hearing <a href="https://twitter.com/mojavelinux">@mojavelinux</a> talk about asciidoc at FUDCon Lawrence <a href="https://twitter.com/fedora">@Fedora</a> docs has finally moved away from… <a href="https://t.co/lDBcrLpiSe">https://t.co/lDBcrLpiSe</a></p>&mdash; Zach Oglesby (@zmoglesby) <a href="https://twitter.com/zmoglesby/status/900873959121530882">August 25, 2017</a></blockquote>
 ++++
+////
 
 [.brands]
 == !
@@ -472,19 +498,22 @@ image::logos/jhipster-minibook.jpg[JHipster Mini-book]
 == Future
 
 [.feature]
-== Release planning
+== Semantic versioning
 
-== ! Semantic versioning
+== !
 
 image::versions.svg[role=grow,opts=interactive]
 
 [.feature]
 == Semantic HTML
 
-== <screenshot of html5s>
+== !
+
+.\https://github.com/jirutka/asciidoctor-html5s
+image::asciidoctor-html5s.png[role=cover]
 
 [.feature]
-== Validation & grammar
+== Validation
 
 == !
 
@@ -515,7 +544,7 @@ module.exports = ({ RuleError, report }) => ({
 == !
 
 ----
-$ node validate
+$ textlint "**/*.adoc"
 
 server-docs/modules/ROOT/content/user-manual.adoc
 
@@ -526,7 +555,7 @@ server-docs/modules/ROOT/content/user-manual.adoc
 ----
 
 [.topic]
-== Antora
+== icon:star-o[] Antora icon:star-o[]
 
 == !
 
@@ -544,11 +573,9 @@ content:
   sources:
   - url: https://github.com/acme/solution-docs.git
   - url: /home/username/projects/server-docs
-    branches: v2.5, v3.0, v3.1
-  - url: git@github.com:acme/rest-client-docs.git
+    branches: [ v2.5, v3.0, v3.1 ]
+  - url: git@github.com:acme/api-gateway-docs.git
     branches: v2*
-ui:
-  bundle: ui.zip
 ----
 
 [.topic]

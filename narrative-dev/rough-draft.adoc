@@ -1,53 +1,57 @@
 //.TODO
+// - add narrative for Bespoke
 // - upstream builds (fun takeaway)
 = Asciidoctor: New, Noteworthy, & Beyond
+:icons: font
 
 Hello everyone!
-My name is Dan Allen and I'm the lead of the Asciidoctor project.
-In the brief time we have together, I'm going to cover what's new, noteworthy, and beyond in Asciidoctor.
+//My name is Dan Allen and I'm the lead of the Asciidoctor project.
+My name is Alex Soto and I'm the creator of AsciidoctorJ, the Java API for Asciidoctor.
+In the brief time we have together, I'm going to cover what's new, noteworthy, and beyond in the Asciidoctor ecosystem.
 
 Specifically, I'm going to talk about:
 
-* Asciidoctor's mission
+* Why we do what we do
 * A little surprise
-* New features of the language and capabilities of the processor
-* The growth and reach of the ecosystem
-* What's next (in Asciidoctor)
-* And finally, another surprise
+//^ this surprise is the logo
+* New language and processor features
+* The growth of the ecosystem
+* Where Asciidoctor is headed
+* And finally, a big surprise.
+//^ this surprise is Antora
 
-To get started, I'll restate what Asciidoctor is all about.
-//For those who may not be familiar with Asciidoctor, let's revisit its mission.
+I'll set the stage by reminding you what Asciidoctor is all about.
+//To get started, I'll restate what Asciidoctor is all about.
 
 == Mission
 
-Asciidoctor is a toolchain for parsing and converting AsciiDoc documents and publishing them in a variety of formats.
+Asciidoctor is a toolchain for parsing and converting AsciiDoc documents so they can be published in a variety of formats, like an HTML site, a PDF document, and even these slides.
 
-What motivates us to take on this challenge?
-This tweet nails it.
+So what motivates us to take on this challenge?
+This tweet sums it up.
 
-"The more I work with @asciidoctor the more I love writing documentation.
+"The more I work with @asciidoctor, the more I love writing documentation.
 Very nice when the default output is gorgeous."
 -- Garrett D’Amore
 
-We want writers to love writing documentation and be productive at it.
+That's it right there.
+We want writers to love writing documentation and be productive at doing it.
 And we want readers to love reading documentation and be able to learn effectively from it.
 
-// SAW: I like "Now, speaking of gorgeous" better - it connects to the tweet and can't get misinterpreted.
-//Speaking of gorgeous.
-Now, speaking of eye candy.
+Now, speaking of gorgeous, time for the first surprise.
 
 == Logo
 
 The second oldest open issue in the Asciidoctor repository is the issue to design a logo.
-Having upwards of 250 comments, it's bursting at the seams.
+Having upwards of 250 comments, it's literally bursting at the seams.
 After numerous ideas, directions, and discussions, it's time to finally bring this thing to a close.
 So I'm proud to announce Asciidoctor's new logo, which was rendered by Marián Hlaváč.
 
-icon:slide[logo reveal]
+(raise the curtain)
 
-The A is for Asciidoctor and AsciiDoc.
-The equals is the first character that appears in most AsciiDoc documents, which designates the doctitle.
-Combine those and you get the logo.
+The A, obviously, is for Asciidoctor and AsciiDoc.
+The equals sign is the first character that appears in most AsciiDoc documents, designating a doctitle.
+Combine those two and you've got the logo.
 
 ////
 Asciidoctor = productivity.
@@ -56,114 +60,131 @@ Asciidoctor = adaptability.
 // see https://github.com/asciidoctor/brand/issues/4
 ////
 
-And with that, I'm closing the issue.
-Further initiatives involving the brand will happen in the brand repository, where you'll also be able to find the logo.
+And with that, we're closing the issue.
+Further initiatives involving brand will happen in the brand repository, where you can find the logo files.
 
 Now let's talk about functionality.
 
 == Processor Improvements
 
-As we dive into this section, it's important to understand that Asciidoctor is the leading implementation of AsciiDoc and the official home of the AsciiDoc language.
-So nothing I'm talking about here is special for Asciidoctor.
+As we dive into this section, it's important to know that Asciidoctor is the leading implementation of AsciiDoc and the official home of the AsciiDoc language.
+Nothing I'm talking about here is special for Asciidoctor.
 This is just AsciiDoc, evolved.
 
 === xrefstyle
 
 It's now possible to customize the text of a reference using the xrefstyle attribute.
-In addition to the default behavior, you can use formal notation or you can use abbreviate notation.
-Implementing this feature meant we had to start storing the node being referenced, which also means extensions can access this information.
-//reference signifier terminology
+In addition to the default behavior (xrefstyle=basic), you can now use formal notation (xrefstyle=full) or abbreviated notation (xrefstyle=short).
+Implementing this feature meant we had to start storing the node being referenced.
+That also means this information is now available to extensions.
 
 === Translations
 
-The built-in labeling attributes are now translated into 28 languages.
-These files can be found in the data/locale directory.
-Here's a partial example of the French version of this file so you can see how the attributes are defined.
-Just include this file into your document to import the translations.
+Thanks to the community, the built-in text label attributes are now translated into 28 languages.
+These files are found in the data/locale directory.
+Here's an excerpt of the French translation so you can see how the attributes are defined.
+To import the translations, just include this file into your document using the include directive.
 
 === Advanced tag filtering
 
 Asciidoctor has always had the ability to include tagged lines from a file.
-Now it's possible to exclude those lines.
+Now, it can also exclude them.
 
 Let's assume we have the following Java class.
 We can exclude the lines tagged "named" using the negated asterisk.
-We could have also identified tag by name.
-It's also possible to include all lines, tagged or otherwise (but not the tag markers), using double asterisk.
-//Q: should we mention that there are a few other cases not mentioned here?
-// SAW: That depends on whether you can just list the things off or if they'd need explanation to be of any use.
+We could also just identify the excluded tag by name.
+You can include all lines, tagged or otherwise (but not the tag markers), using double asterisk.
+There are some additional permutations I'm not mentioning here.
 
 === Stronger SVG support
 
-Asciidoctor now has much better SVG support, including support for interactive (object) and inline SVGs (embedded).
-Much of the driving factor for the improvements to SVG support came from Asciidoctor Diagram.
+Asciidoctor now has much better support for SVGs
+There are three ways to include an SVG in an HTML document.
 
-// SAW: This content should be said while on the Stronger SVG support slide unless there is a really compelling reason for another slide
-=== Moar Diagrams
+* The img element
+* The object element
+* The embedded svg element
+
+Asciidoctor now supports all three.
+
+By default, Asciidoctor will use the img element.
+If you set the interactive option, Asciidoctor will use the object element instead.
+If you set the inline option, Asciidoctor will embed the SVG directly into the document.
+
+Much of the driving force for the improvements to SVG support came from Asciidoctor Diagram.
+
+=== Diagrams in SVG
 
 Diagrams are best rendered in SVG.
-The new capability of Asciidoctor has enabled both interactive diagrams and tighter integration with CSS to style them.
+The new capability of Asciidoctor allows Asciidoctor Diagram to generate diagrams in SVG.
+This makes way for interactive diagrams and tighter integration with CSS to style them.
+Best of all, a diagram in SVG is super crisp, as you can in this SVG generated by plantuml.
+Asciidoctor Diagram integrates with tons diagramming tools, so if you're creating diagrams, it's definitely work a look.
 
+// DJA: we may cut compliance and stability
 === Compliance and stability
 
-With enough eyes, all bugs are shallow.
-That's especially true in Asciidoctor.
-Users have helped us find all sorts of edge cases, many of which we have fixed straightaway.
-120 issues were fixed in 1.5.6 alone.
-At this point, I'm very comfortable saying Asciidoctor is enterprise ready.
+As the saying goes, with enough eyes, all bugs are shallow.
+Asciidoctor certainly enjoys this benefit.
+
+Users have helped us find all sorts of edge cases, many of which we've fixed straightaway.
+120 issues were fixed in the 1.5.6 release alone.
+At this point, we're very comfortable saying Asciidoctor is enterprise ready.
 
 We also continue to refine the AsciiDoc language.
 The goal is to give you as much capability in as few characters as possible.
-//efficiently encoded information
+
+=== Asciidoctor Bespoke
+
+Used to create this presentation.
+Demonstrates how you can use metadata to produce vastly different outputs.
 
 == Performance
 
-Of course, if we're going to talk about performance, we have to address the elephant in the room...
+If we're going to talk about performance, we have to address the elephant in the room...
 
-=== "Why Ruby?" screams everyone who isn't a Ruby dev
+=== "`Why Ruby?`"
 
-In 2012, some people at GitHub started working on an OSS Ruby implementation of AsciiDoc.
-They needed to replace the Python implementation of AsciiDoc, which, at that point, was a decade old, because it was too slow and insecure.
-At the same time, I was looking for an AsciiDoc implementation to work with the static site generator I was using.
+In 2012, some people at GitHub started working on an OSS implementation of AsciiDoc in Ruby.
+They needed to replace the Python implementation, then a decade old, because it was too slow and insecure.
+At the same time, Dan Allen was looking for an AsciiDoc implementation to work with the static site generator he was using.
 And so it began.
 
 The challenge was to develop enough of the parser and HTML converter to be deployed on GitHub before they pulled the plug on AsciiDoc.py.
 Just the important stuff: paragraphs, section titles, lists, etc.
 In other words, a minimum viable product.
-After a string of late nights, we managed to pull it off.
+After a string of late nights, the initial team managed to pull it off.
 In January 2013, Asciidoctor was running on GitHub.com and available to all 5 million+ repositories.
-GitHub keeps in sync with Asciidoctor releases and, in general, the AsciiDoc rendering there is pretty nice.
-// GitHub keeps in sync with Asciidoctor releases and, this is why AsciiDoc files render in repositories.
+GitHub keeps up with Asciidoctor releases and, overall, the AsciiDoc rendering there is pretty nice.
+Asciidoctor also brought AsciiDoc support to many static site generators, including Jekyll and Middleman.
 
-//Asciidoctor Core runs on GitHub and is used in many static site generators.
-
-So Asciidoctor is written in Ruby because a) it was a requirement of GitHub.com and b) I needed it to work with the Ruby-based static site generator I was using.
-Ruby ended up being a huge benefit in terms of portability, as I'll highlight in the next topic.
+So Asciidoctor is written in Ruby because a) it was a requirement of GitHub.com and b) Dan needed it to work with the Ruby-based static site generator he was using.
+As it turns out, Ruby ended up being a huge benefit in terms of portability, as I'll highlight shortly.
 
 === Isn't Ruby kind of slow?
 
-I recognize Ruby is not the fastest language out there.
-But my goal has been to make Asciidoctor as fast as possible regardless.
+We recognize Ruby is not the fastest language out there.
+But our goal has been to make Asciidoctor as fast as possible regardless.
 You could call it an obsession.
-I've used every trick in the book to squeeze performance out of Ruby, and it has paid off.
+We've used every trick in the book to squeeze performance out of Ruby, and it has paid off.
 
-Asciidoctor 1.5.6 is 25% as fast as 1.5.5.
-In total, that makes Asciidoctor 100x faster than AsciiDoc.py.
+Asciidoctor 1.5.6 is 35% faster than 1.5.5.
+In total, that makes Asciidoctor 100 times as fast as AsciiDoc.py.
 
-One trick is to only run a regular expression or other expensive matcher on a string if it's even possible a match will occur.
-Another trick is to upgrade Ruby, as the language itself has enjoyed a lot of performance gains.
-I still have some tricks up my sleeve, but it's less of a priority now that's we've achieved this level of performance.
+One trick we use is to only run regular expressions or other expensive matchers on a string if it's even possible a match will occur.
+Another trick is to simply upgrade Ruby, as the language itself has enjoyed a lot of performance gains.
+We still have some other tricks up our sleeve, but it's less of a priority now that's we've achieved this level of performance.
 
-Why the focus on performance?
+So why the focus on performance?
 Asciidoctor must process a ton of documents, and that can have a significant impact on the turnaround time of CI and CD.
-Plus, nobody wants to wait a long time to see results.
-In a recent consulting engagement, we worked with a project that required over 5,000 AsciiDoc files to be processed in a single build.
+Nobody wants to wait a long time to see results.
+Dan recently worked with a project that required over 5,000 AsciiDoc files to be processed in a single build.
 While it would take AsciiDoc Python an entire work day to build it, Asciidoctor is able to do it in under 5 minutes.
-Performance has a real impact on workflows in the real world.
+As you can see, performance has a real impact on workflows in the real world.
 
 Also, the faster Asciidoctor runs, the sooner writers can see a preview of the document in a local editor.
 In fact, optimal performance of the processor is incredibly important to the diverse integration and extension ecosystem that depends on core.
-So you can be sure I check every commit going into master to be sure it doesn't degrade performance.
+So you can be sure we check every commit going into master to ensure it doesn't degrade performance.
 
 ////
 She's not the fastest pony in the race.
@@ -203,80 +224,84 @@ Asciidoctor has grown beyond anything we could have imagined.
 
 //* 3 language platforms / implementations
 
-* 2.5M gem downloads
-* AsciidoctorJ gets a quarter million downloads a year on Bintray (Gradle)
-* AsciidoctorJ maven: about 30,000 a month
-* Asciidoctor.js (npm) ?
+* 2.5m gem downloads
+* .5m downloads of AsciidoctorJ per year
+* 35.5k downloads of Asciidoctor.js
 * 70 repositories
 * 376 contributors
-* 80 backers
+* 80 supporters
 
-There are in fact three implementations of Asciidoctor:
+A lot of this growth comes from Asciidoctor reaching new communities.
+You see, documentation and technical writing aren't tied to any one platform.
+That's why it's crucial that Asciidoctor be able to run in a lot of places.
+While core is written in Ruby, there are two bridge technologies that carry core off Ruby island.
 
-* Asciidoctor (aka “core”)
 * AsciidoctorJ
 * Asciidoctor.js
 
-There's no risk of divergence though as they are all based on the same core Ruby code.
+The 70 repositories are really divided amoung these three core providers.
+Fortunately, there's no risk of divergence though as they are all based on the same core Ruby code.
+And all improvements to the AsciidoctorJ and Asciidoctor.js APIs only strengthen and harden the API in core.
 
-So why have all three?
-Documentation and technical writing aren't tied to any one platform, so it's important that Asciidoctor be able to run in a lot of places.
-In fact, many of the repositories are specific to one or more of these implementations, while others are shared.
-I want to talk about what's new in these implementations and how that progress relates to core.
+I want to talk about what's new in these bridge implementations and how that progress relates to core.
 
 === AsciidoctorJ
 // SAW: AsciidoctorJ wheel and spoke SVG diagram pending
 
 AsciidoctorJ brings Asciidoctor to the JVM.
-It's a pure Java API that manages JRuby underneath and wraps the Ruby API so you can use the Asciidoctor gem without even having to think about it.
+It's a pure Java API that manages JRuby underneath and wraps the Ruby API so you can use the Asciidoctor gem without giving it any thought.
 
-AsciidoctorJ was founded by Alex Soto, who came up with initial concept and wrote the first implementation.
-Credit also goes to Jason Porter and Andres Almiray, who were all simultaneously working on solutions to integrate Asciidoctor into the JVM via JRuby.
-Robert Panzer, who now leads AsciidoctorJ, came along and really enhanced the implementation.
+//AsciidoctorJ was founded by Alex Soto, who came up with initial concept and wrote the first implementation.
+I founded AsciidoctorJ.
+I saw what Jason Porter and Andres Almiray were doing to integrate Asciidoctor into Maven and Gradle using JRuby, and I extracted those prototypes into a dedicated project and proper API.
+Robert Panzer, who now leads AsciidoctorJ, then came along and really enhanced the implementation.
 
-So what's new?
+AsciidoctorJ powers the Maven plugin, the Gradle plugin, the Ant plugin, the JavaDoc Doclet, the IntelliJ plugin, and the Leanpub converter.
+While the Maven and Gradle plugins started out using JRuby directly, they have since switched to using AsciidoctorJ.
+The Leanpub converter is notable as it's the first converter written using AsciidoctorJ.
+
+So what's else is new?
 
 * thanks to Robert's strong grasp of JRuby, objects now move much more seamlessly between the Ruby and Java runtimes
 * this has the impact of making the API feel a lot more Java-like
 * it also enables you to be able to write full extensions purely in Java or Groovy, including a Groovy DSL that resembles the native one in Ruby
+* consider this example of an inline macro extension written in Ruby to expand an issue reference
+* here's the equivalent extension using the Groovy DSL.
 * if you're writing extensions, you should definitely be using the 1.6.0 releases, which is where most of these improvements live
-* in general, AsciidoctorJ's API is really maturing and filling out, allowing access to more of the Asciidoctor API, and in some cases goes beyond it, including creating and reading lists and tables
-
-AsciidoctorJ powers the Maven plugin, the Gradle plugin, the Ant plugin, the JavaDoc Doclet, and the IntelliJ plugin.
-While the Maven and Gradle plugins started out using JRuby directly, they have since switched to using AsciidoctorJ.
+* in general, AsciidoctorJ's API is really maturing and filling out, allowing access to more of the Asciidoctor API, some cases even going beyond it in the case of lists and tables.
 
 What's next?
 
-* 1.6.0 is in progress; it's really just waiting on the 1.6.0 release of Asciidoctor, which we're going to talk about shortly.
 * support for Java 9 is coming; we're waiting on Java 9 support in JRuby, which is happening
+* 1.6.0 is in progress; it's really just waiting on the 1.6.0 release of Asciidoctor, which we're going to talk about shortly.
 
 === Asciidoctor.js
-// SAW: I removed the slide for "Portable extensions", you now need to structure this section out to compliment the example slides for: Inline issue macro (Ruby), Inline issue macro (Javascript), Inline issue macro (Groovy), and Bespoke converter
 
-// SAW: Asciidoctor.js wheel and spoke SVG diagram pending
-
-While AsciidoctorJ was happening, there was this whole other initiative going on to bring Asciidoctor to JavaScript.
+At the same time AsciidoctorJ was getting started, there was this whole other initiative going on to bring Asciidoctor to JavaScript.
 That project became Asciidoctor.js and is now led by Guillaume Grosstie.
 Asciidoctor.js provides a pure JavaScript implementation of Asciidoctor, which lets you use Asciidoctor in Node, Electron, Nashhorn, and web browsers.
 Asciidoctor.js is made by transpiling the Ruby code to JavaScript using Opal.
-It seemed like a longshot at first, but Guillaume really worked some magic to make it happen.
+It seemed like a longshot at first, but Guillaume really worked some magic to make it come together.
 
 Asciidoctor.js is particularly important because it sits at the center of the tooling ecosystem.
-In particular, it provides in-application previews of the document, rendered directly in the browser, which is seen in the Atom plugin, the Brackets plugin, the Chrome/Firefox/Opera extension, and docgist.
+In particular, it provides in-application previews of the document, rendered directly in the browser, which is seen in the Atom plugin, the Brackets plugin, the Chrome/Firefox/Opera extension, docgist, and AsciidocFX.
 It's also used in several Node-based static site generators.
 More on that later.
 
 Here's what's new:
 
-* Asciidoctor.js is on par with core; there is no reduction in functionality
-* it offers a porcelain API (core & extension), which abstracts away artifacts left behind by Opal
+* Asciidoctor.js is now on par with core; there is no reduction in functionality
 * The latest release brings full Unicode support, which was a critical step in matching the capability of core
-* Asciidoctor.js provides full access to core and its extension points
-* You can write extensions in JavaScript
-* It now provides support for templates
- ** This capability brings the Reveal.js and (eventually) Bespoke.js converters to JavaScript.
+* It also offers a porcelain API (core & extension), which abstracts away method signatures left behind by Opal
+* In fact, Asciidoctor.js provides full access to core and its extension points, so you can write extensions in JavaScript.
+* Remember that extension you saw in the last section?
+* Here's the same extension written for the lastest Asciidoctor.js release.
+* You also have the option of simply tranpiling the Ruby extension using Opal.
+* Another exciting new feature is support for Slim templates for customizing the output.
+ ** This capability brings the Reveal.js converter to JavaScript (and eventually Bespoke)
 * Also in the JavaScript world, but not related directly to Asciidoctor.js, there is now a full AsciiDoc language grammar for Atom, which was created by Ludovic Fernandez, Anton Moiseev, and Nico Rikken.
 This is by far the best syntax highlighting for AsciiDoc available as it's based on the match expressions in core.
+Ludovic also introduced CD practices into Asciidoctor.
 
 Future:
 
@@ -285,81 +310,68 @@ Future:
 * Better tooling to compile extensions and templates.
 * Figure out how to enable access to more extensions like Asciidoctor Diagram.
 
-// Q: should we mention other projects?
-=== Integration Summary
-
-Improvements to the Asciidoctor.js and AsciidoctorJ APIs are strengthening and hardening the API in core.
-
 == Adoption
 // see http://bestgems.org/gems/asciidoctor
 
+Adoption continues to grow like crazy.
 We've established that you can use Asciidoctor from Ruby, JavaScript, Java or any language that runs on the JVM.
 And many people do use all of those.
 
-Adoption continues to grow like crazy.
-Year after year, Asciidoctor picks up notable users, and this year is no different.
-There are so many users, in fact, that I simply can't mention them all here.
-I'll focus on the notable ones.
+That means, year after year, Asciidoctor picks up notable users.
+This year has been different.
 
 * In August, Fedora announced it was switching from DocBook to Asciidoctor.
-That migration was 4 years in the making, an effort which was sparked in part by a talk I gave about Asciidoctor at the Fedora User and Developer conference.
-There are personal reasons why this one is particularly meaningful for me.
+That initiative was sparked in part by a talk Dan gave about Asciidoctor at the Fedora User and Developer conference more than 4 years ago.
+* In fact, you can find Asciidoctor used all across Red Hat.
+There are personal reasons why this is particularly meaningful to Dan.
 * The Java EE leadership recently announced that the Java EE tutorial has been rewritten in AsciiDoc and processed by Asciidoctor.
 (ref: https://javaee.github.io/tutorial/)
 * Vogella does all its tutorials and trainings in Asciidoctor.
 * The Khronos Group uses Asciidoctor for its Vulkan manual.
-* Vogella and The Khronos Group also provide funding for the project.
+* Vogella and The Khronos Group are notable for provide funding for the project, as do many of the core contributors.
 //* Vaadin
 * Matt Raible, who needs no introduction, wrote the JHipster MiniBook in AsciiDoc and converted to PDF for download and print using Asciidoctor PDF.
 * Thorben Janssen, author of the thoughts-on-java blog, wrote his Hiberate Tips book in AsciiDoc and converted it to an ebook for self-publishing using Asciidoctor EPUB3.
 
 //To find more users, search for "Who's Using Asciidoctor?"
 //Right now it leads to an open issue, but eventually that will become a page on (the new) Asciidoctor site.
-If you search, you'll be able to find many more uses of Asciidoctor.
+There are too many users to mention here.
+If you search, you'll quickly be able to find many more.
 
 == The Future
 
-* Project Management
-* Semantic HTML
-* Validation & Grammar
-* Docs Overhaul
-
-=== Project Management: Roadmaps & Releases
+=== Semantic versioning
+//=== Release planning
 //message: enterprise ready
 
-// SAW: roadmap image pending
-
 This is a short section.
-Our experience in the past few years, especially as the Asciidoctor ecosystem grows, has it painfully obvious that we need to shift to semantic versioning.
-Each micro release of Asciidoctor core is like a major release, so there's no room for anything else.
+Our experience in the past few years, especially as the Asciidoctor ecosystem grows, has made it painfully obvious that we need to shift to semantic versioning.
+The time between releases is too long and each micro release of Asciidoctor core is like a major release, so there's no room for anything else.
 We need to make room.
 We also need to move away from a single version scheme across the ecosystem.
-//I thought it was the right way to go, but I was mistaken.
-//It's only slowed things down.
 We'll be much better off if projects themselves are versioned semantically and we then track compatible versions.
 
-Once we shift to 1.6.0, releases will go 1.6.0, 1.7.0, then perhaps 2.0.0 if a major change is ready to go in.
-
-We may still align the minor version number for the core components, AsciidoctorJ and Asciidoctor.js.
-But the alignment wouldn't extend much outside of those projects.
+//Once we shift to 1.6.0, releases will go 1.6.0, 1.7.0, then perhaps 2.0.0 if a major change is ready to go in.
+//We may still align the minor version number for the core components, AsciidoctorJ and Asciidoctor.js.
+//But the alignment wouldn't extend much outside of those projects.
 
 A shift to semantic versioning should also allow us to release faster.
-I know I've held up the release because minor stuff got stuck behind major stuff.
+The minor stuff can go through without getting held up by the major stuff.
 //I'm not ready to commit to timed releases yet, but I am thinking about them.
 
 === Semantic HTML
 
 The initial goal of Asciidoctor was to serve as a drop-in replacement for AsciiDoc.py.
 Therefore, we decided to mirror the HTML it produced, as eccentric as it was.
-But we always knew we'd eventually switch to producing HTML that is more semantic and easier to style with CSS.
+But we always knew we'd eventually need switch to producing HTML that is more semantic and easier to style with CSS.
 That time is upon us.
 
 In fact, that transition is already underway.
 When we made the HTML for the EPUB3 converter, we experimented with how AsciiDoc mapped to a semantic HTML structure.
-I also did the same for the Bespoke converter, minus the parts that are slide-specific.
+We also did the same for the Bespoke converter.
 Inspired by that work, Jakub Jirutka has put together a template-based converter named html5s that produces semantic HTML5 output.
 You can use all of those today.
-The final step is to polish it and integrate it into core, likely as the default converter.
+The final step is to fold all this work into core and make it the default converter.
 
 ////
 (slide: html5 logo?)
@@ -385,23 +397,26 @@ We'll also need a new default stylesheet, which is a good time to revisit the ag
 // validaton is part present / new, part future
 
 Another feature users often ask about is validation.
-I had always planned on adding validation of AsciiDoc to the processor.
-When I started working on it in a recent contract, I realized that validation doesn't belong in the processor.
+We had always planned on adding validation of AsciiDoc to the processor.
+When Dan started working on it in a recent contract, he realized that validation doesn't belong in the processor.
 The needs of the processor are just very different from the needs of a validator.
-A validator needs to keep track of where every character is in the original source so it can give exact details, offsets, and perhaps even fix the problem.
+A validator needs to keep track of where every character is in the original source so it can give exact details, offsets, and perhaps even to fix the problem.
 The processor only cares about the effective value and general information about context for reporting.
 So we needed a validation system.
 
 This is where textlint comes in.
 textlint builds on the popularity of eslint.
-First, you implement a parser for the language, which I've started to do.
-The parser currently only handles blocks, but I'm going to take a crack at parsing inline nodes like formatted text and macros.
-What I'm hoping will come out of this effort is a strategy for making an inline parser for core, which has long been its Achilles heal.
+First, you implement a parser for the language, which we've started to do.
+The parser currently only handles blocks, but we're going to (finally) take a crack at parsing inline nodes like formatted text and macros.
+
+What we're hoping will come out of this effort is a strategy for making an inline parser for core, which has long been its Achilles heal.
 The regular expression-base approach has brought us a long way, but we're reaching its limits and it's time to get formal.
+
 Once the document is parsed, then you write rules that listen for nodes and look for things to validate.
 For example, if you wanted to check for insecure URLs, you could listen for all paragraph nodes and only check for URLs in those regions, thus skipping any verbatim blocks.
 
-(slide: insecure url rule example)
+icon:tv[insecure url rule example]
+
 As you can see, you get exact line number and character offsets in the message.
 
 Once this system is ready, you have much more control over what is validated.
@@ -456,17 +471,17 @@ Let's break that down:
 * Asciidoctor - it then integrates deeply with Asciidoctor to generate the pages and the navigation
 * without needing expertise - although what Antora does is complex, it's all driven by a simple configuration file called a playbook; this file describes at a high level what needs to be done; where's the source, where's the output, what settings should be used
 
-Out of Antora comes a new source-to-source xref system for making references across documentation components.
+//Out of Antora comes a new source-to-source xref system for making references across documentation components.
 
 Our goal with Antora is to make documentation sites easy to create, simple to manage, and fun to work on.
 And it provides a real world use case for us to improve Asciidoctor.
 
 Antora uses Asciidoctor.js, so it's going to have a particularly strong impact on that project.
-I meant it when I said that Asciidoctor.js was ready for prime time.
+I meant it when I said Asciidoctor.js is ready for prime time.
 
 You can learn more about Antora and follow along with development at https://gitlab.com/antora.
 I'm also working on a series of posts that introduce the project and explain the problem we're trying to solve with it.
-I talk a lot about that in my other talk, Applying Engineering Practices to Documentation on Wednesday.
+//I talk a lot about that in my other talk, Applying Engineering Practices to Documentation on Wednesday.
 You'll be hearing a lot about it in the coming months.
 
 //=== Antora-ize the Docs
@@ -478,18 +493,19 @@ The manual remains the best place to get accurate and up-to-date information abo
 While it provides great raw material, it needs to be overhauled.
 That's where Antora comes in.
 We're going to drink our own beer and use Antora for the Asciidoctor documentation.
-Not only will this bring some spring cleaning to the content that is already there, it will also address the problem that asciidoctor.org mostly only covers the core processor.
+Not only will this bring some spring cleaning to the content that's already there, it will also address the problem that asciidoctor.org only really talks about core processor.
 There are a few pages here and there about other projects in the ecosystem, but they are mostly isolated and one-pagers.
 By using Antora, we can shift the documentation for the projects back to the project repositories and then consume them when the site is built.
 It's really the exact case for which Antora was designed, so it's a chance to see it in action.
 It will also help us improve Antora by applying it to another real world scenario.
 
-Antora + Asciidoctor FTW!
+So the future is Asciidoctor + Antora.
 
 //Anyone interested in helping with the writing, please reach out to us.
 //Many hands make light work.
 //We'd also welcome the input of a designer to help improve the UI for Antora that we use for the site.
 
+////
 == Funding
 
 Speaking of time, I need time to work on Asciidoctor.
@@ -498,25 +514,11 @@ While I mentioned Asciidoctor has received support from 80 backers, only few of 
 If we're going to take on the challenges we have set before us, we're going to need funding, which converts to time and resources.
 The more time I can spend on Asciidoctor, the faster we can move.
 My effort is multiplied by the effort of the community, but that only happens when I'm actively driving the ship.
+////
 
 == Wrapup
 
 TODO
-
-=== #FIXME# Need to find a place for
-
-// Asciidoctor Diagram
-//* speaking of SVGs, tons of new diagramming tools are supported by Asciidoctor Diagram; if you are creating diagrams, it's definitely work a look
-
-// Asciidoctor Bespoke converter
-//* Bespoke converter, which created this presentation
-
-// Asciidoctor Reveal.js converter
-//* Reveal.js converter, which closely resembles the Bespoke converter; the two influence each other
-
-* Jekyll plugin, the Middleman extension
-
-* Docker container
 
 ////
 == Performance
