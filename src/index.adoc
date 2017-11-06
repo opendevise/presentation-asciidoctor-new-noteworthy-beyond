@@ -23,12 +23,18 @@ Alex Soto
 [.topic]
 == Logo
 
+== !
+
+image::issue-48-open.png[role=cover]
+
 [.curtain]
 == !
 
 image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-items]
 
-== <screenshot of closed issue>
+== !
+
+image::issue-48-closed.png[role=cover]
 
 [.topic]
 == Processor
