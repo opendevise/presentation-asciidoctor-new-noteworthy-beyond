@@ -545,7 +545,8 @@ image::asciidoctor-user-manual.png[role=cover]
 //== Funding
 
 [.feature%slice]
-== Asciidoctor icon:handshake-o[] Antora  FTW!
+//== Asciidoctor icon:handshake-o[] Antora  FTW!
+== Antora icon:book[] Asciidoctor
 
 [.thanks]
 == Thank You!
