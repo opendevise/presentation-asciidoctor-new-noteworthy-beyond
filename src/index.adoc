@@ -8,7 +8,8 @@ Alex Soto
 :title-separator: |
 :!sectids:
 :imagesdir: images
-//:source-highlighter: highlight.js
+:source-highlighter: highlight.js
+:highlightjs-theme: ascetic
 :icons: font
 :iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 :docinfo: shared
@@ -102,6 +103,7 @@ include::{uri-script}[tag=xrefstyle]
 
 [.insert,build=items]
 --
+[source,text]
 ----
 Refer to <<foreign-keys>>.
 
@@ -123,6 +125,7 @@ include::{uri-script}[tag=xrefstyle-full]
 == :xrefstyle: short
 
 --
+[source,text]
 ----
 Refer to <<foreign-keys>>.
 
@@ -189,6 +192,7 @@ include::{uri-script}[tag=translation-langs]
 [.code]
 == Translated attributes :: fr
 
+[source,text]
 ----
 :appendix-caption: Appendice
 :appendix-refsig: {appendix-caption}
@@ -216,6 +220,7 @@ include::{uri-script}[tag=tag-filtering]
 [.code]
 == Tagged include file
 
+[source,java]
 ----
 package com.acme;
 //tag::named[]
@@ -242,7 +247,7 @@ include::{uri-script}[tag=tagged-class]
 
 [.insert,build=items]
 --
-[listing]
+[source,text]
 ....
 ----
 \include::TheBeanCalledX.java[tags=!*]
@@ -269,7 +274,7 @@ include::{uri-script}[tag=exclude-tags]
 == Exclude tags by name
 
 --
-[listing]
+[source,text]
 ....
 ----
 \include::TheBeanCalledX.java[tags=!named]
@@ -297,7 +302,7 @@ include::{uri-script}[tag=exclude-tag]
 
 [.insert,build=items]
 --
-[listing]
+[source,text]
 ....
 ----
 \include::TheBeanCalledX.java[tags=**]
@@ -336,6 +341,7 @@ include::{uri-script}[tag=svg-support]
 
 [.insert,build=items]
 --
+[source,text]
 ----
 image::diagram.svg[opts=interactive]
 ----
@@ -356,6 +362,7 @@ include::{uri-script}[tag=interactive-svg]
 == Inline SVG
 
 --
+[source,text]
 ----
 image::diagram.svg[opts=inline]
 ----
@@ -376,7 +383,7 @@ include::{uri-script}[tag=inline-svg]
 [.code]
 == Diagrams in SVG...
 
-[listing,subs=+quotes]
+[source,text,subs=+quotes]
 ....
 [plantuml,devoxx,**svg,opts=inline**]
 ----
@@ -426,6 +433,7 @@ include::{uri-script}[tag=bespoke]
 [.code]
 == Basic presentation
 
+[source,text]
 ----
 = My Awesome Presentation
 
@@ -453,6 +461,7 @@ include::{uri-script}[tag=awesome-prez]
 
 [.insert,build=items]
 --
+[source,text]
 ----
 [.remark%slice%fit]
 == This is a  Call  to All Engineers
@@ -820,7 +829,8 @@ include::{uri-script}[tag=insecure-url-rule]
 [.code]
 == !
 
-----
+[source,text]
+....
 $ textlint "**/*.adoc"
 
 server-docs/modules/ROOT/content/user-manual.adoc
@@ -829,7 +839,7 @@ server-docs/modules/ROOT/content/user-manual.adoc
                  http://example.com (non-secure-url)
 
 ✖ 1 problem (1 error, 0 warnings)
-----
+....
 
 [.cue]
 ****
