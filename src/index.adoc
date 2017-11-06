@@ -3,8 +3,8 @@
 //- heads under project subject slide
 = Asciidoctor | New, Noteworthy, & Beyond
 Alex Soto
-:organization: RedHat
-:twitter: <pick his preferred @>
+:organization: Red Hat
+:twitter: @alexsotob
 :title-separator: |
 :!sectids:
 :imagesdir: images
