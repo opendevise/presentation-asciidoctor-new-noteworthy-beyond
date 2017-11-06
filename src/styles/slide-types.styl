@@ -16,7 +16,9 @@
       font-size 5.175rem
       font-weight $weight-light
       color $c-white-bis
-    footer
+
+  &.title, &.thanks
+    footer, .footer
       position absolute
       bottom 0
       width 80%
@@ -110,12 +112,19 @@
 
   &.thanks
     background-color $c-black-bis
+    h2, p.url
+      line-height 1.2
     h2
       font-size 10rem
       //font-weight $weight-semibold
       font-weight $weight-bold
       //color lighten($c-pri, 10%)
       color lighten(saturate($c-pri, 10%), 5%)
+    p.url
+      margin-top 0
+      font-size 5.175rem
+      font-weight $weight-light
+      color #bdbdbd
 
   &.topic, &.feature
     text-align center

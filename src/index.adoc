@@ -570,3 +570,14 @@ image::asciidoctor-user-manual.png[role=cover]
 
 [.thanks]
 == Thank You!
+
+[.url]
+asciidoctor.org
+
+[.footer]
+--
+[.author]
+[.personname]#Alex Soto#
+[.affiliation]#Red Hat#
+[.contact]#@alexsotob#
+--
