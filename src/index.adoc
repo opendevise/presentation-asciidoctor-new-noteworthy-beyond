@@ -1,6 +1,6 @@
 //.TODO
-//- diagrams example to highlight more diagrams
 //- heads under project subject slide
+//- black and white syntax highlighting
 = Asciidoctor | New, Noteworthy, & Beyond
 Alex Soto
 :organization: Red Hat
@@ -8,8 +8,7 @@ Alex Soto
 :title-separator: |
 :!sectids:
 :imagesdir: images
-//:source-highlighter: coderay
-:coderay-css: style
+//:source-highlighter: highlight.js
 :icons: font
 :iconfont-cdn: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 :docinfo: shared
