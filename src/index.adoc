@@ -431,15 +431,19 @@ asciidoctor {
 <blockquote class="twitter-tweet" data-dnt="true" data-cards="hidden" data-lang="en" data-width="400"><p lang="en" dir="ltr">4 Years after hearing <a href="https://twitter.com/mojavelinux">@mojavelinux</a> talk about asciidoc at FUDCon Lawrence <a href="https://twitter.com/fedora">@Fedora</a> docs has finally moved away from… <a href="https://t.co/lDBcrLpiSe">https://t.co/lDBcrLpiSe</a></p>&mdash; Zach Oglesby (@zmoglesby) <a href="https://twitter.com/zmoglesby/status/900873959121530882">August 25, 2017</a></blockquote>
 ++++
 
+[.brands]
 == !
 
-* Fedora Documentation
-* Red Hat
-* Java EE 8 Tutorial
-* Spring Documentation
-* Vogella Tutorials
-* Khronos Group
-* JHipster Mini-Book
+[%build]
+--
+image::logos/fedora.svg[Fedora]
+image::logos/redhat.svg[Red Hat]
+image::logos/javaee.png[Java EE]
+image::logos/spring-framework.svg[Spring Framework]
+image::logos/vogella.png[Vogella Company]
+image::logos/khronos-group.jpg[Khronos Group]
+image::logos/jhipster-minibook.jpg[JHipster Mini-book]
+--
 
 [.topic]
 == Future
@@ -466,7 +470,7 @@ asciidoctor {
 
 == !
 
-image::textlint.png[role=grow]
+image::logos/textlint.png[role=grow]
 
 [.code]
 == textlint :: insecure-url-rule
