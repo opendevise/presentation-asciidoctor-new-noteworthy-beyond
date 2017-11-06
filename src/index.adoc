@@ -298,13 +298,13 @@ image::devoxx-activity-diagram.svg[role=grow-y]
 //== Ecosystem Growth
 == Ecosystem icon:line-chart[]
 
-[.feature]
-== By the numbers
-
 == !
 
 .Source: \http://bestgems.org/gems/asciidoctor
 image::gem-download-chart.png[,800]
+
+[.feature]
+== By the numbers
 
 [.stats]
 == !
@@ -472,16 +472,17 @@ image::logos/jhipster-minibook.jpg[JHipster Mini-book]
 [.topic]
 == Future
 
-//semantic versioning
 [.feature]
 == Release planning
 
-== !
+== ! Semantic versioning
 
-image::versions.svg[role=grow]
+image::versions.svg[role=grow,opts=interactive]
 
 [.feature]
 == Semantic HTML
+
+== <screenshot of html5s>
 
 [.feature]
 == Validation & grammar
