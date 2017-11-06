@@ -9,7 +9,7 @@ module.exports = () => {
       // TODO node selector should be an option of this plugin
       const notes = Array.from(slide.querySelectorAll('aside[role="note"] p, aside[role="note"] li'))
         .map((note) => note.innerHTML)
-        .join('')
+        .join('\n')
 
       if (slide.bullets && slide.bullets.length > 0) {
         return slide.bullets.map((b, bulletIdx) => {
