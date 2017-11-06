@@ -30,7 +30,7 @@ image::issue-48-open.png[role=cover]
 [.curtain]
 == !
 
-image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-items]
+image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,role=reveal build-items]
 
 == !
 
