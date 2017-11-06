@@ -510,7 +510,9 @@ server-docs/modules/ROOT/content/user-manual.adoc
 [.topic]
 == Antora
 
-== <drop in from other pres>
+== !
+
+image::antora-pipeline-aggregate-classify.svg[role=grow-y]
 
 [.code]
 == Antora playbook
