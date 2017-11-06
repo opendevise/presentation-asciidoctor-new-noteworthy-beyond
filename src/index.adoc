@@ -34,7 +34,8 @@ image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-ite
 
 // SAW: Dan, this slide just really doesn't work for me. :p I'd just cut it, and say this part of the transcript while you're on the slide above.
 [.feature%slice]
-== AsciiDoc icon:home[]  Asciidoctor
+//== AsciiDoc icon:home[]  Asciidoctor
+== Asciidoctor  icon:home[] AsciiDoc
 
 [.feature]
 == xrefstyle
