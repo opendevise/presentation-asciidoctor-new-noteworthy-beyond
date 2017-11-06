@@ -1,5 +1,6 @@
 = Asciidoctor: New, Noteworthy, and Beyond
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
+:experimental:
 :repository-name: presentation-asciidoctor-new-noteworthy-beyond
 :branch: master
 :uri-bespoke: http://markdalgleish.com/projects/bespoke.js
@@ -70,18 +71,106 @@ Finally, build and serve the presentation!
  $ gulp serve
 
 You can view the presentation in your browser at the URL displayed in the console.
-
-By default, the preview server runs on port 8000.
-To change this default, you can assign a different number to the PORT environment variable:
-
- $ PORT=8888 gulp serve
+Use the kbd:[<-] and kbd:[->] arrows to navigate the slides.
+You can use kbd:[<space>] and kbd:[Shift+<space>] to navigate as well.
+Most presentation clickers are compatible with these key bindings.
 
 To build the presentation without starting the preview server, use:
 
  $ gulp
 
-In both cases, the files are built into the [.path]_dist_ directory.
+In either case, the files are built into the [.path]_dist_ directory.
 You can view the slides outside of the local preview server by navigating to [.path]_dist/index.html_ in your browser.
+
+== kbd:[o] -- Slide Overview Mode
+
+This presentation comes with a built-in slide overview mode.
+To activate it, simply visit the presentation in your browser and press kbd:[o].
+The slides will be rearranged in a grid that you can scroll or navigate with the keyboard.
+Press enter to select the highlighted slide and return to presentation mode.
+
+== kbd:[F11] -- Full Screen Mode
+
+This presentation will automatically scale to fit an entire 16:9 screen.
+Simply activate full screen mode in your browser by pressing kbd:[F11].
+
+== Using the Presentation Console
+
+This presentation can be broadcast and controlled using ensuite-present.
+ensuite-present is a local web app that provides a presentation console.
+Once install, you launch it using the `enprez` command.
+
+=== Overview
+
+The presentation console consists of two browser windows.
+One is for the presentation console the speaker sees.
+This view consists of the current slide, the next slide, and speaker notes.
+The speaker notes in the console are taken from the sidebar block in each slide that has the role `cue`.
+The other view is the one that goes on the projector screen for the audience to see.
+
+=== Installation
+
+To use ensuite-present, you first need to install the node module using:
+
+ $ npm install -g ensuite-present
+
+=== Launch
+
+Then, open a new terminal and launch the application, which is named `enprez`.
+
+ $ enprez
+
+NOTE: You don't need to have a running presentation when you launch the application.
+It's a web app, so it loads the presentation when you load the URL of the console in your browser.
+
+In a separate terminal, run the presentation, as described above:
+
+ $ gulp serve
+
+Finally, load the presentation into the console by visiting the following URL.
+
+ http://localhost:4320/pages/console/?slide-deck-url=http://localhost:8000/?ensuite
+
+You're looking at the speaker view.
+You can use this view to practice your presentation.
+
+When you're ready to present, you need to load the window the presentation console will control that gets shown to the audience.
+
+ http://localhost:4320/pages/viewer/
+
+After loading that window, refresh the speaker window (press kbd:[F5]).
+Now move the viewer window to the projected monitor for the audience to see.
+
+=== Review
+
+To review, you run ensuite-present using:
+
+ $ enprez
+
+Then you run the presentation in a separate terminal:
+
+ $ gulp serve
+
+Finally, you open two browser windows and navigate to the following two URLs:
+
+Projector view::
+http://localhost:4320/pages/viewer/
+
+Presenter console::
+http://localhost:4320/pages/console/?slide-deck-url=http://localhost:8000/?ensuite
+
+When broadcasting the presentation, you need to load the viewer first.
+It will be blank to start as it's waiting for slide data.
+Load the console view and the first slide will be sent to the viewer.
+At this point, you're ready to present.
+Good luck!
+
+== Customizing the Port
+
+By default, the preview server runs on port 8000.
+To change this default, you can assign a different number to the PORT environment variable:
+
+ $ PORT=8888 gulp serve
 
 == Publish to GitHub Pages
 
