@@ -32,13 +32,11 @@ If you're using the AsciiDoc writing format or are interested in learning more a
 // end:abstract[]
 --
 
-////
 == View online
 
 https://opendevise.github.io/{repository-name}[Slides]
 &middot;
 https://github.com/opendevise/{repository-name}/blob/{branch}/src/notes/script.adoc[Script]
-////
 
 == View slides locally
 
