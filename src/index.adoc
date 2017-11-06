@@ -481,7 +481,7 @@ image::asciidoc-in-atom.png[role=cover]
 [.brands]
 == !
 
-[%build]
+[.container,build=items]
 --
 image::logos/fedora.svg[Fedora]
 image::logos/redhat.svg[Red Hat]
