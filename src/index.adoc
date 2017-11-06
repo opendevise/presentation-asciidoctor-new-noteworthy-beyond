@@ -2,9 +2,9 @@
 //- diagrams example to highlight more diagrams
 //- heads under project subject slide
 = Asciidoctor | New, Noteworthy, & Beyond
-Dan Allen
-:organization: OpenDevise
-:twitter: @mojavelinux
+Alex Soto
+:organization: RedHat
+:twitter: <pick his preferred @>
 :title-separator: |
 :!sectids:
 :imagesdir: images
@@ -32,7 +32,7 @@ image::logo-fill.svg#logo-outline.svg[Asciidoctor logo,640,role=reveal build-ite
 [.topic]
 == Processor
 
-// SAW: This slide just really doesn't work for me. I'd just cut it, and say this part of the transcript while you're on the slide above.
+// SAW: Dan, this slide just really doesn't work for me. :p I'd just cut it, and say this part of the transcript while you're on the slide above.
 [.feature%slice]
 == AsciiDoc icon:home[]  Asciidoctor
 
@@ -452,15 +452,9 @@ image::logos/jhipster-minibook.jpg[JHipster Mini-book]
 [.feature]
 == Release planning
 
-// Image pending
-== <Releases diagram>
+== !
 
-* 1.5.6
-* 1.5.7
-* 1.6.0
-* 1.7.0
-* 2.0.0
-* ...
+image::versions.svg[role=grow]
 
 [.feature]
 == Semantic HTML
