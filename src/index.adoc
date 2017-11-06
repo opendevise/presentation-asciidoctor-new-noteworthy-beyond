@@ -251,6 +251,29 @@ image::diagram.svg[opts=inline]
 ....
 --
 
+[.code]
+== Diagrams in SVG...
+
+[listing,subs=+quotes]
+....
+[plantuml,devoxx,**svg,opts=inline**]
+----
+start
+if (Going to Devoxx?) then (yes)
+  : attend talks \n network \n drink beer;
+else (no)
+  : watch talks \n live on YouTube \n (without pants);
+endif
+stop
+----
+....
+
+// FIXME turn this into a replace build
+[.code]
+== ...means diagrams are crisp
+
+image::devoxx-activity-diagram.svg[role=grow-y]
+
 [.feature]
 == Compliance & stability
 // sort of like Java's project coin
