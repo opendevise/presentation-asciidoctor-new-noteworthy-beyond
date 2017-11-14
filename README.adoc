@@ -2,7 +2,7 @@
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 :experimental:
 :repository-name: presentation-asciidoctor-new-noteworthy-beyond
-:branch: master
+:branch: devoxx-2017
 :uri-bespoke: http://markdalgleish.com/projects/bespoke.js
 :uri-bundler: http://bundler.io
 :uri-gulp: https://gulpjs.com
@@ -14,7 +14,9 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 
 [abstract]
 --
-Next presentation: https://cfp.devoxx.be/2017/talk/TWI-5560/Asciidoctor:_New,_Noteworthy,_and_Beyond[Devoxx 2017]
+Event page: https://cfp.devoxx.be/2017/talk/TWI-5560/Asciidoctor:_New,_Noteworthy,_and_Beyond[Devoxx 2017]
+
+Presented by: https://github.com/lordofthejars[Alex Soto]
 
 // tag:abstract[]
 Asciidoctor continues to take technical documentation by storm, especially in the Java sector.
@@ -34,7 +36,7 @@ If you're using the AsciiDoc writing format or are interested in learning more a
 
 == View online
 
-https://opendevise.github.io/{repository-name}[Slides]
+https://opendevise.github.io/{repository-name}/at/{branch}[Slides]
 &middot;
 https://www.youtube.com/watch?v=T7RVT2_ntRU[Video]
 &middot;
