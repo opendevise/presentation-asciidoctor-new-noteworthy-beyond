@@ -9,6 +9,7 @@ var pkg = require('./package.json'),
   del = require('del'),
   exec = require('gulp-exec'),
   ghpages = require('gh-pages'),
+  git = require('git-rev-sync'),
   gulp = require('gulp'),
   gutil = require('gulp-util'),
   path = require('path'),
@@ -107,8 +108,25 @@ gulp.task('watch', function() {
   gulp.watch('src/fonts/*', ['fonts']);
 });
 
-gulp.task('publish', ['clean', 'build'], function(done) {
-  ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
+gulp.task('build:branch', ['clean', 'build'], function() {
+  var branch = git.branch();
+  if (branch != 'master') {
+    return gulp.src('dist/**/*').pipe(gulp.dest('dist/at/' + branch));
+  }
+});
+
+gulp.task('publish', ['build:branch'], function(done) {
+  var branch = git.branch();
+  var opts = { logger: gutil.log, message: 'publish presentation from ' + branch + ' to GitHub pages' }
+  if (branch != 'master') {
+    opts.src = (opts.only = 'at/' + branch) + '/**/*';
+  }
+  else {
+    // only is a list of globby expressions (not git pathspecs)
+    // NOTE don't set this option when first creating the gh-pages branch
+    opts.only = ['*', 'at']
+  }
+  ghpages.publish(path.join(__dirname, 'dist'), opts, done);
 });
 
 // old alias for publishing on gh-pages
