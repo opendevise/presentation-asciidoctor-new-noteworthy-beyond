@@ -1,0 +1,540 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Asciidoctor | New, Noteworthy, &amp; Beyond</title><meta name="author" content="Alex Soto"><meta name="generator" content="Asciidoctor 1.5.6.1 (Bespoke.js converter)"><meta name="mobile-web-app-capable" content="yes"><link rel="stylesheet" href="build/build.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/ascetic.min.css"></head><body><article class="deck"><section class="title" data-title=""><header><h1>Asciidoctor </h1><h2>New, Noteworthy, &amp; Beyond</h2></header><aside role="note"><p>Hello everyone!
+My name is Alex Soto.
+I&#8217;m the creator of AsciidoctorJ, the Java API for Asciidoctor.
+In the short time we have together, I&#8217;m going to cover what&#8217;s new, noteworthy, and beyond in the Asciidoctor ecosystem.</p>
+<p>Specifically, I&#8217;m going to talk about:</p>
+<ul><li><span class="primary">Why we do what we do</span></li><li><span class="primary">A little surprise</span></li><li><span class="primary">New language and processor features</span></li><li><span class="primary">The growth of the ecosystem</span></li><li><span class="primary">Where Asciidoctor is headed</span></li><li><span class="primary">And finally, another surprise.</span></li></ul>
+<p>I&#8217;ll set the stage by reminding you what Asciidoctor is all about.</p>
+<p>Asciidoctor is a toolchain for parsing and converting AsciiDoc documents so they can be published in a variety of formats, like an HTML site, a PDF document, and even these slides.
+What motivates us to take on this challenge?</p></aside><footer><p class="author"><span class="personname"><span class="firstname">Alex</span> <span class="surname">Soto</span></span><span class="affiliation"><span class="organization">Red Hat</span></span><span class="contact"><span class="twitter">@alexsotob</span> </span></p></footer></section>
+<section><figure class="image cover"><img src="images/love-writing-tweet.png" alt="love writing tweet"></figure>
+<aside role="note"><p>This tweet sums it up.</p>
+<p>(acknowledge tweet)</p>
+<p>That&#8217;s it right there.
+We want writers to love writing documentation and be productive at doing it.
+And we want readers to love reading documentation and be able to learn effectively from it.</p>
+<p>Now, speaking of gorgeous, time for the first surprise.</p></aside></section>
+<section class="topic"><h2>Logo</h2><aside role="note"><p>The logo.</p></aside></section>
+<section><figure class="image cover"><img src="images/issue-48-open.png" alt="issue 48 open"></figure>
+<aside role="note"><p>The second oldest open issue in the Asciidoctor repository is the issue to design a logo.
+Having upwards of 250 comments, it&#8217;s literally bursting at the seams.
+After numerous ideas, directions, and discussions, it&#8217;s time to finally bring this thing to a close.
+So I&#8217;m proud to announce Asciidoctor&#8217;s new logo, which was rendered by Marián Hlaváč.</p></aside></section>
+<section class="curtain"><figure class="image reveal build-items"><img src="images/logo-fill.svg" alt="Asciidoctor logo"><img src="images/logo-outline.svg" alt="Asciidoctor logo"></figure>
+<aside role="note"><p>(raise the curtain)</p>
+<p>The A, obviously, is for Asciidoctor and AsciiDoc.
+The equals sign is the first character that appears in most AsciiDoc documents, designating a doctitle.
+Combine those two and you&#8217;ve got the logo.</p></aside></section>
+<section><figure class="image cover"><img src="images/issue-48-closed.png" alt="issue 48 closed"></figure>
+<aside role="note"><p>And with that, we&#8217;re closing the issue.
+Further initiatives involving brand will happen in the brand repository, where you can find the logo files.</p></aside></section>
+<section class="topic"><h2>Processor</h2><aside role="note"><p>Now let&#8217;s move on to functionality.</p></aside></section>
+<section class="feature"><h2><span class="line">Asciidoctor</span>
+<span class="line"><span class="icon whole"><i class="fa fa-home"></i></span> AsciiDoc</span></h2><aside role="note"><p>As we dive into this section, it&#8217;s important to know that Asciidoctor is the leading implementation of AsciiDoc and the official home of the AsciiDoc language.
+Nothing I&#8217;m talking about here is special for Asciidoctor.
+This is just AsciiDoc, evolved.</p></aside></section>
+<section class="feature"><h2>xrefstyle</h2><aside role="note"><p>It&#8217;s now possible to customize the text of a reference using the xrefstyle attribute.</p></aside></section>
+<section class="code io"><h2>:xrefstyle: full</h2><div class="insert build-items"><pre class="source"><code data-lang="text" class="language-text prettyprint">Refer to &lt;&lt;foreign-keys&gt;&gt;.
+
+...
+
+=== Foreign Keys</code></pre>
+<div class="exampleblock">
+<div class="content">
+Refer to <span class="underline">Section 3.2, “Foreign Keys”</span>.
+</div>
+</div></div>
+<aside role="note"><p>In addition to the default behavior (xrefstyle=basic), you can now use formal notation (xrefstyle=full)&#8230;&#8203;</p></aside></section>
+<section class="code io"><h2>:xrefstyle: short</h2><pre class="source"><code data-lang="text" class="language-text prettyprint">Refer to &lt;&lt;foreign-keys&gt;&gt;.
+
+...
+
+=== Foreign Keys</code></pre>
+<div class="exampleblock">
+<div class="content">
+Refer to <span class="underline">Section 3.2</span>.
+</div>
+</div>
+<aside role="note"><p>or abbreviated notation (xrefstyle=short).
+Implementing this feature meant we had to start storing the node being referenced.
+That also means this information is now available to extensions.</p></aside></section>
+<section class="feature"><h2><span class="icon"><i class="fa fa-language"></i></span> Translations</h2><aside role="note"><p>Thanks to the community, the built-in text label attributes are now translated into 28 languages.</p></aside></section>
+<section class="translations"><h2>data/locale/attributes-&lt;lang&gt;.adoc</h2><ul class="tags"><li><span class="primary">ar</span></li><li><span class="primary">bg</span></li><li><span class="primary">ca</span></li><li><span class="primary">da</span></li><li><span class="primary">de</span></li><li><span class="primary">es</span></li><li><span class="primary">fa</span></li><li><span class="primary">fi</span></li><li><span class="primary">fr</span></li><li><span class="primary">hu</span></li><li><span class="primary">id</span></li><li><span class="primary">it</span></li><li><span class="primary">ja</span></li><li><span class="primary">kr</span></li><li><span class="primary">nb</span></li><li><span class="primary">nl</span></li><li><span class="primary">nn</span></li><li><span class="primary">pl</span></li><li><span class="primary">pt</span></li><li><span class="primary">pt_BR</span></li><li><span class="primary">ro</span></li><li><span class="primary">ru</span></li><li><span class="primary">sr</span></li><li><span class="primary">sr_Latn</span></li><li><span class="primary">tr</span></li><li><span class="primary">uk</span></li><li><span class="primary">zh_CN</span></li><li><span class="primary">zh_TW</span></li></ul>
+<aside role="note"><p>These files are found in the data/locale directory.</p></aside></section>
+<section class="code"><h2>Translated attributes :: fr</h2><pre class="source"><code data-lang="text" class="language-text prettyprint">:appendix-caption: Appendice
+:appendix-refsig: {appendix-caption}
+:caution-caption: Avertissement
+:example-caption: Exemple
+:figure-caption: Figure
+:important-caption: Important
+:last-update-label: Dernière mise à jour
+...</code></pre>
+<aside role="note"><p>Here&#8217;s an excerpt of the French translation so you can see how the attributes are defined.
+To import the translations, just include this file into your document using the include directive.</p></aside></section>
+<section class="feature"><h2>Advanced tag filtering</h2><aside role="note"><p>Asciidoctor has always had the ability to include tagged lines from a file.
+Now, it can also exclude them.</p></aside></section>
+<section class="code"><h2>Tagged include file</h2><pre class="source"><code data-lang="java" class="language-java prettyprint">package com.acme;
+//tag::named[]
+import javax.inject.Named;
+//end::named[]
+import javax.enterprise.context.RequestScoped;
+
+//tag::named[]
+@Named("X")
+//end::named[]
+@RequestScoped
+public class TheBeanCalledX {
+  ...
+}</code></pre>
+<aside role="note"><p>Let&#8217;s assume we have the following Java class.</p></aside></section>
+<section class="code io"><h2>Exclude all tags</h2><div class="insert build-items"><pre class="source"><code data-lang="text" class="language-text prettyprint">----
+include::TheBeanCalledX.java[tags=!*]
+----</code></pre>
+<pre class="screen"><samp>package com.acme;
+import javax.enterprise.context.RequestScoped;
+
+@RequestScoped
+public class TheBeanCalledX {
+  ...
+}</samp></pre></div>
+<aside role="note"><p>We can exclude the lines tagged "named" using the negated asterisk.</p></aside></section>
+<section class="code io"><h2>Exclude tags by name</h2><pre class="source"><code data-lang="text" class="language-text prettyprint">----
+include::TheBeanCalledX.java[tags=!named]
+----</code></pre>
+<pre class="screen"><samp>package com.acme;
+import javax.enterprise.context.RequestScoped;
+
+@RequestScoped
+public class TheBeanCalledX {
+  ...
+}</samp></pre>
+<aside role="note"><p>We could also just identify the excluded tag by name.</p></aside></section>
+<section class="code io"><h2>Include everything</h2><div class="insert build-items"><pre class="source"><code data-lang="text" class="language-text prettyprint">----
+include::TheBeanCalledX.java[tags=**]
+----</code></pre>
+<pre class="screen"><samp>package com.acme;
+
+import javax.inject.Named;
+import javax.enterprise.context.RequestScoped;
+
+@Named("X")
+@RequestScoped
+public class TheBeanCalledX {
+  ...
+}</samp></pre></div>
+<aside role="note"><p>You can include all lines, tagged or otherwise (but not the tag markers), using double asterisk.
+There are some additional permutations I&#8217;m not mentioning here.</p></aside></section>
+<section class="feature"><h2>Stronger SVG support</h2><aside role="note"><p>Asciidoctor now has much better support for SVGs
+There are three ways to include an SVG in an HTML document.</p>
+<ul><li><span class="primary">The img element</span></li><li><span class="primary">The object element</span></li><li><span class="primary">The embedded svg element</span></li></ul>
+<p>Asciidoctor now supports all three.</p>
+<p>By default, Asciidoctor will use the img element.</p></aside></section>
+<section class="code io"><h2>Interactive SVG</h2><div class="insert build-items"><pre class="source"><code data-lang="text" class="language-text prettyprint">image::diagram.svg[opts=interactive]</code></pre>
+<pre class="screen"><samp>&lt;object type="image/svg+xml" data="diagram.svg"&gt;
+&lt;span class="alt"&gt;diagram&lt;/span&gt;
+&lt;/object&gt;</samp></pre></div>
+<aside role="note"><p>If you set the interactive option, Asciidoctor will use the object element instead.</p></aside></section>
+<section class="code io"><h2>Inline SVG</h2><pre class="source"><code data-lang="text" class="language-text prettyprint">image::diagram.svg[opts=inline]</code></pre>
+<pre class="screen"><samp>&lt;svg xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 600 400" version="1.1"&gt;
+  &lt;g&gt;...&lt;/g&gt;
+&lt;/svg&gt;</samp></pre>
+<aside role="note"><p>If you set the inline option, Asciidoctor will embed the SVG directly into the document.</p>
+<p>Much of the driving force for the improvements to SVG support came from Asciidoctor Diagram.</p></aside></section>
+<section class="code"><h2>Diagrams in SVG&#8230;&#8203;</h2><pre class="source"><code data-lang="text" class="language-text prettyprint">[plantuml,devoxx,<strong>svg,opts=inline</strong>]
+----
+start
+if (Going to Devoxx?) then (yes)
+  : attend talks \n network \n drink beer;
+else (no)
+  : watch talks \n live on YouTube \n (without pants);
+endif
+stop
+----</code></pre>
+<aside role="note"><p>Diagrams are best rendered in SVG.
+The new capability of Asciidoctor allows Asciidoctor Diagram to generate diagrams in SVG.
+This makes way for interactive diagrams and tighter integration with CSS to style them.</p></aside></section>
+<section class="code"><h2>&#8230;&#8203;means diagrams are crisp</h2><figure class="image grow-y"><img src="images/devoxx-activity-diagram.svg" alt="devoxx activity diagram"></figure>
+<aside role="note"><p>Best of all, a diagram in SVG is super crisp, as you can in this SVG generated by plantuml.
+Asciidoctor Diagram integrates with tons diagramming tools, so if you&#8217;re creating diagrams, it&#8217;s definitely work a look.</p></aside></section>
+<section class="feature"><h2>Compliance &amp; stability</h2><aside role="note"><p>As the saying goes, with enough eyes, all bugs are shallow.
+Asciidoctor certainly enjoys this benefit.</p>
+<p>Users have helped us find all sorts of edge cases, many of which we&#8217;ve fixed straightaway.
+120 issues were fixed in the 1.5.6 release alone.
+At this point, we&#8217;re very comfortable saying Asciidoctor is enterprise ready.</p>
+<p>We also continue to refine the AsciiDoc language.
+The goal is to give you as much capability in as few characters as possible.</p></aside></section>
+<section class="feature"><h2>Asciidoctor Bespoke</h2><aside role="note"><p>Speaking of fewer characters, I&#8217;d like to show you what we use to make presentations like this one easy to make.
+That technology is Asciidoctor Bespoke.
+Bespoke is an HTML presentation tool much like Reveal.js, for which there is a similar converter.
+Asciidoctor Bespoke converts a simple AsciiDoc document into beautiful slides.</p></aside></section>
+<section class="code"><h2>Basic presentation</h2><pre class="source"><code data-lang="text" class="language-text prettyprint">= My Awesome Presentation
+
+== Get Ready In...
+
+[%build]
+* 3
+* 2
+* 1
+
+== Gather the Crowd
+
+== Shout It Aloud
+
+== Creative Cloud!</code></pre>
+<aside role="note"><p>Each slide is made using a section title.
+The content of the section becomes the slide.
+If you want incremental bullets, just add the build option to a list.
+Voila!</p></aside></section>
+<section class="code io"><h2>Fancy Text</h2><div class="insert build-items"><pre class="source"><code data-lang="text" class="language-text prettyprint">[.remark%slice%fit]
+== This is a  Call  to All Engineers</code></pre>
+<div class="exampleblock call">
+<div class="content">
+<p><span class="line l1">This is a</span>
+<span class="line l2">Call</span>
+<span class="line l3">to All Engineers</span></p>
+</div>
+</div></div>
+<aside role="note"><p>The secret, though, is the metadata.
+You can make fancy text by adding built-in roles or options to express what you want, and the processor does the rest.
+Here, we slice the text on double spaces, then size the text to fit the box.
+This demonstrates how you can use metadata to produce vastly different outputs.</p></aside></section>
+<section class="topic"><h2>Performance</h2><aside role="note"><p>If we&#8217;re going to talk about performance, we have to address the elephant in the room&#8230;&#8203;</p></aside></section>
+<section class="feature"><h2>Why <span class="icon accent ruby"><i class="fa fa-diamond"></i></span> ?</h2><aside role="note"><p>In 2012, some people at GitHub started working on an OSS implementation of AsciiDoc in Ruby.
+They needed to replace the Python implementation, then a decade old, because it was too slow and insecure.
+At the same time, Dan Allen was looking for an AsciiDoc implementation to work with the static site generator he was using.
+And so it began.</p>
+<p>The challenge was to develop enough of the parser and HTML converter to be deployed on GitHub before they pulled the plug on AsciiDoc.py.
+Just the important stuff: paragraphs, section titles, lists, etc.
+In other words, a minimum viable product.
+After a string of late nights, the initial team managed to pull it off.</p></aside></section>
+<section class="feature"><h2>GitHub <span class="icon accent"><i class="fa fa-heart"></i></span> AsciiDoc</h2><aside role="note"><p>In January 2013, Asciidoctor was running on GitHub.com and available to all 5 million+ repositories.
+GitHub keeps up with Asciidoctor releases and, overall, the AsciiDoc rendering there is pretty nice.
+Asciidoctor also brought AsciiDoc support to many static site generators, including Jekyll and Middleman.</p>
+<p>As a bonus, Ruby ended up being a huge benefit in terms of portability, as I&#8217;ll highlight shortly.</p></aside></section>
+<section class="enorme"><h2><span class="hi">35%</span> faster!</h2><aside role="note"><p>We recognize Ruby is not the fastest language out there.
+Our goal has been to make Asciidoctor as fast as possible regardless.
+We&#8217;ve used every trick in the book to squeeze performance out of Ruby, and it has paid off.</p>
+<p>Asciidoctor 1.5.6 is 35% faster than 1.5.5.
+In total, that makes Asciidoctor 100 times as fast as AsciiDoc.py.</p>
+<p>One trick we use is to only run regular expressions or other expensive matchers on a string if it&#8217;s even possible a match will occur.
+Another trick is to simply upgrade Ruby.
+And we still have some other tricks up our sleeve.</p>
+<p>So why the focus on performance?
+Asciidoctor must process a ton of documents, and that can have a significant impact on the turnaround time of CI and CD.
+Dan recently worked with a project that required over 5,000 AsciiDoc files to be processed in a single build.
+While it would take AsciiDoc Python an entire work day to build it, Asciidoctor is able to do it in under 5 minutes.
+As you can see, performance has a real impact on workflows in the real world.</p>
+<p>Also, the faster Asciidoctor runs, the sooner writers can see a preview of the document in a local editor.
+In fact, optimal performance of the processor is incredibly important to the diverse integration and extension ecosystem that depends on core.
+So you can be sure we check every commit going into master to ensure it doesn&#8217;t degrade performance.</p></aside></section>
+<section class="topic"><h2>Ecosystem <span class="icon"><i class="fa fa-line-chart"></i></span></h2><aside role="note"><p>Asciidoctor has grown beyond anything we could have imagined.</p></aside></section>
+<section><figure class="image"><img src="images/gem-download-chart.png" alt="gem download chart" width="800"><figcaption>Source: http://bestgems.org/gems/asciidoctor</figcaption></figure>
+<aside role="note"><p>Like exponentially.</p></aside></section>
+<section class="stats"><div class="container"><p><strong class="heading run-in" data-terminus="."><span class="icon"><i class="fa fa-download"></i></span> Gem</strong> 2.5m</p>
+<p><strong class="heading run-in" data-terminus="."><span class="icon"><i class="fa fa-download"></i></span> AsciidoctorJ</strong> 0.5m/y</p>
+<p><strong class="heading run-in" data-terminus="."><span class="icon"><i class="fa fa-download"></i></span> Asciidoctor.js</strong> 35.5k</p>
+<p><strong class="heading run-in" data-terminus=".">Repositories</strong> 70</p>
+<p><strong class="heading run-in" data-terminus=".">Contributors</strong> 376</p>
+<p><strong class="heading run-in" data-terminus=".">Supporters</strong> 80</p></div>
+<aside role="note"><p>(see slide)</p>
+<p>A lot of this growth comes from Asciidoctor reaching new communities.
+You see, documentation and technical writing aren&#8217;t tied to any one platform.
+That&#8217;s why it&#8217;s crucial that Asciidoctor be able to run in a lot of places.
+While core is written in Ruby, there are two bridge technologies that carry core off Ruby island, AsciidoctorJ and Asciidoctor.js.</p>
+<p>I want to talk about what&#8217;s new in these bridge implementations and how that progress impacts core.</p></aside></section>
+<section class="feature"><h2>AsciidoctorJ</h2><aside role="note"><p>AsciidoctorJ brings Asciidoctor to the JVM.
+It&#8217;s a pure Java API that manages JRuby underneath and wraps the Ruby API so you can use the Asciidoctor gem without giving it any thought.</p>
+<p>I founded AsciidoctorJ.
+I saw what Jason Porter and Andres Almiray were doing to integrate Asciidoctor into Maven and Gradle using JRuby, and I extracted those prototypes into a dedicated project and proper API.
+Robert Panzer, who now leads AsciidoctorJ, then came along and really enhanced the implementation.</p></aside></section>
+<section><figure class="image grow"><object type="image/svg+xml" data="images/asciidoctorj.svg"><span class="alt">asciidoctorj</span></object></figure>
+<aside role="note"><p>AsciidoctorJ powers the Maven plugin, the Gradle plugin, the Ant plugin, the JavaDoc Doclet, the IntelliJ plugin, and the Leanpub converter.
+While the Maven and Gradle plugins started out using JRuby directly, they have since switched to using AsciidoctorJ.
+The Leanpub converter is notable as it&#8217;s the first converter written using AsciidoctorJ.</p>
+<p>So what&#8217;s else is new?</p>
+<ul><li><span class="primary">thanks to Robert&#8217;s strong grasp of JRuby, objects now move much more seamlessly between the Ruby and Java runtimes</span></li><li><span class="primary">this has the impact of making the API feel a lot more Java-like</span></li><li><span class="primary">it also enables you to be able to write full extensions purely in Java or Groovy, including a Groovy DSL that resembles the native one in Ruby</span></li></ul></aside></section>
+<section class="code"><h2>Inline issue macro</h2><pre class="source"><code data-lang="ruby" class="language-ruby prettyprint"># ex. issue:48[]
+Asciidoctor::Extensions.register do
+  inline_macro :issue do
+    process do |parent, id, attrs|
+      base_uri = parent.document.attr 'uri-issues'
+      create_anchor parent, id, \
+          type: :link,
+          target: "#{base_uri}/#{id}",
+          attributes: attrs
+    end
+  end
+end</code></pre>
+<aside role="note"><p>Consider this example of an inline macro extension written in Ruby to expand an issue reference.</p></aside></section>
+<section class="code"><h2>Inline issue macro</h2><pre class="source"><code data-lang="groovy" class="language-groovy prettyprint">// ex. issue:48[]
+asciidoctor {
+  extensions {
+    inline_macro (name: 'issue') { parent, id, attrs -&gt;
+      baseUri = parent.document.getAttribute('uri-issues')
+      createInline(parent, 'anchor', id, attrs, [
+        type: ':link',
+        target: "${baseUri}/${id}".toString(),
+        attributes: attrs
+      ])
+    }
+  }
+}</code></pre>
+<aside role="note"><p>Here&#8217;s the equivalent extension using the Groovy DSL.</p>
+<p>If you&#8217;re writing extensions, you should definitely be using the 1.6.0 releases, which is where most of these improvements live.
+In general, AsciidoctorJ&#8217;s API is really maturing and filling out, allowing access to more of the Asciidoctor API, some cases even going beyond it in the case of lists and tables.</p>
+<p>What&#8217;s next?</p>
+<ul><li><span class="primary">support for Java 9 is coming; we&#8217;re waiting on Java 9 support in JRuby, which is happening</span></li><li><span class="primary">1.6.0 is in progress; it&#8217;s really just waiting on the 1.6.0 release of Asciidoctor, which we&#8217;re going to talk about shortly.</span></li></ul></aside></section>
+<section class="feature"><h2>Asciidoctor.js</h2><aside role="note"><p>At the same time AsciidoctorJ was getting started, there was this whole other initiative going on to bring Asciidoctor to JavaScript.
+That project became Asciidoctor.js and is now led by Guillaume Grosstie.
+Asciidoctor.js provides a pure JavaScript implementation of Asciidoctor, which lets you use Asciidoctor in Node, Electron, Nashhorn, and web browsers.
+Asciidoctor.js is made by transpiling the Ruby code to JavaScript using Opal.
+It seemed like a longshot at first, but Guillaume really worked some magic to make it come together.</p></aside></section>
+<section><figure class="image grow"><object type="image/svg+xml" data="images/asciidoctorjs.svg"><span class="alt">asciidoctorjs</span></object></figure>
+<aside role="note"><p>Asciidoctor.js is particularly important because it sits at the center of the tooling ecosystem.
+In particular, it provides in-application previews of the document, rendered directly in the browser, which is seen in the Atom plugin, the Brackets plugin, the Chrome/Firefox/Opera extension, docgist, and AsciidocFX.
+It&#8217;s also used in several Node-based static site generators.
+More on that later.</p>
+<p>Here&#8217;s what&#8217;s new:</p>
+<ul><li><span class="primary">Asciidoctor.js is now on par with core; there is no reduction in functionality</span></li><li><span class="primary">The latest release brings full Unicode support, which was a critical step in matching the capability of core</span></li><li><span class="primary">It also offers a porcelain API (core &amp; extension), which abstracts away method signatures left behind by Opal</span></li><li><span class="primary">In fact, Asciidoctor.js provides full access to core and its extension points, so you can write extensions in JavaScript.</span></li></ul></aside></section>
+<section class="code"><h2>Inline issue macro</h2><pre class="source"><code data-lang="ruby" class="language-ruby prettyprint"># ex. issue:48[]
+Asciidoctor::Extensions.register do
+  inline_macro :issue do
+    process do |parent, id, attrs|
+      base_uri = parent.document.attr 'uri-issues'
+      create_anchor parent, id, \
+          type: :link,
+          target: "#{base_uri}/#{id}",
+          attributes: attrs
+    end
+  end
+end</code></pre>
+<aside role="note"><p>Remember that extension you saw in the last section?</p></aside></section>
+<section class="code"><h2>Inline issue macro</h2><pre class="source"><code data-lang="js" class="language-js prettyprint">// ex. issue:48[]
+Opal.Asciidoctor.Extensions.register(function () {
+  this.inlineMacro('issue', function () {
+    this.process((parent, id, attrs) =&gt; {
+      const baseUri = parent.getDocument()
+          .getAttribute('uri-issues')
+      return this.createInline(parent, 'anchor', id, {
+        type: 'link',
+        target: `${baseUri}/${id}`,
+        attributes: attrs
+      })
+    })
+  })
+})</code></pre>
+<aside role="note"><p>Here&#8217;s the same extension written for the lastest Asciidoctor.js release.
+You also have the option of simply transpiling the Ruby extension using Opal.</p>
+<p>Another exciting new feature is support for Slim templates for customizing the output.
+This capability brings the Reveal.js converter to JavaScript (and eventually Bespoke)</p></aside></section>
+<section><figure class="image cover"><img src="images/asciidoc-in-atom.png" alt="asciidoc in atom"></figure>
+<aside role="note"><p>Also in the JavaScript world, but not related directly to Asciidoctor.js, there is now a full AsciiDoc language grammar for Atom, which was created by Ludovic Fernandez, Anton Moiseev, and Nico Rikken.
+This is by far the best syntax highlighting for AsciiDoc available as it&#8217;s based on the match expressions in core.
+Ludovic also brought CD practices to Asciidoctor.</p>
+<p>Future:</p>
+<ul><li><span class="primary">Performance optimizations to improve tooling and browser preview speeds.</span></li><li><span class="primary">More API improvements</span></li><li><span class="primary">Figure out how to enable access to more extensions like Asciidoctor Diagram.</span></li></ul></aside></section>
+<section class="topic"><h2>Adoption</h2><aside role="note"><p>Adoption continues to grow like crazy.
+We&#8217;ve established that you can use Asciidoctor from Ruby, JavaScript, Java or any language that runs on the JVM.
+And many people do use all of those.</p>
+<p>That means, year after year, Asciidoctor picks up notable users.
+This year has been different.</p></aside></section>
+<section class="brands"><div class="container build-items"><figure class="image"><img src="images/logos/fedora.svg" alt="Fedora"></figure>
+<figure class="image"><img src="images/logos/redhat.svg" alt="Red Hat"></figure>
+<figure class="image"><img src="images/logos/javaee.png" alt="Java EE"></figure>
+<figure class="image"><img src="images/logos/spring-framework.svg" alt="Spring Framework"></figure>
+<figure class="image"><img src="images/logos/vogella.png" alt="Vogella Company"></figure>
+<figure class="image"><img src="images/logos/khronos-group.jpg" alt="Khronos Group"></figure>
+<figure class="image"><img src="images/logos/jhipster-minibook.jpg" alt="JHipster Mini-book"></figure></div>
+<aside role="note"><ul><li><span class="primary">In August, Fedora announced it was switching from DocBook to Asciidoctor.
+That initiative was sparked in part by a talk Dan gave about Asciidoctor at the Fedora User and Developer conference more than 4 years ago.</span></li><li><span class="primary">In fact, you can find Asciidoctor used all across Red Hat.
+There are personal reasons why this is particularly meaningful to Dan.</span></li><li><span class="primary">The Java EE leadership recently announced that the Java EE tutorial has been rewritten in AsciiDoc and processed by Asciidoctor.</span></li><li><span class="primary">Vogella does all its tutorials and trainings in Asciidoctor.</span></li><li><span class="primary">The Khronos Group uses Asciidoctor for its Vulkan manual.</span></li><li><span class="primary">Vogella and The Khronos Group are notable for provide funding for the project, as do many of the core contributors.</span></li><li><span class="primary">Matt Raible, who needs no introduction, wrote the JHipster MiniBook in AsciiDoc and converted to PDF for download and print using Asciidoctor PDF.</span></li><li><span class="primary">Thorben Janssen, author of the thoughts-on-java blog, wrote his Hiberate Tips book in AsciiDoc and converted it to an ebook for self-publishing using Asciidoctor EPUB3.</span></li></ul>
+<p>There are too many users to mention here.
+If you search, you&#8217;ll quickly be able to find many more.</p></aside></section>
+<section class="topic"><h2>Future</h2><aside role="note"><p>What does the future hold for Asciidoctor?</p></aside></section>
+<section class="feature"><h2>Semantic versioning</h2><aside role="note"><p>Our experience in the past few years, especially as the Asciidoctor ecosystem grows, has made it painfully obvious that we need to shift to semantic versioning.</p>
+<p>{slide}
+The time between releases is too long and each micro release of Asciidoctor core is like a major release, so there&#8217;s no room for anything else.
+We need to make room.
+We also need to move away from a single version scheme across the ecosystem.
+We&#8217;ll be much better off if projects themselves are versioned semantically and we then track compatible versions.</p>
+<p>A shift to semantic versioning should also allow us to release faster.
+The minor stuff can go through without getting held up by the major stuff.</p>
+<p>{slide}
+The initial goal of Asciidoctor was to serve as a drop-in replacement for AsciiDoc.py.
+Therefore, we decided to mirror the HTML it produced, as eccentric as it was.
+But we always knew we&#8217;d eventually need switch to producing HTML that is more semantic and easier to style with CSS.
+That time is upon us.</p>
+<p>{slide}
+In fact, that transition is already underway.
+When we made the HTML for the EPUB3 converter, we experimented with how AsciiDoc mapped to a semantic HTML structure.
+We also did the same for the Bespoke converter.
+Inspired by that work, Jakub Jirutka has put together a template-based converter named html5s that produces semantic HTML5 output.
+You can use all of those today.
+The final step is to fold all this work into core and make it the default converter.</p>
+<p>{slide}
+Another feature users often ask about is validation.
+We had always planned on adding validation of AsciiDoc to the processor.
+When Dan started working on it in a recent contract, he realized that validation doesn&#8217;t belong in the processor.
+The needs of the processor are just very different from the needs of a validator.
+A validator needs to keep track of where every character is in the original source so it can give exact details, offsets, and perhaps even to fix the problem.
+The processor only cares about the effective value and general information about context for reporting.
+So we needed a validation system.</p>
+<p>{slide}
+This is where textlint comes in.
+textlint builds on the popularity of eslint.
+First, you implement a parser for the language, which we&#8217;ve started to do.
+The parser currently only handles blocks, but we&#8217;re going to (finally) take a crack at parsing inline nodes like formatted text and macros.</p>
+<p>What we&#8217;re hoping will come out of this effort is a strategy for making an inline parser for core, which has long been its Achilles heal.
+The regular expression-base approach has brought us a long way, but we&#8217;re reaching its limits and it&#8217;s time to get formal.</p>
+<p>{slide}
+Once the document is parsed, then you write rules that listen for nodes and look for things to validate.
+For example, if you wanted to check for insecure URLs, you could listen for all paragraph nodes and only check for URLs in those regions, thus skipping any verbatim blocks.</p>
+<p>{slide}
+As you can see, you get exact line number and character offsets in the message.</p>
+<p>Once this system is ready, you have much more control over what is validated.
+We&#8217;ll likely provide a core set of rules, but you can also write your own.</p>
+<p>{slide}
+I&#8217;m very excited to to talk about a new open source project OpenDevise has been working named Antora that will impact the future of Asciidoctor.
+Over the last couple of years, OpenDevise has been studying documentation systems in the field.
+They noticed that, although there are tons of static site generators available, few, if any, are well-suited for documentation sites, more specifically AsciiDoc-based documentation sites.
+Antora is designed exactly for that use case.</p>
+<p>Antora is an open source, modular Asciidoctor documentation toolchain and workflow for technical writing teams to create, manage, collaborate on, remix, and publish documentation sites sourced from a variety of versioned content repositories without needing expertise in web technologies, build automation, or system administration.</p>
+<p>{slide}
+Unlike most static site generators, Antora does not assume content is all in one place.
+Instead, it goes out and clones content repositories and plucks files from branches of those repositories.
+It then integrates deeply with Asciidoctor to generate the pages and the navigation.</p>
+<p>{slide}
+Although what Antora does is complex, it&#8217;s driven by a simple configuration file called a playbook.
+This file describes at a high level what needs to be done
+Where&#8217;s the source, where&#8217;s the output, what settings should be used.</p>
+<p>The goal with Antora is to make documentation sites easy to create, simple to manage, and fun to work on.
+And it provides a real world use case for us to improve Asciidoctor.
+Antora uses Asciidoctor.js, so it&#8217;s going to have a strong impact on that project in particular.</p>
+<p>You can learn more about Antora and follow along with development at gitlab.com/antora.
+OpenDevise is working on a series of posts that introduce the project and explain the problem we&#8217;re trying to solve with it.</p>
+<p>{slide}
+Documentation is our game, so we end our story where we began.</p>
+<p>{slide}
+The Asciidoctor user manual has received considerable contributions over the past year, especially from Rocky Allen and Andrew Carver.
+The manual remains the best place to get accurate and up-to-date information about the AsciiDoc syntax and Asciidoctor capabilities.</p>
+<p>While it provides great raw material, it needs to be overhauled.
+That&#8217;s where Antora comes in.
+We&#8217;re going to drink our own beer and use Antora for the Asciidoctor documentation.
+Not only will this bring some spring cleaning to the content that&#8217;s already there, it will also address the problem that asciidoctor.org only really talks about core processor.
+There are a few pages here and there about other projects in the ecosystem, but they are mostly isolated and one-pagers.
+By using Antora, we can shift the documentation for the projects back to the project repositories and then consume them when the site is built.
+It&#8217;s really the exact case for which Antora was designed, so it&#8217;s a chance to see it in action.
+It will also help us improve Antora by applying it to another real world scenario.</p>
+<p>{slide}
+So the future is both Asciidoctor and Antora.
+We want to love writing our docs as much as users love writing theirs.</p>
+<p>{slide}
+Thank you!</p></aside></section>
+<section><figure class="image grow"><object type="image/svg+xml" data="images/versions.svg"><span class="alt">versions</span></object></figure>
+<aside role="note"><p>The time between releases is too long and each micro release of Asciidoctor core is like a major release, so there&#8217;s no room for anything else.
+We need to make room.
+We also need to move away from a single version scheme across the ecosystem.
+We&#8217;ll be much better off if projects themselves are versioned semantically and we then track compatible versions.</p>
+<p>A shift to semantic versioning should also allow us to release faster.
+The minor stuff can go through without getting held up by the major stuff.</p></aside></section>
+<section class="feature"><h2>Semantic HTML</h2><aside role="note"><p>The initial goal of Asciidoctor was to serve as a drop-in replacement for AsciiDoc.py.
+Therefore, we decided to mirror the HTML it produced, as eccentric as it was.
+But we always knew we&#8217;d eventually need switch to producing HTML that is more semantic and easier to style with CSS.
+That time is upon us.</p></aside></section>
+<section><figure class="image cover"><img src="images/asciidoctor-html5s.png" alt="asciidoctor html5s"><figcaption>https://github.com/jirutka/asciidoctor-html5s</figcaption></figure>
+<aside role="note"><p>In fact, that transition is already underway.
+When we made the HTML for the EPUB3 converter, we experimented with how AsciiDoc mapped to a semantic HTML structure.
+We also did the same for the Bespoke converter.
+Inspired by that work, Jakub Jirutka has put together a template-based converter named html5s that produces semantic HTML5 output.
+You can use all of those today.
+The final step is to fold all this work into core and make it the default converter.</p></aside></section>
+<section class="feature"><h2>Validation</h2><aside role="note"><p>Another feature users often ask about is validation.
+We had always planned on adding validation of AsciiDoc to the processor.
+When Dan started working on it in a recent contract, he realized that validation doesn&#8217;t belong in the processor.
+The needs of the processor are just very different from the needs of a validator.
+A validator needs to keep track of where every character is in the original source so it can give exact details, offsets, and perhaps even to fix the problem.
+The processor only cares about the effective value and general information about context for reporting.
+So we needed a validation system.</p></aside></section>
+<section><figure class="image grow"><img src="images/logos/textlint.png" alt="textlint"></figure>
+<aside role="note"><p>This is where textlint comes in.
+textlint builds on the popularity of eslint.
+First, you implement a parser for the language, which we&#8217;ve started to do.
+The parser currently only handles blocks, but we&#8217;re going to (finally) take a crack at parsing inline nodes like formatted text and macros.</p>
+<p>What we&#8217;re hoping will come out of this effort is a strategy for making an inline parser for core, which has long been its Achilles heal.
+The regular expression-base approach has brought us a long way, but we&#8217;re reaching its limits and it&#8217;s time to get formal.</p></aside></section>
+<section class="code"><h2>textlint :: insecure-url-rule</h2><pre class="source"><code data-lang="js" class="language-js prettyprint">const LinkMacroRx = /(http(s)?:\/\/[^\[]+)\[[\s\S]*?\]/g
+module.exports = ({ RuleError, report }) =&gt; ({
+  'ParagraphNode': (node) =&gt; {
+    node.children.forEach((line) =&gt; {
+      let match
+      while ((match = LinkMacroRx.exec(line.raw)) != null) {
+        if (match[2] != null) continue
+        report(line, new RuleError(
+          `Illegal link to a non-secure URL: ${match[1]}`,
+          { index: match.index }))
+      }
+    })
+  }
+})</code></pre>
+<aside role="note"><p>Once the document is parsed, then you write rules that listen for nodes and look for things to validate.
+For example, if you wanted to check for insecure URLs, you could listen for all paragraph nodes and only check for URLs in those regions, thus skipping any verbatim blocks.</p></aside></section>
+<section class="code"><pre class="source"><code data-lang="text" class="language-text prettyprint">$ textlint "**/*.adoc"
+
+server-docs/modules/ROOT/content/user-manual.adoc
+
+  14:124  error  Illegal link to a non-secure URL:
+                 http://example.com (non-secure-url)
+
+✖ 1 problem (1 error, 0 warnings)</code></pre>
+<aside role="note"><p>As you can see, you get exact line number and character offsets in the message.</p>
+<p>Once this system is ready, you have much more control over what is validated.
+We&#8217;ll likely provide a core set of rules, but you can also write your own.</p></aside></section>
+<section class="topic"><h2><span class="icon"><i class="fa fa-star-o"></i></span> Antora <span class="icon"><i class="fa fa-star-o"></i></span></h2><aside role="note"><p>I&#8217;m very excited to to talk about a new open source project OpenDevise has been working named Antora that will impact the future of Asciidoctor.
+Over the last couple of years, OpenDevise has been studying documentation systems in the field.
+They noticed that, although there are tons of static site generators available, few, if any, are well-suited for documentation sites, more specifically AsciiDoc-based documentation sites.
+Antora is designed exactly for that use case.</p>
+<p>Antora is an open source, modular Asciidoctor documentation toolchain and workflow for technical writing teams to create, manage, collaborate on, remix, and publish documentation sites sourced from a variety of versioned content repositories without needing expertise in web technologies, build automation, or system administration.</p></aside></section>
+<section><figure class="image grow-y"><img src="images/antora-pipeline-aggregate-classify.svg" alt="antora pipeline aggregate classify"></figure>
+<aside role="note"><p>Unlike most static site generators, Antora does not assume content is all in one place.
+Instead, it goes out and clones content repositories and plucks files from branches of those repositories.
+It then integrates deeply with Asciidoctor to generate the pages and the navigation.</p></aside></section>
+<section class="code"><h2>Antora playbook</h2><pre class="source"><code data-lang="yml" class="language-yml prettyprint">site:
+  url: https://docs.example.com
+  title: Docs Site
+content:
+  sources:
+  - url: https://github.com/acme/solution-docs.git
+  - url: /home/username/projects/server-docs
+    branches: [ v2.5, v3.0, v3.1 ]
+  - url: git@github.com:acme/api-gateway-docs.git
+    branches: v2*</code></pre>
+<aside role="note"><p>Although what Antora does is complex, it&#8217;s driven by a simple configuration file called a playbook.
+This file describes at a high level what needs to be done
+Where&#8217;s the source, where&#8217;s the output, what settings should be used.</p>
+<p>The goal with Antora is to make documentation sites easy to create, simple to manage, and fun to work on.
+And it provides a real world use case for us to improve Asciidoctor.
+Antora uses Asciidoctor.js, so it&#8217;s going to have a strong impact on that project in particular.</p>
+<p>You can learn more about Antora and follow along with development at gitlab.com/antora.
+OpenDevise is working on a series of posts that introduce the project and explain the problem we&#8217;re trying to solve with it.</p></aside></section>
+<section class="topic"><h2>Documentation</h2><aside role="note"><p>Documentation is our game, so we end our story where we began.</p></aside></section>
+<section><figure class="image cover"><img src="images/asciidoctor-user-manual.png" alt="asciidoctor user manual"><figcaption>http://asciidoctor.org/docs/user-manual/</figcaption></figure>
+<aside role="note"><p>The Asciidoctor user manual has received considerable contributions over the past year, especially from Rocky Allen and Andrew Carver.
+The manual remains the best place to get accurate and up-to-date information about the AsciiDoc syntax and Asciidoctor capabilities.</p>
+<p>While it provides great raw material, it needs to be overhauled.
+That&#8217;s where Antora comes in.
+We&#8217;re going to drink our own beer and use Antora for the Asciidoctor documentation.
+Not only will this bring some spring cleaning to the content that&#8217;s already there, it will also address the problem that asciidoctor.org only really talks about core processor.
+There are a few pages here and there about other projects in the ecosystem, but they are mostly isolated and one-pagers.
+By using Antora, we can shift the documentation for the projects back to the project repositories and then consume them when the site is built.
+It&#8217;s really the exact case for which Antora was designed, so it&#8217;s a chance to see it in action.
+It will also help us improve Antora by applying it to another real world scenario.</p></aside></section>
+<section class="feature"><h2>Antora <span class="icon"><i class="fa fa-book"></i></span> Asciidoctor</h2><aside role="note"><p>So the future is both Asciidoctor and Antora.
+We want to love writing our docs as much as users love writing theirs.</p></aside></section>
+<section class="thanks"><h2>Thank You!</h2><p class="url">asciidoctor.org</p>
+<div class="footer"><p class="author"><span class="personname">Alex Soto</span>
+<span class="affiliation">Red Hat</span>
+<span class="contact">@alexsotob</span></p></div>
+<aside role="note"><p>Thank you!</p></aside></section><!--
+<script src="https://platform.twitter.com/widgets.js"></script>
+--></article><script src="build/build.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script><script>Array.prototype.forEach.call(document.querySelectorAll('i.conum+b'),function(n){n.parentNode.removeChild(n)});</script><script>hljs.initHighlighting()</script></body></html>

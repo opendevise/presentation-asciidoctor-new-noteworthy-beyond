@@ -1,0 +1,62 @@
+<?xml-stylesheet href="svg-fonts.css" type="text/css"?>
+<svg version="1.1" viewBox="0 0 677.33334 370.41668" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>AsciidoctorJ</title>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>AsciidoctorJ</dc:title>
+    <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Sarah White</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+   <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
+   </cc:License>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(0 73.417)" stroke="#ed124b" stroke-linecap="round" stroke-width="3.9688">
+  <path d="m155.55 200.16 183.12-96.039" fill="none" stroke-dasharray="11.90625, 11.90625" stroke-dashoffset="19.05" stroke-linejoin="round"/>
+  <circle cx="151.11" cy="203.08" r="47.178" fill="#fff"/>
+  <path d="m521.79 200.16-183.12-96.039" fill="none" stroke-dasharray="11.90625, 11.90625" stroke-dashoffset="19.05" stroke-linejoin="round"/>
+  <circle transform="scale(-1,1)" cx="-526.23" cy="203.08" r="47.178" fill="#fff"/>
+  <path d="m521.79 21.309-183.12 96.039" fill="none" stroke-dasharray="11.90625, 11.90625" stroke-dashoffset="19.05" stroke-linejoin="round"/>
+  <circle transform="scale(-1)" cx="-526.23" cy="-18.391" r="47.178" fill="#fff"/>
+  <path d="m155.55 21.309 183.12 96.039" fill="none" stroke-dasharray="11.90625, 11.90625" stroke-dashoffset="19.05" stroke-linejoin="round"/>
+  <circle transform="scale(1,-1)" cx="151.11" cy="-18.391" r="47.178" fill="#fff"/>
+ </g>
+ <g>
+  <g stroke="#ed124b" stroke-linecap="round" stroke-width="3.9688">
+   <path d="m338.67 338.99v-168.34" fill="none" stroke-dasharray="11.90625, 11.90625" stroke-dashoffset="19.05" stroke-linejoin="round"/>
+   <circle transform="matrix(-.46947 -.88295 -.88295 .46947 0 0)" cx="-439.91" cy="-149.66" r="47.178" fill="#fff"/>
+   <path d="m338.67 31.16v154.81" fill="none" stroke-dasharray="11.90625, 11.90625" stroke-dashoffset="19.05" stroke-linejoin="round"/>
+   <circle transform="rotate(118)" cx="-112.86" cy="-323.56" r="47.178" fill="#fff"/>
+  </g>
+ </g>
+ <g transform="translate(0 84.667)">
+  <g stroke-linecap="round">
+   <circle cx="338.67" cy="100.54" r="57.178" fill="#ed124b" stroke="#ed124b" stroke-width="5.644"/>
+   <circle cx="338.67" cy="100.54" r="57.178" fill="none" stroke="#fff" stroke-width="1.0583"/>
+  </g>
+ </g>
+ <g transform="translate(0 84.667)" letter-spacing="0px" stroke-width=".26458" word-spacing="0px">
+  <text x="339.20697" y="107.12309" fill="#ffffff" font-family="'Open Sans'" font-size="10.583px" style="font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan x="339.20697" y="107.12309" fill="#ffffff" font-family="Nunito" font-size="17.639px" font-weight="600" stroke-width=".26458" text-align="center" text-anchor="middle" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">Asciidoctor.js</tspan></text>
+  <g fill="#000000">
+   <text x="150.78537" y="2.6620693" font-family="Nunito" font-size="16.228px" font-weight="600" text-anchor="middle" style="font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan x="150.78537" y="2.6620693" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">Browser</tspan><tspan x="150.78537" y="22.946791" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">Previews</tspan></text>
+   <text x="526.11462" y="2.7026389" font-family="Nunito" font-size="16.228px" font-weight="600" text-anchor="middle" style="font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan x="526.11462" y="2.7026389" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">Brackets</tspan><tspan x="526.11462" y="22.98736" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">Extension</tspan></text>
+   <text x="525.91504" y="197.54614" font-family="'Open Sans'" font-size="10.583px" style="font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan x="525.91504" y="197.54614" font-family="Nunito" font-size="16.228px" font-weight="600" stroke-width=".26458" text-align="center" text-anchor="middle" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">GitBook</tspan></text>
+   <text x="151.10893" y="197.53802" font-family="'Open Sans'" font-size="10.583px" style="font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan x="151.10893" y="197.53802" font-family="Nunito" font-size="16.228px" font-weight="600" stroke-width=".26458" text-align="center" text-anchor="middle" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">AsciidocFX</tspan></text>
+   <text x="338.33643" y="-38.301643" font-family="Nunito" font-size="16.228px" font-weight="600" text-anchor="middle" style="font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan x="338.33643" y="-38.301643" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">Atom</tspan><tspan x="338.33643" y="-18.016922" text-align="center" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">Package</tspan></text>
+   <text x="338.3544" y="237.74597" font-family="'Open Sans'" font-size="10.583px" style="font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;line-height:1.25" xml:space="preserve"><tspan x="338.3544" y="237.74597" font-family="Nunito" font-size="16.228px" font-weight="600" stroke-width=".26458" text-align="center" text-anchor="middle" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal">docgist</tspan></text>
+  </g>
+ </g>
+</svg>
