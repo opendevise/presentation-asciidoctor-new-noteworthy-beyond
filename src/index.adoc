@@ -195,7 +195,7 @@ include::{uri-script}[tag=translation-langs]
 
 [source,text]
 ----
-:appendix-caption: Appendice
+:appendix-caption: Annexe
 :appendix-refsig: {appendix-caption}
 :caution-caption: Avertissement
 :example-caption: Exemple
